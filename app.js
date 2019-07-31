@@ -48,7 +48,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    urlPath: 'http://192.168.1.16:9001/',
+    urlPath: 'https://10.1.241.22/docs',
   },
   // isNeedSearch() {
   //   var needSearch = wx.getStorageSync("cookie");

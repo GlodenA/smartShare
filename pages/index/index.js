@@ -7,7 +7,10 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    docsData:[],
+    
+
   },
   //事件处理函数
   bindViewTap: function() {
@@ -42,6 +45,21 @@ Page({
         }
       })
     }
+    wx.request({
+      //url: 'http://127.0.0.1:9001/docs/getdocslist',
+      url: getApp().globalData.urlPath + '/getdocslist',
+      method: 'GET',
+      data: {},
+      header: {
+        'Accept': 'application/json'
+      },
+      success: res => {
+        this.setData({
+          docsData: res.data.data,
+        })
+      }
+    }) 
+
   },
   // getUserInfo: function(e) {
   //   console.log(e)

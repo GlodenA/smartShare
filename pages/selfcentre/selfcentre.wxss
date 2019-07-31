@@ -1,0 +1,44 @@
+/* pages/selfcentre/selfcentre.wxss */
+.navigator-hover {
+  color:blue;
+}
+.other-navigator-hover {
+  color:red;
+}
+.selfpic{
+  left: 10px;
+  top: 10px;
+  bottom: 10px;
+  width: 48px; 
+  border-radius: 50%;
+  overflow: hidden;
+  height:  48px;
+  position: absolute;
+  background:white;
+
+}
+.userNickName
+{
+  left: 100px;
+  top: 20px;
+  bottom: 10px;
+  width: 48px; 
+  height:  48px;
+  overflow: hidden;
+  position: absolute;
+}
+.selftext{
+ left: 10px;
+ position: absolute;
+ height:  48px;
+ margin-top: 5%;
+}
+.box{
+  width:85%;
+  margin-left: 10%;
+  margin-right: 5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  height: 10rpx;
+  background-color: white
+}

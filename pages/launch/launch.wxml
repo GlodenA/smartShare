@@ -1,0 +1,12 @@
+
+<view class="launchtitle">
+<image class='userinfo-avatar' src='/images/launch.png'></image>
+<view>智享2S</view>
+
+</view> 
+<view class="loading">
+  <view class="dot" animation="{{alpha[0]}}"></view>
+  <view class="dot" animation="{{alpha[1]}}"></view>
+  <view class="dot" animation="{{alpha[2]}}"></view>
+</view>
+

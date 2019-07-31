@@ -1,0 +1,42 @@
+{
+  "pages": [  
+    "pages/launch/launch",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/collection/collection",
+    "pages/selfcentre/selfcentre",
+    "pages/login/login",
+    "pages/serch/serch"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "智享2S",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "selectedColor": "#1296db",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/ico-home-d.png",
+        "selectedIconPath": "images/ico-home.png"
+      },
+      {
+        "pagePath": "pages/collection/collection",
+        "text": "收藏",
+        "iconPath": "images/ico-collection-d.png",
+        "selectedIconPath": "images/ico-collection.png"
+      },
+      {
+        "pagePath": "pages/selfcentre/selfcentre",
+        "text": "我的",
+        "iconPath": "images/ico-me-d.png",
+        "selectedIconPath": "images/ico-me.png"
+      }
+    ]
+  }
+}

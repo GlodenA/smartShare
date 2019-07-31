@@ -1,0 +1,29 @@
+
+
+.capsule {
+  margin-left: 5%; 
+  margin-right: 5%; 
+  height: 30px;
+  border: 1px solid #777;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  width: 90%;
+}
+
+.search-input {
+  /* height: 28px; */
+  margin-left:20px;
+  line-height: 28px;
+  font-size: 10px;
+}
+
+.box{
+  width:90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  height: 300rpx;
+  background-color: whitesmoke
+}

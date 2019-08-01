@@ -1,18 +1,11 @@
-// pages/selfcentre/selfcentre.js
+// pages/attention /attention .js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list: [
-      { name: '编辑资料', url: '../userinfo/userinfo', icon: 'text', isShow: true},
-      { name: '我的关注', url: '../attention/attention', icon: 'friendadd', isShow: true},
-      { name: '我的收藏', url: '../collection/collectionA', icon: 'favor', isShow: true},
-      { name: '我的评论', url: '../comments/comments', icon: 'write', isShow: true},
-      { name: '我的阅读', url: '../reading/reading', icon: 'settings', isShow: true },
-      { name: '我的设置', url: '../setting/setting', icon: 'text', isShow: true},
-    ]
+
   },
 
   /**

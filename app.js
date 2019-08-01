@@ -22,7 +22,7 @@ App({
             let sessionId = "123";
             // 发送sessionId  res.code 到后台换取 openId, sessionKey, unionId，并存在服务端
             wx.request({
-              url: getApp().globalData.urlPath+'docs/login',
+              url: getApp().globalData.urlPath+'login',
               data: {
                 "code": res.code,
                 "cookie": sessionId
@@ -48,7 +48,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    urlPath: 'https://10.1.241.22/docs',
+    // urlPath: 'http://10.1.241.22/docs/',
+    urlPath: 'http://192.168.1.16:9001/docs/',
   },
   // isNeedSearch() {
   //   var needSearch = wx.getStorageSync("cookie");

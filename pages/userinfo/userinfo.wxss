@@ -1,0 +1,50 @@
+/* pages/userinfo/userinfo.wxss */
+.selfpic{
+  left: 10px;
+  top: 10px;
+  bottom: 10px;
+  width: 48px; 
+  border-radius: 50%;
+  overflow: hidden;
+  height:  48px;
+  position: absolute;
+  background:white;
+
+}
+.userNickName
+{
+  left: 100px;
+  top: 20px;
+  bottom: 10px;
+  width: 48px; 
+  height:  48px;
+  overflow: hidden;
+  position: absolute;
+}
+.selftext{
+ left: 10px;
+ position: absolute;
+ height:  48px;
+ margin-top: 5%;
+}
+
+.index{
+    background-color: white;
+    flex: 1;
+    min-height: 100%;
+    font-size: 16px;
+}
+.head{
+    padding: 40px;
+}
+.body{
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow: hidden;
+}
+.title{
+    font-size: 30px;
+}
+.cu-form-group .title {
+  min-width: calc(4em + 30rpx);
+}

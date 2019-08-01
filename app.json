@@ -1,12 +1,18 @@
 {
-  "pages": [  
+  "pages": [
+    "pages/selfcentre/selfcentre",
     "pages/launch/launch",
     "pages/index/index",
     "pages/logs/logs",
     "pages/collection/collection",
-    "pages/selfcentre/selfcentre",
+    "pages/collection/collectionA",
+    "pages/userinfo/userinfo",
     "pages/login/login",
-    "pages/serch/serch"    
+    "pages/serch/serch",
+    "pages/attention/attention",
+    "pages/comments/comments",
+    "pages/reading/reading",
+    "pages/setting/setting"
   ],
   "usingComponents": {
     "tab": "/pages/component/tab/tab"

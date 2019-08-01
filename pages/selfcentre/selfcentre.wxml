@@ -1,30 +1,24 @@
 <!--pages/selfcentre/selfcentre.wxml-->
-<view class="container">
-<view class='selfpic'>
-    <open-data class='userInfo' type="userAvatarUrl"></open-data>
-</view>
-<view class='userNickName'>
-    <open-data class='userInfo' type="userNickName"></open-data>
-</view>
-<view class='box'>
-<text class="cuIcon-text lg text-gray">  编辑资料 </text> 
-
-</view>
-
-<view class='box'>
-<text class="cuIcon-friendadd lg text-gray"> 我的关注  </text> 
-
-</view>
-<view class='box'>
-<text class="cuIcon-favor lg text-gray"> 我的收藏  </text>   
-</view>
-<view class='box'>
-<text class="cuIcon-write lg text-gray"> 我的评论  </text>   
-</view>
-<view class='box'>
-<text class="cuIcon-settings lg text-gray"> 设    置   </text>    
-</view>
-<view class='box'>
-<navigator url="/pages/serch/serch">跳转到新页面</navigator>
-</view>
+<view class="index">
+  <view class="head">
+    <view class='selfpic'>
+      <open-data class='userInfo' type="userAvatarUrl"></open-data>
+    </view>
+    <view class='userNickName'>
+      <open-data class='userInfo' type="userNickName"></open-data>
+    </view>
+  </view>
+  <view class="body">
+    <view class="widgets">
+      <view class="widgets__item">
+        <view class='widgets__list_show'  wx:for="{{list}}" wx:key wx:if="{{item.isShow}}">
+          <navigator url="{{item.url}}" class="widget" >
+            <text class="widget__name cuIcon-{{item.icon}} lg text-gray"> {{item.name}}</text>
+            <image class="widget__arrow" src="/images/arrow.png" background-size="cover" />
+            <!-- <view class="widget__line"></view> -->
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>

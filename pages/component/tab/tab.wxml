@@ -1,9 +1,9 @@
 <!--pages/component/tab/tab.wxml-->
 <view class='container'>
   <scroll-view class="tab" scroll-x scroll-left="{{tabScroll}}" scroll-with-animation="true">
-    <block wx: for="{{ menuList }}" wx:key="index">
-  <view class="tab-item " style="width:{{100/count}}%" data-current="{{index}}" bindtap='clickMenu'>
-      <view class="item {{currentTab == index ? 'active' : ''}}">
+    <block wx:for-items="{{ menuList }}"  wx:key="index">
+  <view class="tab-item " style="width:{{100/count}}%" data-current="{{item.index}}" bindtap='clickMenu'>
+      <view class="item {{currentTab == item.index ? 'active' : ''}}">
         {{ item.name }}
       </view>
       

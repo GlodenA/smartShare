@@ -9,7 +9,11 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     docsData:[],
-    
+    menuList: [{ index: 1, name: "热   搜" }, { index: 2, name: "为你推荐" }],
+    currentTab: 1,
+    windowWidth: 60,
+    tabScroll: 2,
+    count: 2
 
   },
   //事件处理函数

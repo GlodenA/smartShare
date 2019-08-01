@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "tab": "../component/tab/tab"
+    "tab": "/pages/component/tab/tab"
   },
   "navigationBarTitleText": ""
 }

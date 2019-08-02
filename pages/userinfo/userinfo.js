@@ -5,8 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    pngname:'',
-    niname:'',
+    avatarUrl: "",
+    nickName: "",
     username:'' ,
     email: '' ,
     phone: '',
@@ -38,9 +38,9 @@ Page({
       wx.request({
         url: getApp().globalData.urlPath + 'user/update',
         data: {
-          USER_ID: cookie,//"83612795"  cookie
-          // PNG_NAME:that.data.pngname,
-          // NI_NAME:that.data.niname,
+          USER_ID: cookie,//"83612795"  cookie 
+          PORTRAIT:that.data.avatarUrl,
+          NI_NAME: that.data.nickName,
           USER_NAME: that.data.username,
           EMAIL: that.data.email,
           PHONE: that.data.phone,
@@ -50,7 +50,6 @@ Page({
         header: header,
         success: function (res) {
           if (res.data.flag) {
-            that.queryUsreInfo();
             that.setData({
               modaltext: '保存成功！',
               modalHidden: false
@@ -104,15 +103,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.setData({
-    //   pngname: '',
-    //   niname: '丹',
-    //   username: '王丹丹',
-    //   email: 'wangdd@asianfo.com',
-    //   phone: '18625167105',
-    //   signature: '一粒麦子它若不落在地里死了不论过了多少时候它仍旧是它自己它若愿意\
-    //            让自己被掩埋被用尽就必结出许多子粒经历生命的奇迹'
-    // })
+
     this.queryUsreInfo();
   
   },
@@ -136,8 +127,8 @@ Page({
             if(res.data.flag)
             {
                 that.setData({
-                // pngname: res.data.data.PNG_NAME,
-                // niname: res.data.data.NI_NAME,
+                 avatarUrl: res.data.data.PORTRAIT,
+                  nickName: res.data.data.NI_NAME,
                   username: res.data.data.USER_NAME,
                   email: res.data.data.EMAIL,
                   phone: res.data.data.PHONE,

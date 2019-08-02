@@ -11,6 +11,7 @@ Page({
     email: '',
     phone: '',
     signature: '',
+    userId:'',
     modalHidden: true,
     modaltext: '',
     list: [{ DOC_ID: "123", DOC_NAME: "微信小程序", DOC_SUMMARY:"微信小程序简介"},
@@ -31,6 +32,9 @@ Page({
     //   signature: '一粒麦子它若不落在地里死了不论过了多少时候它仍旧是它自己它若愿意\
     //            让自己被掩埋被用尽就必结出许多子粒经历生命的奇迹'
     // })
+    this.setData({
+      userId: options.userId
+    })
     this.queryUsreInfo();
 
   },
@@ -44,7 +48,7 @@ Page({
     wx.request({
       url: getApp().globalData.urlPath + 'querybyauthor',
       data: {
-        id: "83612795",//"83612795"  cookie
+        id: that.data.userId,//"83612795"  cookie
       },
       method: "get",
       header: header,
@@ -120,7 +124,7 @@ Page({
   onReachBottom: function () {
 
   },
-  
+
   /**
    * 用户点击右上角分享
    */

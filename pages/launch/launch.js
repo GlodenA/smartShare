@@ -21,10 +21,12 @@ Page({
       _index = _index == 4 ? 0 : _index + 1;
     }, _speed);
     setTimeout(function () {
-      // 获取用户信息
+      // 查看是否授权
       wx.getSetting({
         success: res => {
           if (res.authSetting['scope.userInfo']) {
+            console.log("授权");
+            that.queryUsreInfo();
             wx.switchTab({
               url: '/pages/index/index',
               success: function (res) { },
@@ -34,6 +36,7 @@ Page({
           }
           else
           {
+            console.log("未授权")
             wx.redirectTo({
               url: '/pages/login/login',
               success: function (res) { },
@@ -45,5 +48,49 @@ Page({
       })
     }.bind(this), 3000);
 
-  }
+  },
+  queryUsreInfo: function () {
+    var that = this;
+    let cookie = wx.getStorageSync("cookie");
+    let header = { 'content-type': 'application/json' };
+    if (cookie) {
+      header.Cookie = cookie;
+    }
+    wx.request({
+      url: getApp().globalData.urlPath + 'user/getuserinfo',
+      data: {
+        USER_ID: cookie,//"83612795"  cookie
+      },
+      method: "get",
+      header: header,
+      success: res => {
+        //从数据库获取用户信息
+        if (res.data.flag) {
+          that.setData({
+            //userInfo: app.globalData.userInfo,
+            avatarUrl: res.data.data.PORTRAIT,
+            nickName: res.data.data.NI_NAME,
+            hasUserInfo: true
+          });
+          app.globalData.avatarUrl = res.data.data.PORTRAIT;
+          app.globalData.nickName = res.data.data.NI_NAME;
+        } else {
+          that.setData({
+            modaltext: '获取用户失败！',
+            modalHidden: false
+          })
+
+        }
+
+      },
+
+      faill: function (res) {
+        console.log("失败");
+        that.setData({
+          modaltext: '获取用户失败！',
+          modalHidden: false
+        })
+      }
+    });
+  },
 })

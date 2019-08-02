@@ -10,7 +10,36 @@ App({
     wx.checkSession({
       success() {
         //session_key 未过期，并且在本生命周期一直有效
-       // wx.setStorageSync('cookie','123')
+        if (!wx.getStorageSync("cookie")) 
+        {
+          wx.login({
+            success: res => {
+              console.log("code:" + res.code);
+              //let sessionId = "123"; 
+              // 发送sessionId  res.code 到后台换取 openId, sessionKey, unionId，并存在服务端
+              wx.request({
+                url: getApp().globalData.urlPath + 'user/login',
+                data: {
+                  code: res.code,
+                },
+                header: {
+                  'content-type': 'application/json' // 默认值
+                },
+                success: res => {
+                  wx.setStorageSync('cookie', res.data.data.USER_ID),
+                  app.globalData.avatarUrl = res.data.data.PORTRAIT,
+                  app.globalData.nickName = res.data.data.NI_NAME,
+                  app.globalData.userId = res.data.data.USER_ID,
+                  app.globalData.username = res.data.data.USER_NAME,
+                  app.globalData.email = res.data.data.EMAIL,
+                  app.globalData.phone=res.data.data.PHONE,
+                  app.globalData.signature = res.data.data.SIGNATURE
+                }
+              })
+
+            }
+          })
+        }
         console.log("session_key 未过期");
       },
       fail() {
@@ -19,23 +48,19 @@ App({
         wx.login({ 
           success: res => {
             console.log("code:" + res.code);
-            let sessionId = "123";
+            //let sessionId = "123"; 
             // 发送sessionId  res.code 到后台换取 openId, sessionKey, unionId，并存在服务端
             wx.request({
-              url: getApp().globalData.urlPath+'login',
+              url: getApp().globalData.urlPath+'user/login',
               data: {
-                "code": res.code,
-                "cookie": sessionId
-              },
+                code: res.code,
+              },  
               header: {
                 'content-type': 'application/json' // 默认值
-              },
-              success(res) {
+              }, 
+              success:res=>{
                 //把sessionId存储在本地
-                wx.setStorageSync({
-                  key: 'cookie',
-                  data: res.data.userId,
-                })
+                wx.setStorageSync('cookie', res.data.data.USER_ID)
               }
             })
 
@@ -48,6 +73,14 @@ App({
   },
   globalData: {
     userInfo: null,
+    userId:"",
+    avatarUrl:"",
+    nickName:"",
+    userId:"",
+    username: '',
+    email: '',
+    phone: '',
+    signature: '',
     // urlPath: 'http://10.1.241.22/docs/',
     urlPath: 'http://192.168.1.16:9001/docs/',
     //urlPath: 'http://127.0.0.1:9001/docs/',

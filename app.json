@@ -1,16 +1,16 @@
 {
   "pages": [
-    "pages/attention/attention",
-    "pages/writershow/writershow",
     "pages/launch/launch",
+    "pages/login/login",
     "pages/index/index",
     "pages/logs/logs",
     "pages/collection/collection",
     "pages/collection/collectionA",
-    "pages/login/login",
+ 
     "pages/serch/serch",
     "pages/userinfo/userinfo",
-    
+    "pages/attention/attention",
+     "pages/writershow/writershow",
     "pages/comments/comments",
     "pages/reading/reading",
     "pages/setting/setting",

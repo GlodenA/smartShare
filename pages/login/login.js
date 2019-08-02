@@ -3,90 +3,65 @@ const app = getApp()
 Page({
   data: {
     userInfo: {},
+    avatarUrl:"",
+    nickName: "",
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
   onLoad: function () {
-    var that = this;
+   
 
-    // 查看是否授权
-    wx.getSetting({
-      success: function (res) {
-        if (res.authSetting['scope.userInfo']) {
-          if (app.globalData.userInfo) {
-            that.setData({
-              userInfo: app.globalData.userInfo,
-              hasUserInfo: true
-            })
-          } else if (that.data.canIUse) {
-            // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-            // 所以此处加入 callback 以防止这种情况
-            app.userInfoReadyCallback = res => {
-              that.setData({
-                userInfo: res.userInfo,
-                hasUserInfo: true
-              })
-
-            }
-            wx.switchTab({
-              url: "/pages/index/index"
-            })
-          } else {
-            // 在没有 open-type=getUserInfo 版本的兼容处理
-            wx.getUserInfo({
-              success: res => {
-                app.globalData.userInfo = res.userInfo
-                that.setData({
-                  userInfo: res.userInfo,
-                  hasUserInfo: true
-                })
-                wx.switchTab({
-                  url: "/pages/index/index"
-                })
-              }
-            })
-          }
-        }
-
-      }
-    })
   },
   bindGetUserInfo(e) {
     if (e.detail.userInfo) {
-      //用户按了允许授权按钮
+      //用户按了允许授权按钮 
       var that = this;
+      if (that.data.canIUse) {
+        // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+        // 所以此处加入 callback 以防止这种情况
+        app.userInfoReadyCallback = res => {
+          that.setData({
+            userInfo: res.userInfo,
+            avatarUrl: res.userInfo.avatarUrl,
+            nickName: res.userInfo.nickName,
+            hasUserInfo: true
+          })
+        }
+      } else {
+        // 在没有 open-type=getUserInfo 版本的兼容处理
+        wx.getUserInfo({
+          success: res => {
+            app.globalData.userInfo = res.userInfo
+            that.setData({
+              userInfo: res.userInfo,
+              avatarUrl: res.userInfo.avatarUrl,
+              nickName: res.userInfo.nickName,
+              hasUserInfo: true
+            })
+          }
+        })
+      }
+
+ 
       // 获取到用户的信息了，打印到控制台上看下
       console.log("用户的信息如下：");
       console.log(e.detail.userInfo);
+      that.setData({
+        userInfo: e.detail.userInfo,
+        avatarUrl: e.detail.userInfo.avatarUrl,
+        nickName: e.detail.userInfo.nickName,
+        hasUserInfo: true
+      });
       app.globalData.userInfo = e.detail.userInfo;
-       //用户按了允许授权按钮
-      //var that = this;
-      //插入登录的用户的相关信息到数据库
-      //let cookie = wx.getStorageSync("cookie");
-      //let header: {
-      //     'content-type': 'application/json'
-      //   },
-      // if(cookie)
-      // {
-      //   header.Cookie = cookie;
-      // }
-      // wx.request({
-      //   url: getApp().globalData.urlPath + 'hstc_interface/insert_user',
-      //   data: {
-      //     userId :  cookie,
-      //     nickName: e.detail.userInfo.nickName,
-      //     avatarUrl: e.detail.userInfo.avatarUrl,
-      //     province: e.detail.userInfo.province,
-      //     city: e.detail.userInfo.city
-      //   },
-      //    method:post,
-      //   header: header,
-      //   success: function (res) {
-      //     //从数据库获取用户信息
-      //     that.queryUsreInfo();
-      //     console.log("插入小程序登录用户信息成功！");
-      //   }
-      // });
+      app.globalData.avatarUrl = e.detail.userInfo.avatarUrl;
+      app.globalData.nickName = e.detail.userInfo.nickName;
+      app.globalData.userId = e.detail.userInfo.USER_ID,
+      app.globalData.username = e.detail.userInfo.USER_NAME,
+      app.globalData.email = e.detail.userInfo.EMAIL,
+      app.globalData.phone = e.detail.userInfo.PHONE,
+      app.globalData.signature = e.detail.userInfo.SIGNATURE,
+      this.saveUserInfo();
+      
       wx.switchTab({
         url: "/pages/index/index",
       })
@@ -108,20 +83,32 @@ Page({
 
 
   },
-  //获取用户信息接口
-  queryUsreInfo: function () {
+ //保存用户信息
+  saveUserInfo: function () {
+    console.log("保存用户信息：");
+    var that = this;
+    let cookie = wx.getStorageSync("cookie");
+    let header = { 'content-type': 'application/json' };
+    if (cookie) {
+      header.Cookie = cookie;
+    }
     wx.request({
-      url: getApp().globalData.urlPath + 'hstc_interface/queryByOpenid',
+      url: getApp().globalData.urlPath + 'user/update',
       data: {
-        openid: getApp().globalData.openid
+        USER_ID: cookie,//"83612795"  cookie
+        PORTRAIT: that.data.avatarUrl,
+        NI_NAME: that.data.nickName,
+        USER_NAME: that.data.username,
+        EMAIL: that.data.email,
+        PHONE: that.data.phone,
+        SIGNATURE: that.data.signature,
       },
-      header: {
-        'content-type': 'application/json'
+      method: "post",
+      header: header,
+      success: function (res) {      
       },
-      success: function (res) {
-        console.log(res.data);
-        getApp().globalData.userInfo = res.data;
+      faill: function (res) {
       }
-    })
+    });
   },
 })

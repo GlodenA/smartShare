@@ -1,2 +1,34 @@
 <!--pages/attention/attention.wxml-->
-<text>我的关注</text>
+<view class="index">
+  <view class="head"  wx:for="{{list}}" wx:key="{{item}}" >
+<view class="bg-img bg-mask padding-tb-xl" style="background-image: url('/images/writer1.png');height: 414rpx;" bindtap="qrywriter">
+  <view class="padding text-white">
+   
+    <view class='selfpic'>
+      <open-data  type="userAvatarUrl"></open-data>
+    </view>
+    <view class='padding-xs'>
+      昵称：{{item.NI_NAME}}
+    </view>
+   
+    <view class="padding-xs">
+      姓名：{{item.USER_NAME}}
+    </view>
+    <view class="padding-xs">
+      电话：{{item.PHONE}}
+    </view>
+    <view class="padding-xs">
+      邮箱：{{item.EMAIL}}
+    </view>
+    <view class="padding-xs " hidden="true" value ="{{item.USER_ID}}">
+      用户标识：{{item.USER_ID}}
+    </view>
+</view>
+ </view>
+  </view>
+
+
+</view>
+
+
+

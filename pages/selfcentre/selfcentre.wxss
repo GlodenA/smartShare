@@ -1,10 +1,4 @@
 /* pages/selfcentre/selfcentre.wxss */
-.navigator-hover {
-  color:blue;
-}
-.other-navigator-hover {
-  color:red;
-}
 .selfpic{
   left: 10px;
   top: 10px;
@@ -45,7 +39,6 @@
 
 .index{
     background-color: white;
-    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
     flex: 1;
     min-height: 100%;
     font-size: 16px;
@@ -58,14 +51,7 @@
     padding-right: 10px;
     overflow: hidden;
 }
-.title{
-    font-size: 30px;
-}
-.desc{
-    margin-top: 5px;
-    color: #888888;
-    font-size: 14px;
-}
+
 
 .widgets__item{
     margin-top: 10px;
@@ -113,7 +99,7 @@
     width: 8px;
     height: 16px;
 }
-.widget__line{
+/* .widget__line{
     content: " ";
     position: absolute;
     left: 20px;
@@ -121,4 +107,4 @@
     right: 20px;
     height: 1rpx;
     background-color: #DFDFDF;
-}
+} */

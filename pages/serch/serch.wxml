@@ -37,9 +37,9 @@
         <view><text class="title">{{item.DOC_NAME}}</text></view>
         <view><text class="sub_title">{{item.DOC_ID}}</text></view>
         <view><text class="tag">{{item.DOC_TYPE}}</text></view>
-      </view>
-      <view class="item_right">
         <view><text class="count">{{item.MSG_NUM}}</text></view>
+        <view><text class="count">{{item.is_collect}}</text></view>
+        <view><text class="count">{{item.is_good}}</text></view>
       </view>
     </view>
   </block>

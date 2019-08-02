@@ -1,16 +1,15 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/attention/attention",
     "pages/writershow/writershow",
     "pages/launch/launch",
-    "pages/index/index",
     "pages/logs/logs",
     "pages/collection/collection",
     "pages/collection/collectionA",
     "pages/login/login",
     "pages/serch/serch",
-    "pages/userinfo/userinfo",
-    
+    "pages/userinfo/userinfo", 
     "pages/comments/comments",
     "pages/reading/reading",
     "pages/setting/setting",

@@ -5,21 +5,22 @@
 <view class="bg-img bg-mask padding-tb-xl" style="background-image: url('/images/writer1.png');height: 414rpx;">
   <view class="padding text-white">
     <view class="">
-    <view class='selfpic'>
-      <open-data  type="userAvatarUrl"></open-data>
-    </view>
-    <view class='padding-xs'>
+     <image class="selfpic" src="{{avatarUrl}}"></image>
+    <view class='padding-xs' style='font-size:32rpx  '>
       昵称：{{niname}}
     </view>
     </view>
-    <view class="padding-xs">
+    <view class="padding-xs" style='font-size:32rpx  '>
       姓名：{{username}}
     </view>
-    <view class="padding-xs">
+    <view class="padding-xs" style='font-size:32rpx  '>
       电话：{{phone}}
     </view>
-    <view class="padding-xs">
+    <view class="padding-xs" style='font-size:32rpx  '>
       邮箱：{{email}}
+    </view>
+        <view class="padding-xs " style='font-size:32rpx  ' wx:if="{{isShow}}">
+    <view class="cuIcon-{{icon}} lg text-{{iconColour}}" bindtap="cancelattention">{{iconText}}</view>
     </view>
   </view>
 </view>

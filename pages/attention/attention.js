@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isShow:false,
     list: null
   },
 
@@ -31,9 +32,14 @@ Page({
       success: res => {
         //从数据库获取用户信息
         if (res.data.flag) {
-          that.setData({
-            list: res.data.data
-          })
+          if(res.data.code==2000)
+            {
+              that.setData({
+              isShow:true,
+              list: res.data.data
+             })
+            }
+
         } 
       }
     });

@@ -1,6 +1,6 @@
 <!--pages/attention/attention.wxml-->
-<view class="index">
-  <view class="head"  wx:for="{{list}}" wx:key="{{item}}" >
+<view class="index" wx:if="{{isShow}}">
+<view class="head"  wx:for="{{list}}" wx:key="{{item}}" >
 <view class="bg-img bg-mask padding-tb-xl" style="background-image: url('/images/writer1.png');height: 414rpx;" bindtap="qrywriter">
   <view class="padding text-white">
    
@@ -26,8 +26,9 @@
 </view>
  </view>
   </view>
-
-
+</view>
+<view wx:else>
+没有关注的作者！
 </view>
 
 

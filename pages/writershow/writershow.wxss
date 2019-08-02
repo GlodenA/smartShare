@@ -1,0 +1,56 @@
+/* pages/writershow/writershow.wxss */
+/* pages/userinfo/userinfo.wxss */
+.selfpic{
+  left: 200px;
+  width: 48px; 
+  border-radius: 50%;
+  overflow: hidden;
+  height:  48px;
+  position: absolute;
+  background:white;
+
+}
+.userNickName
+{
+  left: 0px;
+  top: 10px;
+  bottom: 10px;
+  width: 48px; 
+  height:  48px;
+  overflow: hidden;
+  position: absolute;
+}
+.selftext{
+ left: 10px;
+ position: absolute;
+ height:  48px;
+ margin-top: 5%;
+}
+
+.index{
+    background-color: white;
+    flex: 1;
+    min-height: 100%;
+    font-size: 16px;
+}
+.head{
+    padding: 20px;
+}
+.body{
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow: hidden;
+}
+.title{
+    font-size: 30px;
+}
+.cu-form-group .title {
+  min-width: calc(4em + 30rpx);
+}
+
+.cu-list.menu-avatar>.cu-item .content {
+	position: absolute;
+	left: 50rpx;
+	width: calc(100% - 96rpx - 60rpx - 120rpx - 20rpx);
+	line-height: 1.6em;
+}

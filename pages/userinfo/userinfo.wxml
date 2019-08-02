@@ -10,9 +10,16 @@
   </view>
   <view class="body">
    <form>
+   	<!-- <view class="cu-form-group ">
+		<view class="title">头像</view>
+    <input placeholder="未填写" value="{{pngname}}" bindinput="pngname" > </input>
+	</view>
+  	<view class="cu-form-group ">
+		<view class="title">昵称</view>
+    <input placeholder="未填写" value="{{niname}}" bindinput="ninameInput" > </input>
+	</view> -->
 	<view class="cu-form-group ">
 		<view class="title">姓名</view>
-		<!-- <input placeholder="{{username}}">   </input> -->
     <input placeholder="未填写" value="{{username}}" bindinput="usernameInput" > </input>
 	</view>
 	<view class="cu-form-group">
@@ -31,7 +38,7 @@
   <button class="cu-btn bg-blue margin-tb-sm lg" bindtap="saveUserInfo">保存</button>
 </view>
 <modal  hidden="{{modalHidden}}" no-cancel bindconfirm="modalChange" bindcancel="modalChange">
-    <view class="modalcontent">保存成功!</view>
+    <view class="modalcontent">{{modaltext}}</view>
 </modal>
 </form> 
 </view>

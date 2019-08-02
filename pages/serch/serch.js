@@ -5,13 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hotKey:[],
-    hisqrylog:[],
-    searchValue:'',
-    docsData: [],
-    resultShow: false,
-    messageShow:false,
-    message:''
+    hotKey:[],//关键词
+    hisqrylog:[],//查询历史
+    searchValue:'',//输入框的值
+    docsData: [],//文档LIST
+    resultShow: false,//文档list展示
+    messageShow:false,//message展示
+    message:'',
+    actionSheetHidden: true,
+    actionSheetItems: ['按上传时间排序', '按文件名排序','item3','item4']
 
   },
 
@@ -38,17 +40,10 @@ Page({
       }
     }) 
   },
-
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 查询功能
+   * 
    */
-  onReady: function () {
-
-  },
-  backTosearch: function (e) {
-    console.log(e.detail.value)
-  },
-
   bindsearch: function (e) {
     console.log(e.detail.value); 
     this.setData({
@@ -73,7 +68,6 @@ Page({
             docsData: res.data.data,
             resultShow:true,
             messageShow: false
-
         })
         }else{
           console.log(res.data.message)
@@ -81,50 +75,120 @@ Page({
             message: res.data.message,
             resultShow: false,
             messageShow: true
-
           })
-        }
-        
+        }       
       }
     })
-
   },
-
   /**
-   * 生命周期函数--监听页面显示
+   * 点赞和取消点赞
+   * 
    */
-  onShow: function () {
+  favorclick:function(e){
+  
+    var that = this;
+    var docid = e.currentTarget.dataset.id;
+    var cancel = e.currentTarget.dataset.isgood; //操作 1 点赞  0 取消点赞
+    var index = e.currentTarget.dataset.dex;
+    
+    var message = this.data.docsData;
+    var zanInfo = {
+      "user_id":"",
+      "doc_id": docid,
+      "type":"1",//1点赞  2 收藏
+      "cancel": cancel
+      }
 
+    wx.request({
+      url: getApp().globalData.urlPath + 'setCollectOrGood',
+      method: 'GET',
+      data: zanInfo,
+      header: {
+        'Accept': 'application/json'
+      },
+      success: res => {
+        for (let i in message) {
+          if (i == index) {
+            if (message[i].is_good == 0) {
+              that.data.docsData[index].is_good = 1
+            } else {
+              that.data.docsData[index].is_good = 0
+            }
+          }
+        }
+        that.setData({
+          docsData: message
+        })
+      },
+    })    
   },
-
   /**
-   * 生命周期函数--监听页面隐藏
+   * 收藏和取消收藏
+   * 
    */
-  onHide: function () {
+  collectclick: function (e) {
+    var that = this;
+    var docid = e.currentTarget.dataset.id;
+    var cancel = e.currentTarget.dataset.iscollect; //操作 1 点赞  0 取消点赞
+    var index = e.currentTarget.dataset.dex;
 
-  },
+    var message = this.data.docsData;
+    var zanInfo = {
+      "user_id": "",
+      "doc_id": docid,
+      "type": "2",//1点赞  2 收藏
+      "cancel": cancel
+    }
 
+    wx.request({
+      url: getApp().globalData.urlPath + 'setCollectOrGood',
+      method: 'GET',
+      data: zanInfo,
+      header: {
+        'Accept': 'application/json'
+      },
+      success: res => {
+        for (let i in message) {
+          if (i == index) {
+            if (message[i].is_collect == 0) {
+              that.data.docsData[index].is_collect = 1
+            } else {
+              that.data.docsData[index].is_collect = 0
+            }
+          }
+        }
+        that.setData({
+          docsData: message
+        })
+      },
+    }) 
+
+  }, 
   /**
-   * 生命周期函数--监听页面卸载
+   * actionSeet实现方式
    */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
+  // actionSheetTap: function (e) {
+  //   this.setData({
+  //     actionSheetHidden: !this.data.actionSheetHidden
+  //   });
+  // },
+ 
+  // bindItemTap: function (e) {
+  //   console.log('tap ' + e.currentTarget.dataset.name);
+  //   this.setData({
+  //     actionSheetHidden: !this.data.actionSheetHidden
+  //   });
+  // },
+/**
+ * picker 实现方式
+ * 
+ */
+selectorChange:function(e){
+  let i = e.detail.value;
+  let value = this.data.actionSheetItems[i];
+  //实现排序功能
+  
+},
   /**
    * 用户点击右上角分享
    */

@@ -74,8 +74,7 @@ Page({
   
   
   qryDocs: function (current) {
-    console.log("===currentTab===" + current)
-    var queryPath = '/hotquery'
+    var queryPath = 'hotquery'
     if (current==2){
       queryPath ='recommend'
     }

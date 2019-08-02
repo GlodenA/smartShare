@@ -1,2 +1,59 @@
 <!--pages/writershow/writershow.wxml-->
-<text>pages/writershow/writershow.wxml</text>
+<!--pages/userinfo/userinfo.wxml-->
+<view class="index">
+  <view class="head">
+<view class="bg-img bg-mask padding-tb-xl" style="background-image: url('/images/writer1.png');height: 414rpx;">
+  <view class="padding text-white">
+    <view class="">
+    <view class='selfpic'>
+      <open-data  type="userAvatarUrl"></open-data>
+    </view>
+    <view class='padding-xs'>
+      昵称：{{niname}}
+    </view>
+    </view>
+    <view class="padding-xs">
+      姓名：{{username}}
+    </view>
+    <view class="padding-xs">
+      电话：{{phone}}
+    </view>
+    <view class="padding-xs">
+      邮箱：{{email}}
+    </view>
+  </view>
+</view>
+
+  </view>
+  <view class="body">
+
+  <view class="cu-form-group">
+		<view class="title">个性签名</view>
+			<textarea maxlength="-1"  bindinput="textareaInput" disabled="{{modalName!=null}}"  placeholder="未填写"  value="{{signature}}">    </textarea>
+	</view>
+    <view class="cu-form-group">
+		<view class="title">作者作品</view>
+	</view>
+  <view class="cu-list" wx:for="{{list}}" wx:key="{{item}}">
+  <view class="text-grey">{{item.DOC_NAME}}</view>
+  <view class="text-gray">
+							{{item.DOC_SUMMARY}}
+  </view>	
+  </view>	
+  <!-- <view class="cu-list menu-avatar" wx:for="{{list}}" wx:key="{{item}}">
+    <view class="cu-item">
+      <!-- <view class="content"> 
+        <view class="text-grey">{{item.DOC_NAME}}</view>
+        <view class="text-gray">
+          <text class="text-cut">
+							{{item.DOC_SUMMARY}}
+          </text>
+        </view>
+       </view> 
+    </view>
+    </view> -->
+
+</view>
+</view>
+
+

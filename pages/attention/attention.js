@@ -45,13 +45,13 @@ Page({
     });
   },
   qrywriter:function(){
+    let userId="83612795";
     wx.navigateTo({
-      url: '/pages/writershow/writershow',
-      data:{
-        user_id:"83612795"
-      }
+      url: '/pages/writershow/writershow?userId=' + userId,
+
     })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

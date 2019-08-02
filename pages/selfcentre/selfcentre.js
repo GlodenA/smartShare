@@ -1,4 +1,5 @@
 // pages/selfcentre/selfcentre.js
+const app = getApp()
 Page({
 
   /**
@@ -12,14 +13,19 @@ Page({
       { name: '我的评论', url: '../comments/comments', icon: 'write', isShow: true},
       { name: '我的阅读', url: '../reading/reading', icon: 'settings', isShow: true },
       { name: '我的设置', url: '../setting/setting', icon: 'text', isShow: true},
-    ]
+    ],
+    avatarUrl: "",
+    nickName: "",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+       this.setData({
+         avatarUrl: app.globalData.avatarUrl,
+         nickName: app.globalData.nickName,
+       })
   },
 
   /**

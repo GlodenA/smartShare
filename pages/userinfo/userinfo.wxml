@@ -1,23 +1,18 @@
 <!--pages/userinfo/userinfo.wxml-->
 <view class="index">
   <view class="head">
-    <view class='selfpic'>
-      <open-data class='userInfo' type="userAvatarUrl"></open-data>
-    </view>
-    <view class='userNickName'>
-      <open-data class='userInfo' type="userNickName"></open-data>
-    </view>
+    <image class="selfpic" src="{{avatarUrl}}"></image>
   </view>
   <view class="body">
    <form>
    	<!-- <view class="cu-form-group ">
 		<view class="title">头像</view>
     <input placeholder="未填写" value="{{pngname}}" bindinput="pngname" > </input>
-	</view>
+	</view>-->
   	<view class="cu-form-group ">
 		<view class="title">昵称</view>
-    <input placeholder="未填写" value="{{niname}}" bindinput="ninameInput" > </input>
-	</view> -->
+    <input placeholder="未填写" value="{{nickName}}" bindinput="ninameInput" > </input>
+	</view> 
 	<view class="cu-form-group ">
 		<view class="title">姓名</view>
     <input placeholder="未填写" value="{{username}}" bindinput="usernameInput" > </input>

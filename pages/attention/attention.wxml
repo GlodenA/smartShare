@@ -7,18 +7,17 @@
     <view class='selfpic'>
       <open-data  type="userAvatarUrl"></open-data>
     </view>
-    <view class='padding-xs'>
+    <view class="padding-xs " style='font-size:32rpx  '>
       昵称：{{item.NI_NAME}}
     </view>
-   
-    <view class="padding-xs">
+    <view class="padding-xs " style='font-size:32rpx  '>
       姓名：{{item.USER_NAME}}
     </view>
-    <view class="padding-xs">
+    <view class="padding-xs " style='font-size:32rpx  '>
       电话：{{item.PHONE}}
     </view>
-    <view class="padding-xs">
-      邮箱：{{item.EMAIL}}
+    <view class="padding-xs " style='font-size:32rpx  '>
+      邮箱：{{item.EMAIL}} 
     </view>
     <view class="padding-xs " hidden="true" value ="{{item.USER_ID}}">
       用户标识：{{item.USER_ID}}

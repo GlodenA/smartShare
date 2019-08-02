@@ -50,6 +50,7 @@ App({
     userInfo: null,
     // urlPath: 'http://10.1.241.22/docs/',
     urlPath: 'http://192.168.1.16:9001/docs/',
+    //urlPath: 'http://127.0.0.1:9001/docs/',
   },
   // isNeedSearch() {
   //   var needSearch = wx.getStorageSync("cookie");

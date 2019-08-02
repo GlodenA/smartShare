@@ -1,1 +1,32 @@
 /* pages/serch/serch.wxss */
+
+.capsule {
+  margin-left: 5%; 
+  margin-right: 5%; 
+  height: 30px;
+  border: 1px solid #777;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  width: 90%;
+}
+
+.item {
+  padding: 10px;
+  background-color: #fff;
+  color: #787878;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.item_left {
+  flex: 1;
+  margin-left: 10px;
+  padding-top: 5px;
+  overflow: hidden;
+}
+
+.item_left .title {
+  font-size: 16px;
+  color: #333;
+}

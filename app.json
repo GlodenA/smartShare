@@ -14,9 +14,7 @@
     "pages/reading/reading",
     "pages/setting/setting"
   ],
-  "usingComponents": {
-    "tab": "/pages/component/tab/tab"
-  },
+  
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",

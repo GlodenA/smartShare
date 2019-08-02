@@ -1,2 +1,47 @@
 <!--pages/serch/serch.wxml-->
-<text>搜索</text>
+<view class="container">
+<view  class="capsule"  > 
+    <input type="text" class="search-input cuIcon-search lg text-gray" placeholder="" value="{{searchValue}}" bindconfirm='bindsearch' auto-focus/>搜 索
+  </view>
+
+  <view hidden="{{!messageShow}}">
+  <text class="title">{{message}}</text> 
+  </view>
+<view hidden="{{resultShow}}">
+<view class="item">
+  <view class="title">热搜</view>
+</view>
+
+<block wx:for-items="{{hotKey}}">
+    <view class="flex item">
+      <view class="flex_auto item_left">
+        <button class="primary" bindtap="backTosearch">{{item}}</button>
+      </view>
+    </view>
+</block>
+  <view class="item">
+  <view class="title">搜索历史</view>
+  </view>
+  <block wx:for-items="{{hisqrylog}}">
+    <view class="flex item">
+      <view class="flex_auto item_left">
+          <button class="primary" bindtap="backTosearch" value="{{item}}">{{item}}</button>
+      </view>
+    </view>
+  </block>
+ </view>
+
+  <block wx:for-items="{{docsData}}">
+    <view class="flex item">
+      <view class="flex_auto item_left">
+        <view><text class="title">{{item.DOC_NAME}}</text></view>
+        <view><text class="sub_title">{{item.DOC_ID}}</text></view>
+        <view><text class="tag">{{item.DOC_TYPE}}</text></view>
+      </view>
+      <view class="item_right">
+        <view><text class="count">{{item.MSG_NUM}}</text></view>
+      </view>
+    </view>
+  </block>
+  
+   </view>

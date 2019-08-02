@@ -4,7 +4,6 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -49,11 +48,44 @@ Page({
         }
       })
     }
+    this.qryDocs();
+
+  },
+  clickMenu: function (event) {
+    var res = wx.getSystemInfoSync()
+    this.windowWidth = res.windowWidth
+    var current = event.currentTarget.dataset.current
+    this.qryDocs(current)
+    var tabWidth = this.windowWidth / this.count
+    this.setData({
+      tabScroll: (current - this.count / 2) * tabWidth
+    })
+    if (this.currentTab == current) {
+      return false
+    } else {
+      this.setData({
+        currentTab: event.currentTarget.dataset.current
+      })
+     
+      
+    }
+   
+  },
+  
+  
+  qryDocs: function (current) {
+    console.log("===currentTab===" + current)
+    var queryPath = '/hotquery'
+    if (current==2){
+      queryPath ='recommend'
+    }
     wx.request({
       //url: 'http://127.0.0.1:9001/docs/getdocslist',
-      url: getApp().globalData.urlPath + '/getdocslist',
+      url: getApp().globalData.urlPath + queryPath,
       method: 'GET',
-      data: {},
+      data: {
+        "id":"83612795"
+      },
       header: {
         'Accept': 'application/json'
       },
@@ -63,16 +95,7 @@ Page({
         })
       }
     }) 
-
   },
-  // getUserInfo: function(e) {
-  //   console.log(e)
-  //   app.globalData.userInfo = e.detail.userInfo
-  //   this.setData({
-  //     userInfo: e.detail.userInfo,
-  //     hasUserInfo: true
-  //   })
-  // },
     bindsearch: function () {
     wx.navigateTo({
       url: '/pages/serch/serch'

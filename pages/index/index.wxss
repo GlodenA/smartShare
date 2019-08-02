@@ -1,4 +1,7 @@
-
+.indexcontainer {
+  height: 100%;
+  box-sizing: border-box;
+}
 
 .capsule {
   margin-left: 5%; 
@@ -33,6 +36,7 @@
   font-size: 20px;
   padding: 10px;
   background-color: #fff;
+  align-items: center;
   color: #787878;
   border-top: 1px solid #eaeaea;
   border-bottom: 1px solid #eaeaea;
@@ -77,4 +81,38 @@
 .item_right .count {
   font-size: 12px;
   color: #cf616a;
+}
+
+.container{
+ width: 100%;
+ height: 79rpx;
+ background: #FCFCFC;
+}
+.tab{
+ width: 100%;
+ height: 79rpx;
+
+ line-height: 78rpx;
+}
+.tab-item{
+ font-family: SourceHanSansCN-Normal;
+ display: inline-block;
+ width: 50%;
+ font-size: 30rpx;
+ color: #666666;
+
+}
+
+.tabitem{
+ width:fit-content;
+ font-family: SourceHanSansCN-Normal;
+ margin: auto;
+ font-size: 30rpx;
+ color: #666666;
+ height: 70rpx;
+}
+
+.active{
+ color: #4A5FE2;
+  border-bottom: 1rpx solid #4A5FE2;
 }

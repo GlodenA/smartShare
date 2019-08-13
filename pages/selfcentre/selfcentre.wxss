@@ -1,30 +1,30 @@
 /* pages/selfcentre/selfcentre.wxss */
 .selfpic{
-  left: 10px;
-  top: 10px;
-  bottom: 10px;
-  width: 48px; 
+  left: 20rpx;
+  top: 20rpx;
+  bottom: 20rpx;
+  width: 96rpx; 
   border-radius: 50%;
   overflow: hidden;
-  height:  48px;
+  height:  96rpx;
   position: absolute;
   background:white;
 
 }
 .userNickName
 {
-  left: 100px;
-  top: 20px;
-  bottom: 10px;
-  width: 48px; 
-  height:  48px;
+  left: 200rpx;
+  top: 40rpx;
+  bottom: 20rpx;
+  width: 96rpx; 
+  height:  96rpx;
   overflow: hidden;
   position: absolute;
 }
 .selftext{
- left: 10px;
+ left: 20rpx;
  position: absolute;
- height:  48px;
+ height: 96rpx;
  margin-top: 5%;
 }
 .box{
@@ -47,23 +47,23 @@
     padding: 40px;
 }
 .body{
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
     overflow: hidden;
 }
 
 
 .widgets__item{
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
     background-color: #FFFFFF;
     overflow: hidden;
-    border-radius: 2px;
+    border-radius: 4rpx;
     cursor: pointer;
 }
 .widgets__info{
     display: flex;
-    padding: 20px;
+    padding: 40rpx;
     align-items: center;
     flex-direction: row;
 }
@@ -74,8 +74,8 @@
     flex: 1;
 }
 .widgets__info-img{
-    width: 30px;
-    height: 30px;
+    width: 60rpx;
+    height: 60rpx;
 }
 
 .widgets__list{
@@ -87,17 +87,17 @@
 
 .widget{
     position: relative;
-    padding-top: 13px;
-    padding-bottom: 13px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-top: 26rpx;
+    padding-bottom: 26rpx;
+    padding-left: 40rpx;
+    padding-right: 40rpx;
 }
 .widget__arrow{
     position: absolute;
-    top: 14px;
-    right: 30px;
-    width: 8px;
-    height: 16px;
+    top: 28rpx;
+    right: 60rpx;
+    width: 16rpx;
+    height: 32rpx;
 }
 /* .widget__line{
     content: " ";

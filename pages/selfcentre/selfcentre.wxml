@@ -11,7 +11,7 @@
       <view class="widgets__item">
         <view class='widgets__list_show'  wx:for="{{list}}" wx:key wx:if="{{item.isShow}}">
           <navigator url="{{item.url}}" class="widget" >
-            <text class="widget__name cuIcon-{{item.icon}} lg text-gray"> {{item.name}}</text>
+            <text class="widget__name cuIcon-{{item.icon}} lg text-black"> {{item.name}}</text>
             <image class="widget__arrow" src="/images/arrow.png" background-size="cover" />
             <!-- <view class="widget__line"></view> -->
           </navigator>

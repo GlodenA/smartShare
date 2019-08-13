@@ -14,7 +14,7 @@
   <view class="title">热搜</view>
 </view>
 
-<block wx:for-items="{{hotKey}}">
+<block wx:for="{{hotKey}}"  wx:key>
     <view class="flex item">
       <view class="flex_auto item_left">
         <button class="primary" bindtap="backTosearch">{{item}}</button>
@@ -24,7 +24,7 @@
   <view class="item">
   <view class="title">搜索历史</view>
   </view>
-  <block wx:for-items="{{hisqrylog}}">
+  <block wx:for="{{hisqrylog}}" wx:key>
     <view class="flex item">
       <view class="flex_auto item_left">
           <button class="primary" bindtap="backTosearch" value="{{item}}">{{item}}</button>
@@ -47,7 +47,7 @@
     默认排序
   </view>
 </picker>
-  <block wx:for-items="{{docsData}}">
+  <block wx:for="{{docsData}}" wx:key>
     <view class="flex item">
       <view class="flex_auto item_left">
         <view><text class="title">{{item.DOC_NAME}}</text></view>

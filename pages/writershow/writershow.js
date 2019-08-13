@@ -105,7 +105,7 @@ Page({
         url: getApp().globalData.urlPath + 'focus/deletFocus',
         method: 'GET',
         data: {
-          "seq_id": "83612795"//that.data.seqId
+          "seq_id": that.data.seqId
         },
         header: {
           'Accept': 'application/json'
@@ -128,9 +128,9 @@ Page({
         url: getApp().globalData.urlPath + 'focus/insertFocus',
         method: 'GET',
         data: {
-          "user_id": "83612795",
-          "author_id":"83612795",
-          "author_name":"王丹丹",
+          "user_id": that.data.userId,
+          "author_id": that.data.seqId,
+          "author_name": that.data.username,
         },
         header: {
           'Accept': 'application/json'

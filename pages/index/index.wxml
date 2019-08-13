@@ -2,7 +2,8 @@
 <view class="indexcontainer">
   <view class="title_PH">智享库</view>
   <view  class="capsule" bindtap='bindsearch' > 
-    <input type="text" class="search-input cuIcon-search lg text-gray" placeholder="搜 索"/>搜 索
+    <image src="../../images/search.png" class="search"></image>
+    <input type="text" class="input" placeholder="搜 索"/>
   </view>
   <scroll-view class="tab" scroll-x scroll-left="{{tabScroll}}" scroll-with-animation="true">
     <block wx:for-items="{{ menuList }}"  wx:key="index">

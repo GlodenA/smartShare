@@ -1,38 +1,23 @@
 /* pages/userinfo/userinfo.wxss */
 .selfpic{
-  left: 10px;
-  top: 10px;
-  bottom: 10px;
-  width: 48px; 
+  left: 40rpx;
+  top: 30rpx;
+  bottom: 10rpx;
+  width: 120rpx; 
   border-radius: 50%;
   overflow: hidden;
-  height:  48px;
+  height:  120rpx;
   position: absolute;
   background:white;
+}
 
-}
-.userNickName
-{
-  left: 100px;
-  top: 20px;
-  bottom: 10px;
-  width: 48px; 
-  height:  48px;
-  overflow: hidden;
-  position: absolute;
-}
-.selftext{
- left: 10px;
- position: absolute;
- height:  48px;
- margin-top: 5%;
-}
+
 
 .index{
     background-color: white;
     flex: 1;
     min-height: 100%;
-    font-size: 16px;
+    font-size: 32px;
     /* border-top:1rpx solid  rgba(152, 154, 156, 0.384); */
 }
 .head{
@@ -44,8 +29,12 @@
     overflow: hidden;
 }
 .title{
-    font-size: 30px;
+    font-size: 48px;
+}
+.cu-form-group{
+ font-size: 32rpx;
 }
 .cu-form-group .title {
   min-width: calc(4em + 30rpx);
+ 
 }

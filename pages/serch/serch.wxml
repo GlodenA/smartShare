@@ -1,9 +1,12 @@
 <!--pages/serch/serch.wxml-->
 <view class="container">
-<view  class="capsule"  > 
-    <input type="text" class="search-input cuIcon-search lg text-gray" placeholder="" value="{{searchValue}}" bindconfirm='bindsearch' auto-focus/>搜 索
+  <view class="top">
+    <view  class="capsule">
+      <image src="../../images/search.png" class="search"></image>
+      <input type="text" value="{{searchValue}}" bindconfirm='bindsearch' auto-focus/>搜 索
+    </view>
+    <text>取消</text>
   </view>
-
   
 
   <view hidden="{{!messageShow}}">
@@ -16,8 +19,9 @@
 
 <block wx:for="{{hotKey}}"  wx:key>
     <view class="flex item">
-      <view class="flex_auto item_left">
-        <button class="primary" bindtap="backTosearch">{{item}}</button>
+      <view class="item_top">
+        
+        <button  bindtap="backTosearch"><image src="../../images/fire.png"></image>{{item}}</button>
       </view>
     </view>
 </block>
@@ -26,8 +30,10 @@
   </view>
   <block wx:for="{{hisqrylog}}" wx:key>
     <view class="flex item">
-      <view class="flex_auto item_left">
-          <button class="primary" bindtap="backTosearch" value="{{item}}">{{item}}</button>
+      <view class="item_bottom">
+         <image src="../../images/time.png"></image>
+          <view bindtap="backTosearch" value="{{item}}" class="left">{{item}}</view>
+          <view class="right">×</view>
       </view>
     </view>
   </block>

@@ -1,26 +1,29 @@
 .indexcontainer {
   height: 100%;
   box-sizing: border-box;
+  background-color: #fff;
 }
 
 .capsule {
-  margin-left: 5%; 
-  margin-right: 5%; 
-  height: 30px;
-  border: 1px solid #777;
-  border-radius: 16px;
+  margin:20rpx 0 20rpx 35rpx;
+  height: 35px;
+  border: 1rpx solid rgba(119, 119, 119, 0.438);
+  border-radius: 14rpx;
   display: flex;
   align-items: center;
   width: 90%;
 }
-
-.search-input {
-  /* height: 28px; */
-  margin-left:20px;
-  line-height: 28px;
-  font-size: 10px;
+.capsule .search{
+  width:40rpx;height:40rpx;
+  margin:0 50rpx 0 20rpx;
 }
-
+.capsule .voice{
+  width:40rpx;height:40rpx;
+  margin:0 0 0 150rpx;
+}
+.capsule input{
+  font-size: 33rpx;
+}
 .box{
   width:90%;
   margin-left: 5%;
@@ -28,54 +31,45 @@
   margin-top: 5%;
   margin-bottom: 5%;
   height: 300rpx;
-  background-color: whitesmoke
 }
 
 
 .title_PH {
-  font-size: 20px;
-  padding: 10px;
+  font-size: 37rpx;
+  padding:20rpx 0 20rpx 320rpx;
   background-color: #fff;
   align-items: center;
-  color: #787878;
-  border-top: 1px solid #eaeaea;
-  border-bottom: 1px solid #eaeaea;
+  color: #110d0d;
 }
 .item {
   padding: 10px;
-  background-color: #fff;
   color: #787878;
   border-top: 1px solid #eaeaea;
-  border-bottom: 1px solid #eaeaea;
 }
 
 .item_left {
-  flex: 1;
+  flex:1;
   margin-left: 10px;
   padding-top: 5px;
-  overflow: hidden;
 }
-
+.item_left .hot{
+  width:40rpx;height:40rpx;
+}
 .item_left .title {
-  font-size: 16px;
+  width:500rpx;
+  font-size: 34rpx;
   color: #333;
+  margin-bottom:15rpx;
 }
 .item_left .sub_title {
-  font-size: 14px;
-  color: #666;
-  margin: 2px 0px;
+  font-size: 22rpx;
+  color: #999;
+  margin: 30rpx 0;
 }
 
-.item_right .tag {
-  margin-top: 30px;
-  border: 1px solid #29cc6d;
-  border-radius: 2px;
-  color: #29cc6d;
-  display: inline-block;
-  padding: 2px 4px;
-  font-size: 12px;
-  line-height: 16px;
-  text-align: center;
+.item_left .tag {
+  color: orange;
+  font-size: 22rpx;
 }
 
 .item_right .count {
@@ -114,5 +108,5 @@
 
 .active{
  color: #4A5FE2;
-  border-bottom: 1rpx solid #4A5FE2;
+ border-bottom: 1rpx solid #4A5FE2;
 }

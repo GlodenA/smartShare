@@ -23,7 +23,7 @@ Page({
       header.Cookie = cookie;
     }
     wx.request({
-      url: getApp().globalData.urlPath + 'focus/getFocusByUserId',
+      url: getApp().globalData.urlPath + 'user/queryattention',
       data: {
         user_id: cookie,
       },

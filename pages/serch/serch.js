@@ -93,14 +93,14 @@ Page({
     
     var message = this.data.docsData;
     var zanInfo = {
-      "user_id":"",
+      "user_id":"83612795",
       "doc_id": docid,
       "type":"1",//1点赞  2 收藏
       "cancel": cancel
       }
 
     wx.request({
-      url: getApp().globalData.urlPath + 'setCollectOrGood',
+      url: getApp().globalData.urlPath + 'goodcollect/setGoodOrCollect',
       method: 'GET',
       data: zanInfo,
       header: {
@@ -129,19 +129,19 @@ Page({
   collectclick: function (e) {
     var that = this;
     var docid = e.currentTarget.dataset.id;
-    var cancel = e.currentTarget.dataset.iscollect; //操作 1 点赞  0 取消点赞
+    var cancel = e.currentTarget.dataset.iscollect; //操作 1 取消点赞  0 点赞
     var index = e.currentTarget.dataset.dex;
 
     var message = this.data.docsData;
     var zanInfo = {
-      "user_id": "",
+      "user_id": "83612795",
       "doc_id": docid,
       "type": "2",//1点赞  2 收藏
-      "cancel": cancel
+      "cancel": cancel//操作 1取消点赞 0 点赞
     }
 
     wx.request({
-      url: getApp().globalData.urlPath + 'setCollectOrGood',
+      url: getApp().globalData.urlPath + 'goodcollect/setGoodOrCollect',
       method: 'GET',
       data: zanInfo,
       header: {

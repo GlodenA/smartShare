@@ -3,7 +3,7 @@
   <view class="top">
     <view  class="capsule">
       <image src="../../images/search.png" class="search"></image>
-      <input type="text" value="{{searchValue}}" bindconfirm='bindsearch' auto-focus/>搜 索
+      <input type="text" value="{{searchValue}}" bindconfirm='bindsearch' auto-focus   placeholder="搜 索"/>
     </view>
     <text>取消</text>
   </view>

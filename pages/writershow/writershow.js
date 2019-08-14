@@ -20,9 +20,7 @@ Page({
     isAttention:true,
     isShow:false,
     seqId:'',
-    list: [{ DOC_ID: "123", DOC_NAME: "微信小程序", DOC_SUMMARY:"微信小程序简介"},
-      { DOC_ID: "1234", DOC_NAME: "SpringBoot", DOC_SUMMARY: "SpringBoot简介"}
-    ]
+    list: []
   },
 
   /**

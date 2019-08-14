@@ -1,5 +1,5 @@
 <!--pages/attention/attention.wxml-->
-<view class="index" wx:if="{{isShow}}">
+<view class="index" style="height:{{screenHeight}}px"  wx:if="{{isShow}}">
 <view class="head"  wx:for="{{list}}" wx:key="{{item}}" >
 <view class="bg-img bg-mask padding-tb-xl" style="background-image: url('/images/writer1.png');height: 414rpx;" bindtap="qrywriter"  data-userid="{{item.USER_ID}}"   data-seqid="{{item.SEQ_ID}}" >
   <view class="padding text-white">

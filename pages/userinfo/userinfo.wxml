@@ -1,5 +1,5 @@
 <!--pages/userinfo/userinfo.wxml-->
-<view class="index">
+<view class="index" style="height:{{screenHeight}}px">
   <view class="head">
     <image class="selfpic" src="{{avatarUrl}}"></image>
   </view>
@@ -18,8 +18,8 @@
 		<input placeholder="未填写" value="{{email}}" bindinput="emailInput"></input>
 	</view>
   <view class="f1 ">
-		<label>手机号</label>
-		<input placeholder="未填写"  value="{{phone}}"  bindinput="phoneInput"  class="phone"></input>
+		<label>号码</label>
+		<input placeholder="未填写"  value="{{phone}}"  bindinput="phoneInput"  ></input>
 	</view>
   <view class="textArea">个性签名</view>
 	<textarea maxlength="-1"  bindinput="textareaInput" disabled="{{modalName!=null}}"  placeholder="未填写"  value="{{signature}}">    </textarea>

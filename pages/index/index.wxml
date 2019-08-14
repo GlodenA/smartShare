@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="indexcontainer">
+<view class="indexcontainer"  style="height:{{screenHeight}}px" >
   <view class="title_PH">智享库</view>
   <view  class="capsule" bindtap='bindsearch' > 
     <image src="../../images/search.png" class="search"></image>

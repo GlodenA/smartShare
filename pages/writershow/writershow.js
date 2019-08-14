@@ -19,7 +19,7 @@ Page({
     iconText: "取消关注",
     isAttention:true,
     isShow:false,
-    seqId:'',
+    screenHeight: app.globalData.screenHeight,
     list: []
   },
 

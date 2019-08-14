@@ -1,6 +1,6 @@
 <!--pages/writershow/writershow.wxml-->
 <!--pages/userinfo/userinfo.wxml-->
-<view class="index">
+<view class="index" style="height:{{screenHeight}}px">
   <view class="head">
 <view class="bg-img bg-mask padding-tb-xl" style="background-image: url('/images/writer1.png');height: 414rpx;">
   <view class="padding text-white">

@@ -7,6 +7,7 @@ App({
     // wx.setStorageSync('logs', logs)
 
     //登录
+  
     wx.checkSession({
       success() {
         //session_key 未过期，并且在本生命周期一直有效
@@ -27,13 +28,13 @@ App({
                 },
                 success: res => {
                   wx.setStorageSync('cookie', res.data.data.USER_ID),
-                    this.globalData.avatarUrl = res.data.data.PORTRAIT,
-                    this.globalData.nickName = res.data.data.NI_NAME,
-                    this.globalData.userId = res.data.data.USER_ID,
-                    this.globalData.username = res.data.data.USER_NAME,
-                    this.globalData.email = res.data.data.EMAIL,
-                    this.globalData.phone=res.data.data.PHONE,
-                    this.globalData.signature = res.data.data.SIGNATURE
+                  globalData.avatarUrl = res.data.data.PORTRAIT,
+                  globalData.nickName = res.data.data.NI_NAME,
+                  globalData.userId = res.data.data.USER_ID,
+                  globalData.username = res.data.data.USER_NAME,
+                  globalData.email = res.data.data.EMAIL,
+                  globalData.phone=res.data.data.PHONE,
+                  globalData.signature = res.data.data.SIGNATURE
                 }
               })
 
@@ -69,7 +70,11 @@ App({
       }
     })
     this.globalData.userId = wx.getStorageSync("cookie");
-
+    wx.getSystemInfo({
+      success: (res) => {
+        this.globalData.screenHeight = res.screenHeight
+      }
+    }) 
   },
   globalData: {
     userInfo: null,
@@ -81,7 +86,8 @@ App({
     email: '',
     phone: '',
     signature: '',
-    // urlPath: 'http://10.1.241.22/docs/',
+    screenHeight:'',
+    //urlPath: 'https://www.bainiu6.com/docs/',
     urlPath: 'http://192.168.1.16:9001/docs/',
     //urlPath: 'http://127.0.0.1:9001/docs/',
   },

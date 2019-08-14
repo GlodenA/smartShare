@@ -6,6 +6,7 @@ Page({
    */
   data: {
     docsData: [],
+    screenHeight: app.globalData.screenHeight,
   },
 
   /**

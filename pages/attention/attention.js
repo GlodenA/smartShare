@@ -7,7 +7,8 @@ Page({
    */
   data: {
     isShow:false,
-    list: null
+    list: null,
+    screenHeight: app.globalData.screenHeight,
   },
 
   /**

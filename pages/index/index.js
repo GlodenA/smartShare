@@ -12,7 +12,8 @@ Page({
     currentTab: 1,
     windowWidth: 60,
     tabScroll: 2,
-    count: 2
+    count: 2,
+    screenHeight: app.globalData.screenHeight,
 
   },
   //事件处理函数

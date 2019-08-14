@@ -5,30 +5,25 @@
   </view>
   <view class="body">
    <form>
-   	<!-- <view class="cu-form-group ">
-		<view class="title">头像</view>
-    <input placeholder="未填写" value="{{pngname}}" bindinput="pngname" > </input>
-	</view>-->
-  	<view class="cu-form-group ">
-		<view class="title">昵称</view>
+  	<view class="f1 ">
+		<label>昵称</label>
     <input placeholder="未填写" value="{{nickName}}" bindinput="ninameInput" > </input>
 	</view> 
-	<view class="cu-form-group ">
-		<view class="title">姓名</view>
+	<view class="f1 ">
+		<label>姓名</label>
     <input placeholder="未填写" value="{{username}}" bindinput="usernameInput" > </input>
 	</view>
-	<view class="cu-form-group">
-		<view class="title">邮箱</view>
+	<view class="f1 ">
+		<label>邮箱</label>
 		<input placeholder="未填写" value="{{email}}" bindinput="emailInput"></input>
 	</view>
-  <view class="cu-form-group">
-		<view class="title">手机号</view>
-		<input placeholder="未填写"  value="{{phone}}"  bindinput="phoneInput"></input>
+  <view class="f1 ">
+		<label>手机号</label>
+		<input placeholder="未填写"  value="{{phone}}"  bindinput="phoneInput"  class="phone"></input>
 	</view>
-  <view class="cu-form-group">
-		<view class="title">个性签名</view>
-			<textarea maxlength="-1"  bindinput="textareaInput" disabled="{{modalName!=null}}"  placeholder="未填写"  value="{{signature}}">    </textarea>
-	</view>
+  <view class="textArea">个性签名</view>
+	<textarea maxlength="-1"  bindinput="textareaInput" disabled="{{modalName!=null}}"  placeholder="未填写"  value="{{signature}}">    </textarea>
+
   <view class="padding flex flex-direction">
   <button class="cu-btn bg-blue margin-tb-sm lg" bindtap="saveUserInfo">保存</button>
 </view>

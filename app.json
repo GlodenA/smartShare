@@ -1,21 +1,23 @@
 {
   "pages": [
+    
     "pages/launch/launch",
     "pages/login/login",
     "pages/index/index",
     "pages/logs/logs",
     "pages/collection/collection",
     "pages/collection/collectionA",
-    "pages/attention/attention",
+     "pages/attention/attention",
     "pages/serch/serch",
     "pages/userinfo/userinfo",
-    "pages/writershow/writershow",
+     "pages/writershow/writershow",
     "pages/comments/comments",
     "pages/reading/reading",
     "pages/setting/setting",
-    "pages/selfcentre/selfcentre",
-    "pages/preview/preview"
+    "pages/selfcentre/selfcentre"
+    
   ],
+  
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",

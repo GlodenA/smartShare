@@ -1,4 +1,4 @@
-// pages/userinfo/userinfo.js
+const app = getApp()
 Page({
 
   /**
@@ -20,9 +20,7 @@ Page({
     isAttention:true,
     isShow:false,
     seqId:'',
-    list: [{ DOC_ID: "123", DOC_NAME: "微信小程序", DOC_SUMMARY:"微信小程序简介"},
-      { DOC_ID: "1234", DOC_NAME: "SpringBoot", DOC_SUMMARY: "SpringBoot简介"}
-    ]
+    list: []
   },
 
   /**
@@ -32,7 +30,7 @@ Page({
    //非本人可见关注标志
     let flag = false;
     let seq_id ="";
-    let cookie = wx.getStorageSync("cookie");
+    let cookie = app.globalData.userId;
     if (options.userId != cookie)
     {
       flag = true;
@@ -51,7 +49,7 @@ Page({
   },
   queryUsreInfo: function () {
     var that = this;
-    let cookie = wx.getStorageSync("cookie");
+    let cookie = app.globalData.userId;
     let header = { 'content-type': 'application/json' };
     if (cookie) {
       header.Cookie = cookie;
@@ -97,7 +95,7 @@ Page({
   cancelattention:function()
   {
     let that = this;
-    let cookie = wx.getStorageSync("cookie");
+    let cookie = app.globalData.userId;
     let header = { 'content-type': 'application/json' };
     if (cookie) {
       header.Cookie = cookie;
@@ -132,7 +130,7 @@ Page({
         url: getApp().globalData.urlPath + 'focus/insertFocus',
         method: 'GET',
         data: {
-          "user_id": that.data.cookie,
+          "user_id": cookie,
           "author_id": that.data.userId,
           "author_name": that.data.username,
         },

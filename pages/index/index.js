@@ -71,7 +71,8 @@ Page({
     }
    
   },
-   
+  
+  
   qryDocs: function (current) {
     var queryPath = 'hotquery'
     if (current==2){
@@ -97,12 +98,6 @@ Page({
     bindsearch: function () {
     wx.navigateTo({
       url: '/pages/serch/serch'
-    })
-  },
-  gotoPreview: function (e) {
-    var docid = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: '/pages/preview/preview?docid='+docid
     })
   }
 })

@@ -25,7 +25,7 @@ Page({
     wx.request({
       url: getApp().globalData.urlPath + 'user/queryattention',
       data: {
-        id: "83612795",//"83612795"  cookie
+        id: cookie,
       },
       method: "get",
       header: header,
@@ -44,11 +44,11 @@ Page({
       }
     });
   },
-  qrywriter:function(){
-    let userId="83612795";
+  qrywriter: function (e){
+    let userId = e.currentTarget.dataset.userid;//"83612795"
+    let seqId = e.currentTarget.dataset.seqid;
     wx.navigateTo({
-      url: '/pages/writershow/writershow?userId=' + userId,
-
+      url: '/pages/writershow/writershow?userId=' + userId + '&seqId=' + seqId,
     })
   },
 

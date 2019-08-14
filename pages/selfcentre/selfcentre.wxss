@@ -1,69 +1,53 @@
 /* pages/selfcentre/selfcentre.wxss */
 .selfpic{
-  left: 10px;
-  top: 10px;
-  bottom: 10px;
-  width: 48px; 
+  left: 40rpx;
+  top: 30rpx;
+  bottom: 10rpx;
+  width: 120rpx; 
   border-radius: 50%;
   overflow: hidden;
-  height:  48px;
+  height:  120rpx;
   position: absolute;
   background:white;
-
 }
-.userNickName
-{
-  left: 100px;
-  top: 20px;
-  bottom: 10px;
-  width: 48px; 
-  height:  48px;
-  overflow: hidden;
+.userNickName{
+  font-size: 34rpx;
+  width:100%;
+  left: 200rpx;
+  top: 70rpx;
+  height:  48rpx;
   position: absolute;
 }
-.selftext{
- left: 10px;
- position: absolute;
- height:  48px;
- margin-top: 5%;
-}
-.box{
-  width:85%;
-  margin-left: 10%;
-  margin-right: 5%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  height: 10rpx;
-  background-color: white;
-}
+
+
 
 .index{
     background-color: white;
     flex: 1;
     min-height: 100%;
-    font-size: 16px;
+    font-size: 32rpx;
 }
 .head{
-    padding: 40px;
+    padding: 85rpx;
 }
 .body{
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
     overflow: hidden;
 }
 
 
 .widgets__item{
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
     background-color: #FFFFFF;
     overflow: hidden;
-    border-radius: 2px;
+    border-radius: 4rpx;
     cursor: pointer;
 }
 .widgets__info{
     display: flex;
-    padding: 20px;
+    padding: 40rpx;
     align-items: center;
     flex-direction: row;
 }
@@ -74,8 +58,8 @@
     flex: 1;
 }
 .widgets__info-img{
-    width: 30px;
-    height: 30px;
+    width: 60rpx;
+    height: 60rpx;
 }
 
 .widgets__list{
@@ -87,24 +71,19 @@
 
 .widget{
     position: relative;
-    padding-top: 13px;
-    padding-bottom: 13px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 25rpx;
+}
+.widget__name{
+  padding-left: 20rpx;
+}
+.widget__name_right{
+  margin-left:50rpx;
+  font-size: 34rpx;
 }
 .widget__arrow{
     position: absolute;
-    top: 14px;
-    right: 30px;
-    width: 8px;
-    height: 16px;
+    top: 40rpx;
+    right: 30rpx;
+    width: 12rpx;
+    height: 22rpx;
 }
-/* .widget__line{
-    content: " ";
-    position: absolute;
-    left: 20px;
-    bottom: 0;
-    right: 20px;
-    height: 1rpx;
-    background-color: #DFDFDF;
-} */

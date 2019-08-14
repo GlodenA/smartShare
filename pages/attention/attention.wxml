@@ -1,12 +1,12 @@
 <!--pages/attention/attention.wxml-->
 <view class="index" wx:if="{{isShow}}">
 <view class="head"  wx:for="{{list}}" wx:key="{{item}}" >
-<view class="bg-img bg-mask padding-tb-xl" style="background-image: url('/images/writer1.png');height: 414rpx;" bindtap="qrywriter">
+<view class="bg-img bg-mask padding-tb-xl" style="background-image: url('/images/writer1.png');height: 414rpx;" bindtap="qrywriter"  data-userid="{{item.USER_ID}}"   data-seqid="{{item.SEQ_ID}}" >
   <view class="padding text-white">
    
-    <view class='selfpic'>
-      <open-data  type="userAvatarUrl"></open-data>
-    </view>
+    
+    <image class="selfpic" src="{{item.PORTRAIT}}"></image>
+   
     <view class="padding-xs " style='font-size:32rpx  '>
       昵称：{{item.NI_NAME}}
     </view>
@@ -18,9 +18,6 @@
     </view>
     <view class="padding-xs " style='font-size:32rpx  '>
       邮箱：{{item.EMAIL}} 
-    </view>
-    <view class="padding-xs " hidden="true" value ="{{item.USER_ID}}">
-      用户标识：{{item.USER_ID}}
     </view>
 </view>
  </view>

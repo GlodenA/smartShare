@@ -19,6 +19,7 @@ Page({
     iconText: "取消关注",
     isAttention:true,
     isShow:false,
+    seqId:'',
     list: [{ DOC_ID: "123", DOC_NAME: "微信小程序", DOC_SUMMARY:"微信小程序简介"},
       { DOC_ID: "1234", DOC_NAME: "SpringBoot", DOC_SUMMARY: "SpringBoot简介"}
     ]
@@ -30,14 +31,20 @@ Page({
   onLoad: function (options) {
    //非本人可见关注标志
     let flag = false;
+    let seq_id ="";
     let cookie = wx.getStorageSync("cookie");
     if (options.userId != cookie)
     {
       flag = true;
     }
+    if(options.seqId!=null)
+    {
+      seq_id = options.seqId;
+    }
     this.setData({
       userId: options.userId,//"1908021425435781"
-      isShow : flag
+      isShow : flag,
+      seqId : seq_id,
     })
     this.queryUsreInfo();
 
@@ -89,24 +96,55 @@ Page({
   },
   cancelattention:function()
   {
+    let that = this;
     if(this.data.isAttention)
     {
-      this.setData({
-        icon: "friendadd",
-        iconColour: "white",
-        iconText: "关注",
-        iconShow: true,
-        isAttention:false,
-      })
+
+
+      wx.request({
+        url: getApp().globalData.urlPath + 'focus/deletFocus',
+        method: 'GET',
+        data: {
+          "seq_id": that.data.seqId
+        },
+        header: {
+          'Accept': 'application/json'
+        },
+        success: res => {
+          that.setData({
+            icon: "friendadd",
+            iconColour: "white",
+            iconText: "关注",
+            iconShow: true,
+            isAttention: false,
+          })
+        }
+      }) 
     }
     else{
-      this.setData({
-        icon: "friendaddfill",
-        iconColour: "white",
-        iconText: "取消关注",
-        iconShow: true,
-        isAttention: true,
-      })
+
+
+      wx.request({
+        url: getApp().globalData.urlPath + 'focus/insertFocus',
+        method: 'GET',
+        data: {
+          "user_id": that.data.userId,
+          "author_id": that.data.seqId,
+          "author_name": that.data.username,
+        },
+        header: {
+          'Accept': 'application/json'
+        },
+        success: res => {
+          that.setData({
+            icon: "friendaddfill",
+            iconColour: "white",
+            iconText: "取消关注",
+            iconShow: true,
+            isAttention: true,
+          })
+        }
+      }) 
     }
   },
   /**

@@ -1,5 +1,5 @@
 <!--pages/selfcentre/selfcentre.wxml-->
-<view class="index">
+<view class="index" style="height:{{screenHeight}}px">
   <view class="head">
     <image class="selfpic" src="{{avatarUrl}}"></image>
     <view class='userNickName'>

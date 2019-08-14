@@ -1,5 +1,4 @@
-/* pages/writershow/writershow.wxss */
-/* pages/userinfo/userinfo.wxss */
+
 .selfpic{
   left: 200px;
   width: 48px; 

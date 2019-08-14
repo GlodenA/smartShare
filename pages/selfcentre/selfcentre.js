@@ -16,6 +16,7 @@ Page({
     ],
     avatarUrl: "",
     nickName: "",
+    screenHeight: app.globalData.screenHeight,
   },
 
   /**

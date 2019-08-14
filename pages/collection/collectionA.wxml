@@ -1,3 +1,4 @@
+  <view class="index" style="height:{{screenHeight}}px">
   <block wx:for="{{docsData}}"  wx:key="{{item}}">
     <view class="flex item">
       <view class="flex_auto item_left">
@@ -10,3 +11,4 @@
       </view>
     </view>
   </block>
+  </view>

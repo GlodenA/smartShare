@@ -14,6 +14,7 @@ Page({
     signature: '',
     modalHidden: true,
     modaltext:'',
+    screenHeight: app.globalData.screenHeight,
   },
   modalChange: function (e) {
     this.setData({

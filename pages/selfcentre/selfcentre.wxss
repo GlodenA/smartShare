@@ -1,4 +1,4 @@
-/* pages/selfcentre/selfcentre.wxss */
+
 .selfpic{
   left: 40rpx;
   top: 30rpx;

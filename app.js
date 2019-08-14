@@ -27,13 +27,13 @@ App({
                 },
                 success: res => {
                   wx.setStorageSync('cookie', res.data.data.USER_ID),
-                  app.globalData.avatarUrl = res.data.data.PORTRAIT,
-                  app.globalData.nickName = res.data.data.NI_NAME,
-                  app.globalData.userId = res.data.data.USER_ID,
-                  app.globalData.username = res.data.data.USER_NAME,
-                  app.globalData.email = res.data.data.EMAIL,
-                  app.globalData.phone=res.data.data.PHONE,
-                  app.globalData.signature = res.data.data.SIGNATURE
+                    this.globalData.avatarUrl = res.data.data.PORTRAIT,
+                    this.globalData.nickName = res.data.data.NI_NAME,
+                    this.globalData.userId = res.data.data.USER_ID,
+                    this.globalData.username = res.data.data.USER_NAME,
+                    this.globalData.email = res.data.data.EMAIL,
+                    this.globalData.phone=res.data.data.PHONE,
+                    this.globalData.signature = res.data.data.SIGNATURE
                 }
               })
 
@@ -68,7 +68,7 @@ App({
         })
       }
     })
-
+    this.globalData.userId = wx.getStorageSync("cookie");
 
   },
   globalData: {
@@ -82,8 +82,8 @@ App({
     phone: '',
     signature: '',
     // urlPath: 'http://10.1.241.22/docs/',
-    //urlPath: 'http://192.168.1.16:9001/docs/',
-    urlPath: 'http://127.0.0.1:9001/docs/',
+    urlPath: 'http://192.168.1.16:9001/docs/',
+    //urlPath: 'http://127.0.0.1:9001/docs/',
   },
   // isNeedSearch() {
   //   var needSearch = wx.getStorageSync("cookie");

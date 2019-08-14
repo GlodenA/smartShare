@@ -1,0 +1,26 @@
+<!--pages/preview/preview.wxml-->
+<view class="container">
+  <view class="flex item">
+    <view class="flex_auto item_left">
+      <view class="title">  
+        <text>{{preview_docsummey}}</text>
+      </view>
+    </view>
+    <view class="tag" bindtap="preview">阅读全文 </view>
+  </view>
+</view>
+
+<block wx:for="{{msg}}" wx:key>
+    <view class="flex item">
+      <view class="flex_auto item_left">        
+        <view><text class="count">{{item.user_id}}</text></view>
+        <view><text class="count">{{item.msg_txt}}</text></view>
+        <view><text class="count">{{item.update_time}}</text></view>
+      </view>
+    </view>
+  </block>
+
+  <view>
+    <input type="text" value="{{msgText}}" bindinput="msginput" placeholder="留 言" auto-focus/>
+    <button type="default" bindtap="insertMsg">确定</button>
+  </view>

@@ -23,9 +23,9 @@ Page({
       header.Cookie = cookie;
     }
     wx.request({
-      url: getApp().globalData.urlPath + 'user/queryattention',
+      url: getApp().globalData.urlPath + 'focus/getFocusByUserId',
       data: {
-        id: cookie,
+        user_id: cookie,
       },
       method: "get",
       header: header,
@@ -46,9 +46,8 @@ Page({
   },
   qrywriter: function (e){
     let userId = e.currentTarget.dataset.userid;//"83612795"
-    let seqId = e.currentTarget.dataset.seqid;
     wx.navigateTo({
-      url: '/pages/writershow/writershow?userId=' + userId + '&seqId=' + seqId,
+      url: '/pages/writershow/writershow?userId=' + userId ,
     })
   },
 

@@ -97,6 +97,11 @@ Page({
   cancelattention:function()
   {
     let that = this;
+    let cookie = wx.getStorageSync("cookie");
+    let header = { 'content-type': 'application/json' };
+    if (cookie) {
+      header.Cookie = cookie;
+    }
     if(this.data.isAttention)
     {
 
@@ -105,11 +110,10 @@ Page({
         url: getApp().globalData.urlPath + 'focus/deletFocus',
         method: 'GET',
         data: {
-          "seq_id": that.data.seqId
+          user_id: cookie,
+          author_id:that.data.userId
         },
-        header: {
-          'Accept': 'application/json'
-        },
+        header: header,
         success: res => {
           that.setData({
             icon: "friendadd",
@@ -128,13 +132,11 @@ Page({
         url: getApp().globalData.urlPath + 'focus/insertFocus',
         method: 'GET',
         data: {
-          "user_id": that.data.userId,
-          "author_id": that.data.seqId,
+          "user_id": that.data.cookie,
+          "author_id": that.data.userId,
           "author_name": that.data.username,
         },
-        header: {
-          'Accept': 'application/json'
-        },
+        header: header,
         success: res => {
           that.setData({
             icon: "friendaddfill",

@@ -1,18 +1,34 @@
-// pages/collection/collectionA.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    docsData: [],
   },
+
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var queryPath = 'querycollect/';
+    wx.request({
+      url: getApp().globalData.urlPath + queryPath,
+      method: 'GET',
+      data: {
+        user_id: app.globalData.userId
+      },
+      header: {
+        'Accept': 'application/json'
+      },
+      success: res => {
+        this.setData({
+          docsData: res.data.data,
+        })
+      }
+    }) 
   },
 
   /**

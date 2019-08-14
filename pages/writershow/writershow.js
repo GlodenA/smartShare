@@ -1,4 +1,4 @@
-// pages/userinfo/userinfo.js
+const app = getApp()
 Page({
 
   /**
@@ -130,7 +130,7 @@ Page({
         url: getApp().globalData.urlPath + 'focus/insertFocus',
         method: 'GET',
         data: {
-          "user_id": that.data.cookie,
+          "user_id": cookie,
           "author_id": that.data.userId,
           "author_name": that.data.username,
         },

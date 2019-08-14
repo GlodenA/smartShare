@@ -27,12 +27,7 @@
 
   </view>
   <view class="body">
-
-  <!-- <view class="cu-form-group">
-		<view class="title">个性签名</view>
-			<textarea maxlength="-1"  bindinput="textareaInput" disabled="{{modalName!=null}}"  placeholder="未填写"  value="{{signature}}">    </textarea>
-	</view> -->
-    <view class="textArea">个性签名</view>
+  <view class="textArea">个性签名</view>
 	<textarea maxlength="-1"  bindinput="textareaInput" disabled="{{modalName!=null}}"  placeholder="未填写"  value="{{signature}}">    </textarea>
   <view class="textArea">作品展示</view>
   <view class="cu-list" wx:for="{{list}}" wx:key="{{item}}">

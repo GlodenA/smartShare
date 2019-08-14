@@ -92,6 +92,18 @@ Page({
     var index = e.currentTarget.dataset.dex;
     
     var message = this.data.docsData;
+    for (let i in message) {
+      if (i == index) {
+        if (message[i].is_good == 0) {
+          that.data.docsData[index].is_good = 1
+        } else {
+          that.data.docsData[index].is_good = 0
+        }
+      }
+    }
+    that.setData({
+      docsData: message
+    })
     var zanInfo = {
       "user_id":"83612795",
       "doc_id": docid,
@@ -107,18 +119,7 @@ Page({
         'Accept': 'application/json'
       },
       success: res => {
-        for (let i in message) {
-          if (i == index) {
-            if (message[i].is_good == 0) {
-              that.data.docsData[index].is_good = 1
-            } else {
-              that.data.docsData[index].is_good = 0
-            }
-          }
-        }
-        that.setData({
-          docsData: message
-        })
+        console.log("点赞操作成功！")
       },
     })    
   },
@@ -133,6 +134,18 @@ Page({
     var index = e.currentTarget.dataset.dex;
 
     var message = this.data.docsData;
+    for (let i in message) {
+      if (i == index) {
+        if (message[i].is_collect == 0) {
+          that.data.docsData[index].is_collect = 1
+        } else {
+          that.data.docsData[index].is_collect = 0
+        }
+      }
+    }
+    that.setData({
+      docsData: message
+    })
     var zanInfo = {
       "user_id": "83612795",
       "doc_id": docid,
@@ -148,18 +161,7 @@ Page({
         'Accept': 'application/json'
       },
       success: res => {
-        for (let i in message) {
-          if (i == index) {
-            if (message[i].is_collect == 0) {
-              that.data.docsData[index].is_collect = 1
-            } else {
-              that.data.docsData[index].is_collect = 0
-            }
-          }
-        }
-        that.setData({
-          docsData: message
-        })
+        console.log("收藏操作成功！")
       },
     }) 
 

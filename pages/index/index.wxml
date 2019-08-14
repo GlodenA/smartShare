@@ -21,9 +21,7 @@
         <view><text class="title">{{item.DOC_NAME}}</text></view>
         <view><text class="sub_title">{{item.DOC_ID}}</text></view>
         <view><text class="tag">{{item.DOC_LABEL}}</text></view>
-      </view>
-      <view class="item_right">
-        <view><text class="count">{{item.DOWNLOAD_CNT}}</text></view>
+        <view><text class="tag">{{item.DOC_AUTHOR_NAME}}</text></view>
       </view>
     </view>
   </block>

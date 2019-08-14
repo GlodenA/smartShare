@@ -30,7 +30,7 @@ Page({
    //非本人可见关注标志
     let flag = false;
     let seq_id ="";
-    let cookie = wx.getStorageSync("cookie");
+    let cookie = app.globalData.userId;
     if (options.userId != cookie)
     {
       flag = true;
@@ -49,7 +49,7 @@ Page({
   },
   queryUsreInfo: function () {
     var that = this;
-    let cookie = wx.getStorageSync("cookie");
+    let cookie = app.globalData.userId;
     let header = { 'content-type': 'application/json' };
     if (cookie) {
       header.Cookie = cookie;
@@ -95,7 +95,7 @@ Page({
   cancelattention:function()
   {
     let that = this;
-    let cookie = wx.getStorageSync("cookie");
+    let cookie = app.globalData.userId;
     let header = { 'content-type': 'application/json' };
     if (cookie) {
       header.Cookie = cookie;

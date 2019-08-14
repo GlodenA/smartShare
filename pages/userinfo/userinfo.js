@@ -1,4 +1,5 @@
 // pages/userinfo/userinfo.js
+const app = getApp()
 Page({
 
   /**
@@ -29,7 +30,7 @@ Page({
     var that = this;
 
 
-      let cookie = wx.getStorageSync("cookie");
+    let cookie = app.globalData.userId;
       let header = {'content-type': 'application/json'};
       if(cookie)
       {
@@ -109,7 +110,7 @@ Page({
   },
   queryUsreInfo:function(){
     var that = this;
-    let cookie = wx.getStorageSync("cookie");
+    let cookie = app.globalData.userId;
     let header = {'content-type': 'application/json'};
     if(cookie)
     {

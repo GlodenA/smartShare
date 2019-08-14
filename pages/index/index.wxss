@@ -17,10 +17,6 @@
   width:40rpx;height:40rpx;
   margin:0 50rpx 0 20rpx;
 }
-.capsule .voice{
-  width:40rpx;height:40rpx;
-  margin:0 0 0 150rpx;
-}
 
 .box{
   width:90%;

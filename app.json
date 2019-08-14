@@ -14,7 +14,8 @@
     "pages/comments/comments",
     "pages/reading/reading",
     "pages/setting/setting",
-    "pages/selfcentre/selfcentre"
+    "pages/selfcentre/selfcentre",
+    "pages/preview/preview"
     
   ],
   

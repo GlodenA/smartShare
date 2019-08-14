@@ -6,10 +6,9 @@
         <text>{{preview_docsummey}}</text>
       </view>
     </view>
-    <view class="tag" bindtap="preview">阅读全文 </view>
   </view>
 </view>
-
+<view class="tag" bindtap="preview">阅读全文 </view>
 <block wx:for="{{msg}}" wx:key>
     <view class="flex item">
       <view class="flex_auto item_left">        

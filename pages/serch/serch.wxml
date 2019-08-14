@@ -56,7 +56,8 @@
   <block wx:for="{{docsData}}" wx:key>
     <view class="flex item">
       <view class="flex_auto item_left">
-        <view><text class="title">{{item.DOC_NAME}}</text></view>
+        <view bindtap="gotoPreview" data-id="{{item.DOC_ID}}">
+        <text class="title">{{item.DOC_NAME}}</text></view>
         <view><text class="sub_title">{{item.DOC_ID}}</text></view>
         <view><text class="tag">{{item.DOC_TYPE}}</text></view>
         <view><text class="tag">{{item.DOC_AUTHOR_NAME}}</text></view>

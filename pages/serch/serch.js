@@ -191,6 +191,12 @@ selectorChange:function(e){
   //实现排序功能
   
 },
+  gotoPreview: function (e) {
+    var docid = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/preview/preview?docid=' + docid
+    })
+  },
   /**
    * 用户点击右上角分享
    */

@@ -19,9 +19,8 @@
 
 <block wx:for="{{hotKey}}"  wx:key>
     <view class="flex item">
-      <view class="item_top">
-        
-        <button  bindtap="backTosearch"><image src="../../images/fire.png"></image>{{item}}</button>
+      <view class="item_top">        
+        <button  bindtap="backTosearch" data-value="{{item}}"><image src="../../images/fire.png"></image>{{item}}</button>
       </view>
     </view>
 </block>
@@ -32,7 +31,7 @@
     <view class="flex item">
       <view class="item_bottom">
          <image src="../../images/time.png"></image>
-          <view bindtap="backTosearch" value="{{item}}" class="left">{{item}}</view>
+          <view bindtap="backTosearch" data-value="{{item}}" class="left">{{item}}</view>
           <view class="right">×</view>
       </view>
     </view>

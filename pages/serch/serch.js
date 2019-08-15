@@ -198,9 +198,13 @@ selectorChange:function(e){
     })
   },
   /**
-   * 用户点击右上角分享
+   * 点击回填搜索框
+   * 
    */
-  onShareAppMessage: function () {
-
-  }
+  backTosearch:function(e){
+    var value = e.currentTarget.dataset.value
+    this.setData({
+      searchValue:value
+    })
+  },
 })

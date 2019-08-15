@@ -10,7 +10,8 @@ Page({
     preview_docsummey:'',
     path:'',
     msg:[],
-    msgText:''
+    msgText:'',
+    fileType:''
   },
 
   /**
@@ -78,21 +79,39 @@ Page({
     var docid = this.data.preview_docid
     console.log("docid=="+docid)
     var that = this
+    wx.request({
+      url: getApp().globalData.urlPath +'getdocstype',
+      method: 'GET',
+      data:{
+        "doc_id": docid
+      },
+      header: {
+        'Accept': 'application/json'
+      },
+      success: res => {
+        this.setData({
+          fileType: res.data.data,
+
+        })
+      }
+    })
     wx.downloadFile({
       url: getApp().globalData.urlPath + 'filedownload?doc_id=' + docid,
+      //url: 'https://www.bainiu6.com/data/webapp/bnUpload/TEXT.pptx',
       success: function (res) {
         console.log("已下载")
         that.setData({
           path: res.tempFilePath
         })
-        that.openDocument()
+        that.openDocument(that.data.fileType)
       }
     })
+  
   },
   /**
    * 预览
    */
-  openDocument: function () {
+  openDocument: function (fileType) {
     let path = this.data.path
     if (path == '') {
       wx.showModal({
@@ -104,6 +123,7 @@ Page({
     console.log(path)
     wx.openDocument({
       filePath: path,
+      fileType: fileType,
       fail: function (err) {
         console.log(err)
       }

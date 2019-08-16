@@ -14,8 +14,7 @@ Page({
     messageShow:false,//message展示
     message:'',
     actionSheetHidden: true,
-    actionSheetItems: ['按上传时间排序', '按文件名排序','item3','item4']
-
+    actionSheetItems: ['按上传时间排序', '按文件名排序','item3','item4'],
   },
 
   /**

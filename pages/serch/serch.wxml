@@ -1,5 +1,5 @@
 <!--pages/serch/serch.wxml-->
-<view class="container">
+<view class="container" >
   <view class="top">
     <view  class="capsule">
       <image src="../../images/search.png" class="search"></image>
@@ -52,17 +52,20 @@
     默认排序
   </view>
 </picker>
-  <block wx:for="{{docsData}}" wx:key>
-    <view class="flex item">
-      <view class="flex_auto item_left">
+  <block wx:for="{{docsData}}"  wx:key="{{item}}">
+      <view class="item_left">
         <view bindtap="gotoPreview" data-id="{{item.DOC_ID}}">
         <text class="title">{{item.DOC_NAME}}</text></view>
-        <block wx:for="{{item.DOC_LABEL}}"  wx:key="{{index}} ">
-        <view><text class="tag">{{item}}</text></view>
-        </block>
-        <view><text class="tag">{{item.DOC_AUTHOR_NAME}}</text></view>
-        <view><text class="count">{{item.INS_TIME}}</text></view>
-        <view><text class="count">{{item.MSG_NUM}}</text></view>
+        <view class="Label">
+          <block wx:for="{{item.DOC_LABEL}}"  wx:key="{{index}} ">
+            <text class="cu-tag bg-blue light"  style="  border-radius: 12rpx;">{{item}}</text>
+          </block>
+
+        <view>
+          <text class="tag">{{item.DOC_AUTHOR_NAME}}</text>
+          <text class="time">{{item.INS_TIME}}</text>
+        </view>
+        <view><text class="count">留言次数:{{item.MSG_NUM}}</text></view>
         <view bindtap='favorclick' data-id='{{item.DOC_ID}}' data-isgood="{{item.is_good}}" data-dex="{{index}}"  class="like_box">
           <text class="cuIcon-appreciate lg text-gray" wx:if="{{item.is_good == 0}}"></text>
           <text class="cuIcon-appreciatefill lg text-red" wx:else></text>
@@ -72,9 +75,11 @@
           <text class="cuIcon-favor lg text-gray" wx:if="{{item.is_collect == 0}}"></text>
           <text class="cuIcon-favorfill lg text-red" wx:else></text>
         </view>
-      </view>
+</view>
+
     </view>
   </block>
+
   
    </view>
 

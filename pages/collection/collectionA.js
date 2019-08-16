@@ -25,8 +25,14 @@ Page({
         'Accept': 'application/json'
       },
       success: res => {
+        let tempdata = res.data.data
+        for (let i in tempdata) {
+          let str = tempdata[i].DOC_LABEL
+          var docLabel = str.split('，')
+          tempdata[i].DOC_LABEL = docLabel
+        }
         this.setData({
-          docsData: res.data.data,
+          docsData: tempdata || [],
         })
       }
     }) 

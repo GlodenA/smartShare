@@ -50,6 +50,9 @@ Page({
       searchValue:e.detail.value
     })
     var hotkey = e.detail.value
+    wx.showLoading({
+      title: '加载中...',
+    })
     wx.request({
       //url: 'http://127.0.0.1:9001/docs/getdocslist',
       url: getApp().globalData.urlPath + 'getdocsbykeyword',
@@ -77,7 +80,10 @@ Page({
             messageShow: true
           })
         }       
-      }
+      },
+      complete(){
+        wx.hideLoading()
+      },
     })
   },
   /**

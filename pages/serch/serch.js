@@ -1,4 +1,5 @@
 // pages/serch/serch.js
+const app = getApp()
 Page({
 
   /**
@@ -22,11 +23,10 @@ Page({
    */
   onLoad: function (options) {
     wx.request({
-      //url: 'http://127.0.0.1:9001/docs/getdocslist',
       url: getApp().globalData.urlPath + 'querylog',
       method: 'GET',
       data: {
-        "id": "83612795"
+        "id": app.globalData.userId
       },
       header: {
         'Accept': 'application/json'
@@ -45,7 +45,6 @@ Page({
    * 
    */
   bindsearch: function (e) {
-    console.log(e.detail.value); 
     this.setData({
       searchValue:e.detail.value
     })
@@ -54,26 +53,29 @@ Page({
       title: '加载中...',
     })
     wx.request({
-      //url: 'http://127.0.0.1:9001/docs/getdocslist',
       url: getApp().globalData.urlPath + 'getdocsbykeyword',
       method: 'GET',
       data: {
         "Keyword": hotkey,
-        "id":"83612795"
+        "id": app.globalData.userId
       },
       header: {
         'Accept': 'application/json'
       },
       success: res => {
-        console.log(res.data.data)
-        if (res.data.code==2000){
+        if (res.data.code == 2000) {
+          let tempdata = res.data.data
+          for (let i in tempdata) {
+            let str = tempdata[i].DOC_LABEL
+            var docLabel = str.split('，')
+            tempdata[i].DOC_LABEL = docLabel
+          }
           this.setData({
-            docsData: res.data.data,
+            docsData: tempdata||[],
             resultShow:true,
             messageShow: false
         })
         }else{
-          console.log(res.data.message)
           this.setData({
             message: res.data.message,
             resultShow: false,
@@ -111,7 +113,7 @@ Page({
       docsData: message
     })
     var zanInfo = {
-      "user_id":"83612795",
+      "user_id": app.globalData.userId,
       "doc_id": docid,
       "type":"1",//1点赞  2 收藏
       "cancel": cancel
@@ -153,7 +155,7 @@ Page({
       docsData: message
     })
     var zanInfo = {
-      "user_id": "83612795",
+      "user_id": app.globalData.userId,
       "doc_id": docid,
       "type": "2",//1点赞  2 收藏
       "cancel": cancel//操作 1取消点赞 0 点赞

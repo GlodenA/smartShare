@@ -1,5 +1,6 @@
 // pages/preview/preview.js
 var util = require('../../utils/util.js');
+const app = getApp()
 Page({
 
   /**
@@ -77,7 +78,6 @@ Page({
    */
   preview:function(){  
     var docid = this.data.preview_docid
-    console.log("docid=="+docid)
     var that = this
     wx.request({
       url: getApp().globalData.urlPath +'getdocstype',
@@ -97,7 +97,6 @@ Page({
     })
     wx.downloadFile({
       url: getApp().globalData.urlPath + 'filedownload?doc_id=' + docid,
-      //url: 'https://www.bainiu6.com/data/webapp/bnUpload/TEXT.pptx',
       success: function (res) {
         console.log("已下载")
         that.setData({
@@ -142,7 +141,7 @@ Page({
    */
   insertMsg:function(){
     var msglist = {
-      "user_id":'83612795',
+      "user_id": app.globalData.userId,
       "doc_id": this.data.preview_docid,
       "msg_txt": this.data.msgText,
       "update_time": util.formatTime(new Date()),

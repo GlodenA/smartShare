@@ -13,8 +13,6 @@ Page({
     windowWidth: 60,
     tabScroll: 2,
     count: 2,
-    screenHeight: app.globalData.screenHeight,
-
   },
   //事件处理函数
   bindViewTap: function() {

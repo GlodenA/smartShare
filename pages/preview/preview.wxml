@@ -11,10 +11,17 @@
 <view class="tag" bindtap="preview">阅读全文 </view>
 <block wx:for="{{msg}}" wx:key>
     <view class="flex item">
-      <view class="flex_auto item_left">        
-        <view><text class="count">{{item.user_id}}</text></view>
-        <view><text class="count">{{item.msg_txt}}</text></view>
-        <view><text class="count">{{item.update_time}}</text></view>
+      <view class="flex_auto item_left">  
+      <view><image class="selfpic" src="{{item.avatarUrl}}"></image> </view>   
+      <view><text class="count">{{item.nick_name}}</text></view>
+      <view><text class="count">{{item.msg_txt}}</text></view>
+      <view><text class="count">{{item.update_time}}</text></view>
+      <view bindtap='favorclick' data-id='{{item.MSG_ID}}' data-isgood="{{item.is_good}}" 
+	data-dex="{{index}}"  class="like_box">
+          <text class="cuIcon-appreciate lg text-gray" wx:if="{{item.is_good == 0}}"></text>
+          <text class="cuIcon-appreciatefill lg text-red" wx:else></text>
+          <text class="count">{{item.good_times}}</text>
+        </view> 
       </view>
     </view>
   </block>

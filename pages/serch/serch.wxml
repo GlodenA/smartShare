@@ -1,102 +1,97 @@
 <!--pages/serch/serch.wxml-->
 <view class="container" >
-  <view class="top">
-    <view  class="capsule">
-      <image src="../../images/search.png" class="search"></image>
-      <input type="text" value="{{searchValue}}" bindconfirm='bindsearch' auto-focus   placeholder="搜 索"/>
+    <view class="top">
+        <view  class="capsule">
+            <image src="../../images/search.png" class="search"></image>
+            <input type="text" value="{{searchValue}}" bindconfirm='bindsearch' auto-focus   placeholder="搜 索"/>
+        </view>
+        <text>取消</text>
     </view>
-    <text>取消</text>
-  </view>
-  
 
-  <view hidden="{{!messageShow}}">
-  <text class="title">{{message}}</text> 
-  </view>
-<view hidden="{{resultShow}}">
-<view class="item">
-  <view class="title">热搜</view>
-</view>
 
-<block wx:for="{{hotKey}}"  wx:key>
-    <view class="flex item">
-      <view class="item_top">        
-        <button  bindtap="backTosearch" data-value="{{item}}"><image src="../../images/fire.png"></image>{{item}}</button>
-      </view>
+    <view hidden="{{!messageShow}}">
+        <text class="title">{{message}}</text>
     </view>
-</block>
-  <view class="item">
-  <view class="title">搜索历史</view>
-  </view>
-  <block wx:for="{{hisqrylog}}" wx:key>
-    <view class="flex item">
-      <view class="item_bottom">
-         <image src="../../images/time.png"></image>
-          <view bindtap="backTosearch" data-value="{{item}}" class="left">{{item}}</view>
-          <view class="right">×</view>
-      </view>
+    <view hidden="{{resultShow}}">
+        <view class="item">
+            <view class="title">热搜</view>
+        </view>
+
+        <block wx:for="{{hotKey}}"  wx:key>
+            <view class="flex item">
+                <view class="item_top">
+                    <button  bindtap="backTosearch" data-value="{{item}}"><image src="../../images/fire.png"></image>{{item}}</button>
+                </view>
+            </view>
+        </block>
+        <view class="item">
+            <view class="title">搜索历史</view>
+        </view>
+        <block wx:for="{{hisqrylog}}" wx:key>
+            <view class="flex item">
+                <view class="item_bottom">
+                    <image src="../../images/time.png"></image>
+                    <view bindtap="backTosearch" data-value="{{item}}" class="left">{{item}}</view>
+                    <view class="right">×</view>
+                </view>
+            </view>
+        </block>
     </view>
-  </block>
- </view>
- <!--actionSheet实现方式-->
-  <!-- <button type="default" bindtap="actionSheetTap">默认排序</button>
-      <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetChange">
-      <block wx:for="{{actionSheetItems}}">
-        <action-sheet-item class="item" bindtap="bindItemTap" data-name="{{item}}">{{item}}</action-sheet-item>
+    <!--actionSheet实现方式-->
+    <!-- <button type="default" bindtap="actionSheetTap">默认排序</button>
+        <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetChange">
+        <block wx:for="{{actionSheetItems}}">
+          <action-sheet-item class="item" bindtap="bindItemTap" data-name="{{item}}">{{item}}</action-sheet-item>
+      </block>
+      <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+  </action-sheet>
+  -->
+    <!--picker实现方式-->
+    <picker mode="selector" range="{{actionSheetItems}}"  bindchange="selectorChange" class="serch">
+        <view class="title">
+            <image src="../../images/bottom.png"></image>
+            默认排序
+        </view>
+    </picker>
+    <block wx:for="{{docsData}}"  wx:key="{{item}}">
+        <view class="item">
+            <view class="item_search">
+                <view bindtap="gotoPreview" data-id="{{item.DOC_ID}}">
+                    <text class="title">{{item.DOC_NAME}}</text></view>
+                <view class="Label">
+                    <block wx:for="{{item.DOC_LABEL}}"  wx:key="{{index}} ">
+                        <text class="cu-tag bg-blue light"  style="  border-radius: 12rpx;">{{item}}</text>
+                    </block>
+
+                    <!-- 最后一行 -->
+                    <view class="item_article_bottom">
+                        <!-- 作者 -->
+                        <view><text class="tag">{{item.DOC_AUTHOR_NAME}}</text></view>
+
+                        <!-- 时间 -->
+                        <view><text class="time">{{item.INS_TIME}}</text></view>
+
+                        <!-- 留言数 -->
+                        <view>
+                            <image src="../../images/message.png" class="message"></image>
+                            <text class="count">{{item.MSG_NUM}}</text>
+                        </view>
+                        <view bindtap='favorclick' data-id='{{item.DOC_ID}}' data-isgood="{{item.is_good}}"
+                              data-dex="{{index}}"  class="like_box">
+                            <text class="cuIcon-appreciate lg text-gray" wx:if="{{item.is_good == 0}}"></text>
+                            <text class="cuIcon-appreciatefill lg text-red" wx:else></text>
+
+                        </view>
+                        <view bindtap='collectclick' data-id='{{item.DOC_ID}}' data-iscollect="{{item.is_collect}}"
+                              data-dex="{{index}}"  class="like_box1">
+                            <text class="cuIcon-favor  text-gray" wx:if="{{item.is_collect == 0}}"></text>
+                            <text class="cuIcon-favorfill lg text-red" wx:else></text>
+                        </view>
+                    </view>
+
+                </view>
+            </view>
+        </view>
     </block>
-    <action-sheet-cancel class="cancel">取消</action-sheet-cancel> 
-</action-sheet>
--->
-<!--picker实现方式-->
-<picker mode="selector" range="{{actionSheetItems}}"  bindchange="selectorChange" class="serch">
-  <view class="title">
-  <image src="../../images/bottom.png"></image>
-    默认排序
-  </view>
-</picker>
-  <block wx:for="{{docsData}}"  wx:key="{{item}}">
-      <view class="item">
-<view class="item_search">
-        <view bindtap="gotoPreview" data-id="{{item.DOC_ID}}">
-        <text class="title">{{item.DOC_NAME}}</text></view>
-        <view class="Label">
-          <block wx:for="{{item.DOC_LABEL}}"  wx:key="{{index}} ">
-            <text class="cu-tag bg-blue light"  style="  border-radius: 12rpx;">{{item}}</text>
-          </block>
-
-            <!-- 最后一行 -->
-            <view class="item_article_bottom">
-                <!-- 作者 -->
-                <view><text class="tag">{{item.DOC_AUTHOR_NAME}}</text></view>
-
-                <!-- 时间 -->
-                <view><text class="time">{{item.INS_TIME}}</text></view>
-
-        <!-- 留言数 -->
-         <view>
-             <image src="../../images/message.png" class="message"></image>
-             <text class="count">{{item.MSG_NUM}}</text>
-         </view>
-        <view bindtap='favorclick' data-id='{{item.DOC_ID}}' data-isgood="{{item.is_good}}" 
-	data-dex="{{index}}"  class="like_box">
-          <text class="cuIcon-appreciate lg text-gray" wx:if="{{item.is_good == 0}}"></text>
-          <text class="cuIcon-appreciatefill lg text-red" wx:else></text>
-        </view>
-        <view bindtap='collectclick' data-id='{{item.DOC_ID}}' data-iscollect="{{item.is_collect}}" 
-	data-dex="{{index}}"  class="like_box1">
-          <text class="cuIcon-favor  text-gray" wx:if="{{item.is_collect == 0}}"></text>
-          <text class="cuIcon-favorfill lg text-red" wx:else></text>
-        </view>
 </view>
 
-        </view>
-      </view>
-      </view>
-    </block>   
-</view>
-
-
-
-   
-       
-
-   

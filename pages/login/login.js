@@ -5,8 +5,11 @@ Page({
     userInfo: {},
     avatarUrl:"",
     nickName: "",
+    phone:"",
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    loginModel:false,
+    phoneModel: true,
   },
   onLoad: function () {
    
@@ -50,21 +53,14 @@ Page({
         userInfo: e.detail.userInfo,
         avatarUrl: e.detail.userInfo.avatarUrl,
         nickName: e.detail.userInfo.nickName,
-        hasUserInfo: true
+        hasUserInfo: true,
+        loginModel: true,
+        phoneModel: false,
       });
       app.globalData.userInfo = e.detail.userInfo;
       app.globalData.avatarUrl = e.detail.userInfo.avatarUrl;
       app.globalData.nickName = e.detail.userInfo.nickName;
-      app.globalData.userId = e.detail.userInfo.USER_ID,
-      app.globalData.username = e.detail.userInfo.USER_NAME,
-      app.globalData.email = e.detail.userInfo.EMAIL,
-      app.globalData.phone = e.detail.userInfo.PHONE,
-      app.globalData.signature = e.detail.userInfo.SIGNATURE,
-      this.saveUserInfo();
-      
-      wx.switchTab({
-        url: "/pages/index/index",
-      })
+
     } else {
       //用户按了拒绝按钮
       wx.showModal({
@@ -95,7 +91,7 @@ Page({
     wx.request({
       url: getApp().globalData.urlPath + 'user/update',
       data: {
-        USER_ID: cookie,//"83612795"  cookie
+        USER_ID: cookie,
         PORTRAIT: that.data.avatarUrl,
         NI_NAME: that.data.nickName,
         USER_NAME: that.data.username,
@@ -105,10 +101,56 @@ Page({
       },
       method: "post",
       header: header,
-      success: function (res) {      
+      success: function (res) {  
+    
       },
-      faill: function (res) {
+      fail: function (res) {
       }
     });
+  },
+
+  getPhoneNumber: function (e) {
+    let that =this;
+    // console.log(e.detail.errMsg)
+    // console.log(e.detail.iv)
+    // console.log(e.detail.encryptedData)
+    var detail = e.detail;
+    if (e.detail.errMsg == 'getPhoneNumber:fail user deny') {
+      //用户按了拒绝按钮
+      wx.showModal({
+        title: '警告',
+        content: '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!!!',
+        showCancel: false,
+        confirmText: '返回授权',
+        success: function (res) {
+          // 用户没有授权成功，不需要改变 isHide 的值
+          if (res.confirm) {
+            console.log('用户点击了“返回授权”');
+          }
+        }
+      });
+    } else {
+      wx.request({
+        url: getApp().globalData.urlPath+'login/getphone',
+        data:{
+         // "appid": app.d.appId,
+          //"session_key": wx.getStorageSync('session_key'),
+          'user_id': getApp().globalData.userId,
+          "encryptedData": detail.encryptedData,
+          "iv": detail.iv
+        },
+         method: "get",
+        success: function (res) {
+          that.setData({
+            phone: res.data.phone,
+          });
+        },
+      })
+      this.saveUserInfo();
+
+      wx.switchTab({
+        url: "/pages/index/index",
+      })
+    }
   },
 })

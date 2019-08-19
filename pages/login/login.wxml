@@ -7,6 +7,7 @@
 <view class='header'>
   <image src='/images/wx_login.png'></image>
 </view>
+<view hidden="{{loginModel}}">
 <!-- 需要使用 button 来授权登录 -->
 <view  wx:if="{{canIUse}}" >
     <view class='content'>
@@ -16,4 +17,12 @@
 <button  class='bottom'  lang="zh_CN" type='primary' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
 </view>
 <view wx:else>请升级微信版本</view>
+</view>
+</view>
+<view  hidden="{{phoneModel}}">
+    <view class='content'>
+        <view>申请获取以下权限</view>
+        <text>获得你的手机号码</text>
+    </view>
+<button class='bottom' lang="zh_CN" type='primary' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button>
 </view>

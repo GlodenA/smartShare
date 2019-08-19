@@ -80,7 +80,6 @@
 	data-dex="{{index}}"  class="like_box">
           <text class="cuIcon-appreciate lg text-gray" wx:if="{{item.is_good == 0}}"></text>
           <text class="cuIcon-appreciatefill lg text-red" wx:else></text>
-
         </view>
         <view bindtap='collectclick' data-id='{{item.DOC_ID}}' data-iscollect="{{item.is_collect}}" 
 	data-dex="{{index}}"  class="like_box1">

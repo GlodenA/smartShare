@@ -88,7 +88,6 @@ Page({
         USER_ID: cookie,
         PORTRAIT: that.data.avatarUrl,
         NI_NAME: that.data.nickName,
-        USER_NAME: that.data.username,
         PHONE: that.data.phone,
         NTACCT: that.data.ntacct,
         USER_NAME: that.data.username,
@@ -134,8 +133,8 @@ Page({
           that.setData({
             phone: res.data.data.phone,
             ntacct: res.data.data.NT,
-            username: res.data.data.username,
-            email: res.data.data.email,
+            username: res.data.data.NAME,
+            email: res.data.data.EMAIL,
           });
           wx.setStorageSync('ntacct', res.data.data.NT);
           that.saveUserInfo();

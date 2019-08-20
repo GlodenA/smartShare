@@ -49,7 +49,7 @@ Page({
   qrywriter: function (e){
     let userId = e.currentTarget.dataset.userid;//"83612795"
     wx.navigateTo({
-      url: '/pages/writershow/writershow?userId=' + userId ,
+      url: '/pages/writershow/writershow?userId=' + userId+'&type=1' ,
     })
   },
 

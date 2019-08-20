@@ -1,8 +1,4 @@
-<!--pages/collection/collection.wxml-->
-<view wx:if="{{hasdata}}" >
-没有收藏！
-</view>
-<view class="index" style="height:{{screenHeight}}px" wx:else>
+<view class="index" style="height:{{screenHeight}}px"  wx:if="{{hasdata}}">
   <block wx:for="{{docsData}}"  wx:key="{{item}}">
       <view class="item_left">
         <view bindtap="gotoPreview" data-id="{{item.DOC_ID}}">
@@ -13,9 +9,12 @@
           </block>
         </view>
         <view>
-          <text class="tag">{{item.DOC_AUTHOR_NAME}}</text>
-          <text class="time">{{item.INS_TIME}}</text>
+          <text class="tag" bindtap="gotowritershow" data-id="{{item.DOC_UPLOADER_ID}}">发布人：{{item.DOC_UPLOADER_NAME}}</text>
+          <text class="time">发布时间：{{item.INS_TIME}}</text>
         </view>
       </view>
   </block>
+</view>
+<view wx:else  >
+没有收藏！
 </view>

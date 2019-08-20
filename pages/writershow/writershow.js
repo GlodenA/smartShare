@@ -11,7 +11,7 @@ Page({
     email: '',
     phone: '',
     signature: '',
-    userId:'',
+    ntacct:'',
     modalHidden: true,
     modaltext: '',
     icon: "friendaddfill",
@@ -30,8 +30,8 @@ Page({
    //非本人可见关注标志
     let flag = false;
     let seq_id ="";
-    let cookie = app.globalData.userId;
-    if (options.userId != cookie)
+    let cookie = app.globalData.ntacct;
+    if (options.ntacct != cookie)
     {
       flag = true;
     }
@@ -40,7 +40,7 @@ Page({
       seq_id = options.seqId;
     }
     this.setData({
-      userId: options.userId,//"1908021425435781"
+      ntacct: options.ntacct,//"1908021425435781"
       isShow : flag,
       seqId : seq_id,
     })
@@ -49,7 +49,7 @@ Page({
   },
   queryUsreInfo: function () {
     var that = this;
-    let cookie = app.globalData.userId;
+    let cookie = app.globalData.ntacct;
     let header = { 'content-type': 'application/json' };
     if (cookie) {
       header.Cookie = cookie;
@@ -57,7 +57,7 @@ Page({
     wx.request({
       url: getApp().globalData.urlPath + 'querybyauthor',
       data: {
-        id: that.data.userId,//"83612795"  cookie
+        NT: that.data.ntacct,//"83612795"  cookie
       },
       method: "get",
       header: header,
@@ -95,7 +95,7 @@ Page({
   cancelattention:function()
   {
     let that = this;
-    let cookie = app.globalData.userId;
+    let cookie = app.globalData.ntacct;
     let header = { 'content-type': 'application/json' };
     if (cookie) {
       header.Cookie = cookie;
@@ -109,7 +109,7 @@ Page({
         method: 'GET',
         data: {
           user_id: cookie,
-          author_id:that.data.userId
+          author_id: that.data.ntacct
         },
         header: header,
         success: res => {
@@ -131,7 +131,7 @@ Page({
         method: 'GET',
         data: {
           "user_id": cookie,
-          "author_id": that.data.userId,
+          "author_id": that.data.ntacct,
           "author_name": that.data.username,
         },
         header: header,

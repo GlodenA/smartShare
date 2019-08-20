@@ -66,7 +66,7 @@
                     <!-- 最后一行 -->
                     <view class="item_article_bottom">
                         <!-- 作者 -->
-                        <view><text class="tag">{{item.DOC_AUTHOR_NAME}}</text></view>
+                        <view><text class="tag" bindtap="gotowritershow" data-id="{{item.DOC_UPLOADER_ID}}">发布人：{{item.DOC_UPLOADER_NAME}}</text></view>
 
                         <!-- 时间 -->
                         <view><text class="time">{{item.INS_TIME}}</text></view>

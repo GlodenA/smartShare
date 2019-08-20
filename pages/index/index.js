@@ -111,4 +111,13 @@ Page({
       url: '/pages/preview/preview?docid=' + docid
     })
   },
+  /**
+   *点击发布人跳转 
+   */
+  gotowritershow: function (e) {
+    var ntacct = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/writershow/writershow?ntacct=' + ntacct
+    })
+  },
 })

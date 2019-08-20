@@ -205,6 +205,15 @@ selectorChange:function(e){
     })
   },
   /**
+   *点击发布人跳转 
+   */
+  gotowritershow: function (e) {
+    var ntacct = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/writershow/writershow?ntacct=' + ntacct
+    })
+  },
+  /**
    * 点击回填搜索框
    * 
    */

@@ -9,6 +9,8 @@ Page({
   data: {
     preview_docid:1,
     preview_docsummey:'',
+    preview_docname: '',
+    preview_docauthorname:'',
     path:'',
     msg:[],
     msgText:'',
@@ -66,6 +68,8 @@ Page({
       },
       success: res => {
         this.setData({
+          preview_docname: res.data.data.DOC_NAME,
+          preview_docauthorname: res.data.data.DOC_AUTHOR_NAME,
           preview_docsummey: res.data.data.DOC_SUMMARY,
           preview_docid: docid
 

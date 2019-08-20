@@ -56,7 +56,7 @@
   <block wx:for="{{docsData}}"  wx:key="{{item}}">
       <view class="item">
 <view class="item_search">
-        <view bindtap="gotoPreview" data-id="{{item.DOC_ID}}">
+        <view bindtap="gotoPreview" data-id="{{item.DOC_ID}}" class="tab">
         <text class="title">{{item.DOC_NAME}}</text></view>
         <view class="Label">
           <block wx:for="{{item.DOC_LABEL}}"  wx:key="{{index}} ">

@@ -7,6 +7,7 @@ Page({
   data: {
     docsData: [],
     screenHeight: app.globalData.screenHeight,
+    hasdata:true,
   },
 
   /**
@@ -27,6 +28,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    let that =this;
     var queryPath = 'querycollect/';
     wx.request({
       url: getApp().globalData.urlPath + queryPath,
@@ -38,14 +40,20 @@ Page({
         'Accept': 'application/json'
       },
       success: res => {
-        let tempdata = res.data.data
+        let tempdata = res.data.data;
+        let hasdata = true;
         for (let i in tempdata) {
-          let str = tempdata[i].DOC_LABEL
-          var docLabel = str.split('，')
-          tempdata[i].DOC_LABEL = docLabel
+          let str = tempdata[i].DOC_LABEL;
+          var docLabel = str.split('，');
+          tempdata[i].DOC_LABEL = docLabel;
         }
-        this.setData({
+        if(tempdata!="")
+        {
+          hasdata = false;
+        }
+        that.setData({
           docsData: tempdata||[],
+          hasdata: hasdata,
         })
       }
     }) 

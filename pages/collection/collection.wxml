@@ -1,5 +1,8 @@
 <!--pages/collection/collection.wxml-->
-<view class="index" style="height:{{screenHeight}}px">
+<view wx:if="{{hasdata}}" >
+没有收藏！
+</view>
+<view class="index" style="height:{{screenHeight}}px" wx:else>
   <block wx:for="{{docsData}}"  wx:key="{{item}}">
       <view class="item_left">
         <view bindtap="gotoPreview" data-id="{{item.DOC_ID}}">

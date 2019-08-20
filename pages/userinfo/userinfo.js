@@ -12,6 +12,7 @@ Page({
     email: '' ,
     phone: '',
     signature: '',
+    ntacct:'',
     modalHidden: true,
     modaltext:'',
     screenHeight: app.globalData.screenHeight,
@@ -40,12 +41,13 @@ Page({
       wx.request({
         url: getApp().globalData.urlPath + 'user/update',
         data: {
-          USER_ID: cookie,//"83612795"  cookie 
+          USER_ID: cookie,
           PORTRAIT:that.data.avatarUrl,
           NI_NAME: that.data.nickName,
           USER_NAME: that.data.username,
           EMAIL: that.data.email,
           PHONE: that.data.phone,
+          NTACCT: that.data.ntacct,       
           SIGNATURE: that.data.signature,
         },
         method:"post",
@@ -99,6 +101,11 @@ Page({
   phoneInput(e) {
     this.setData({
       phone: e.detail.value
+    })
+  },
+  ntacctInput(e) {
+    this.setData({
+      ntacct: e.detail.value
     })
   },
   /**

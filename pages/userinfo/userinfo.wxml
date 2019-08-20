@@ -21,6 +21,10 @@
 		<label>号码</label>
 		<input placeholder="未填写"  value="{{phone}}"  bindinput="phoneInput"  ></input>
 	</view>
+  <view class="f1 ">
+		<label>NT</label>
+    <input placeholder="未绑定" value="{{ntacct}}" bindinput="ntacctInput" > </input>
+	</view>
   <view class="textArea">个性签名</view>
 	<textarea maxlength="-1"  bindinput="textareaInput" disabled="{{modalName!=null}}"  placeholder="未填写"  value="{{signature}}">    </textarea>
 

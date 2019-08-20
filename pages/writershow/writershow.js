@@ -30,8 +30,8 @@ Page({
    //非本人可见关注标志
     let flag = false;
     let seq_id ="";
-    let cookie = app.globalData.userId;
-    if (options.userId != cookie)
+    let nt = app.globalData.nt;
+    if (options.nt != nt)
     {
       flag = true;
     }
@@ -40,7 +40,7 @@ Page({
       seq_id = options.seqId;
     }
     this.setData({
-      userId: options.userId,//"1908021425435781"
+      nt: options.nt,
       isShow : flag,
       seqId : seq_id,
     })
@@ -57,7 +57,7 @@ Page({
     wx.request({
       url: getApp().globalData.urlPath + 'querybyauthor',
       data: {
-        id: that.data.userId,//"83612795"  cookie
+        id: that.data.nt,
       },
       method: "get",
       header: header,
@@ -109,7 +109,7 @@ Page({
         method: 'GET',
         data: {
           user_id: cookie,
-          author_id:that.data.userId
+          nt:that.data.nt
         },
         header: header,
         success: res => {
@@ -131,7 +131,7 @@ Page({
         method: 'GET',
         data: {
           "user_id": cookie,
-          "author_id": that.data.userId,
+          "nt": that.data.nt,
           "author_name": that.data.username,
         },
         header: header,

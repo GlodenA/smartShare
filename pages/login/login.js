@@ -2,11 +2,12 @@ const app = getApp()
 
 Page({
   data: {
-    userInfo: {},
     avatarUrl:"",
     nickName: "",
     phone:"",
-    hasUserInfo: false,
+    nt:"",
+    username:"",
+    email:"",
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     loginModel:false,
     phoneModel: true,
@@ -24,10 +25,8 @@ Page({
         // 所以此处加入 callback 以防止这种情况
         app.userInfoReadyCallback = res => {
           that.setData({
-            userInfo: res.userInfo,
             avatarUrl: res.userInfo.avatarUrl,
             nickName: res.userInfo.nickName,
-            hasUserInfo: true
           })
         }
       } else {
@@ -46,18 +45,13 @@ Page({
       }
 
  
-      // 获取到用户的信息了，打印到控制台上看下
-      console.log("用户的信息如下：");
-      console.log(e.detail.userInfo);
+
       that.setData({
-        userInfo: e.detail.userInfo,
         avatarUrl: e.detail.userInfo.avatarUrl,
         nickName: e.detail.userInfo.nickName,
-        hasUserInfo: true,
         loginModel: true,
         phoneModel: false,
       });
-      app.globalData.userInfo = e.detail.userInfo;
       app.globalData.avatarUrl = e.detail.userInfo.avatarUrl;
       app.globalData.nickName = e.detail.userInfo.nickName;
 
@@ -95,9 +89,10 @@ Page({
         PORTRAIT: that.data.avatarUrl,
         NI_NAME: that.data.nickName,
         USER_NAME: that.data.username,
-        EMAIL: that.data.email,
         PHONE: that.data.phone,
-        SIGNATURE: that.data.signature,
+        NTACCT: that.data.ntacct,
+        USER_NAME: that.data.username,
+        EMAIL: that.data.email,
       },
       method: "post",
       header: header,
@@ -111,9 +106,6 @@ Page({
 
   getPhoneNumber: function (e) {
     let that =this;
-    // console.log(e.detail.errMsg)
-    // console.log(e.detail.iv)
-    // console.log(e.detail.encryptedData)
     var detail = e.detail;
     if (e.detail.errMsg == 'getPhoneNumber:fail user deny') {
       //用户按了拒绝按钮
@@ -131,10 +123,8 @@ Page({
       });
     } else {
       wx.request({
-        url: getApp().globalData.urlPath+'login/getphone',
+        url: getApp().globalData.urlPath+'user/getphone',
         data:{
-         // "appid": app.d.appId,
-          //"session_key": wx.getStorageSync('session_key'),
           'user_id': getApp().globalData.userId,
           "encryptedData": detail.encryptedData,
           "iv": detail.iv
@@ -142,15 +132,20 @@ Page({
          method: "get",
         success: function (res) {
           that.setData({
-            phone: res.data.phone,
+            phone: res.data.data.phone,
+            ntacct: res.data.data.NT,
+            username: res.data.data.username,
+            email: res.data.data.email,
           });
+          wx.setStorageSync('ntacct', res.data.data.NT);
+          that.saveUserInfo();
+          
+          wx.switchTab({
+            url: "/pages/index/index",
+          })
         },
       })
-      this.saveUserInfo();
 
-      wx.switchTab({
-        url: "/pages/index/index",
-      })
     }
   },
 })

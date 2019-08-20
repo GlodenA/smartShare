@@ -7,35 +7,14 @@ Page({
   data: {
     docsData: [],
     screenHeight: app.globalData.screenHeight,
+    hasdata: true,
   },
-
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var queryPath = 'querycollect/';
-    wx.request({
-      url: getApp().globalData.urlPath + queryPath,
-      method: 'GET',
-      data: {
-        user_id: app.globalData.userId
-      },
-      header: {
-        'Accept': 'application/json'
-      },
-      success: res => {
-        let tempdata = res.data.data
-        for (let i in tempdata) {
-          let str = tempdata[i].DOC_LABEL
-          var docLabel = str.split('，')
-          tempdata[i].DOC_LABEL = docLabel
-        }
-        this.setData({
-          docsData: tempdata || [],
-        })
-      }
-    }) 
+
   },
 
   /**
@@ -49,7 +28,34 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let that = this;
+    var queryPath = 'querycollect/';
+    wx.request({
+      url: getApp().globalData.urlPath + queryPath,
+      method: 'GET',
+      data: {
+        user_id: app.globalData.userId
+      },
+      header: {
+        'Accept': 'application/json'
+      },
+      success: res => {
+        let tempdata = res.data.data;
+        let hasdata = true;
+        for (let i in tempdata) {
+          let str = tempdata[i].DOC_LABEL;
+          var docLabel = str.split('，');
+          tempdata[i].DOC_LABEL = docLabel;
+        }
+        if (tempdata != "") {
+          hasdata = false;
+        }
+        that.setData({
+          docsData: tempdata || [],
+          hasdata: hasdata,
+        })
+      }
+    })
   },
 
   /**

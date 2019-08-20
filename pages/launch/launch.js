@@ -59,7 +59,7 @@ Page({
     wx.request({
       url: getApp().globalData.urlPath + 'user/getuserinfo',
       data: {
-        USER_ID: cookie,//"83612795"  cookie
+        USER_ID: cookie,
       },
       method: "get",
       header: header,
@@ -67,7 +67,6 @@ Page({
         //从数据库获取用户信息
         if (res.data.flag) {
           that.setData({
-            //userInfo: app.globalData.userInfo,
             avatarUrl: res.data.data.PORTRAIT,
             nickName: res.data.data.NI_NAME,
             hasUserInfo: true

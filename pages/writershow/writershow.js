@@ -14,11 +14,11 @@ Page({
     ntacct:'',
     modalHidden: true,
     modaltext: '',
-    icon: "friendaddfill",
+    icon: "friendadd",
     iconColour: "white",
-    iconText: "取消关注",
-    isAttention:true,
-    isShow:false,
+    iconText: "关注",
+    iconShow: true,
+    isAttention: false,
     screenHeight: app.globalData.screenHeight,
     list: []
   },
@@ -31,7 +31,6 @@ Page({
     let flag = false;
     let seq_id ="";
     let cookie = app.globalData.ntacct;
-    console.log("cookie===" + cookie)
     if (options.ntacct != cookie)
     {
       flag = true;
@@ -40,11 +39,28 @@ Page({
     {
       seq_id = options.seqId;
     }
-    this.setData({
-      ntacct: options.ntacct,//"1908021425435781"
-      isShow : flag,
-      seqId : seq_id,
-    })
+    if (options.type != null)
+    {
+      this.setData({
+        ntacct: options.ntacct,
+        isShow: flag,
+        seqId: seq_id,
+        icon: "friendaddfill",
+        iconColour: "white",
+        iconText: "取消关注",
+        iconShow: true,
+        isAttention: true,
+      })
+    }
+    else
+    {
+      this.setData({
+        ntacct: options.ntacct,
+        isShow: flag,
+        seqId: seq_id,
+      })
+    }
+
     this.queryUsreInfo();
 
   },

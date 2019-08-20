@@ -2,8 +2,9 @@
 <view class="indexcontainer">
   <view class="indextitle">智享库</view>
   <view  class="capsule" bindtap='bindsearch' > 
-    <image src="../../images/search.png" class="search"></image>
+    <image src="../../images/sousuo.svg" class="search"></image>
     <input type="text"  placeholder="搜 索"/>
+    <image src="../../images/yuyin.svg" class="yuyin"></image>
   </view>
   <scroll-view class="tab" scroll-x scroll-left="{{tabScroll}}" scroll-with-animation="true">
     <block wx:for-items="{{ menuList }}"  wx:key="index">
@@ -14,14 +15,17 @@
     </view>
  </block>
  </scroll-view>
-   
+   <view class="bannerBox">
+   <!-- 图片尺寸建议822*300 -->
+    <image mode="aspectFit" src="../../images/banner01.jpg"></image>
+   </view>
   <block wx:for="{{docsData}}"  wx:key="{{item}}">
       <view class="item_left">
-        <view bindtap="gotoPreview" data-id="{{item.DOC_ID}}">
+        <view bindtap="gotoPreview" data-id="{{item.DOC_ID}}" class="item_title">
         <text class="title">{{item.DOC_NAME}}</text></view>
         <view class="Label">
           <block wx:for="{{item.DOC_LABEL}}"  wx:key="{{index}} ">
-            <text class="cu-tag bg-blue light"  style="  border-radius: 12rpx;">{{item}}</text>
+            <text class="cu-tag bg-brown light"  style="  border-radius: 12rpx;">{{item}}</text>
           </block>
         </view>
         <view>

@@ -42,7 +42,7 @@
 
 .container{
  width: 100%;
- height: 79rpx;
+ /* height: 79rpx; */
  background: #FCFCFC;
 }
 .tab{
@@ -72,4 +72,139 @@
 .active{
  color: #4A5FE2;
  border-bottom: 1rpx solid #4A5FE2;
+}
+
+.details_title {
+  display: block;
+  overflow: hidden;
+  margin: 0 20rpx;
+}
+.details_title .title{
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 2;
+overflow: hidden;
+font-size: 44rpx;
+color: #333;
+font-weight: 500;
+}
+.details_title .author{
+  font-size: 32rpx;
+  color: #1f90e7;
+  margin-top: 10rpx;
+}
+.details_title .author .time{
+  color: #999;
+  font-weight: 200;
+}
+.Read {
+  display: block;
+  overflow: hidden;
+  padding: 20rpx 40rpx;
+  font-size: 32rpx;
+  color: #999;
+  background: #fff;
+}
+.Read image{
+  float: left;
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 10rpx;
+  margin-top: 8rpx;
+}
+
+
+
+/* 留言部分 */
+.head {
+  width: 80rpx;
+  height: 80rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.head image{
+  width: 80rpx;
+  height: 80rpx;
+  vertical-align: bottom;
+  border-radius: 10rpx;
+}
+.message_name {
+  display: block;
+  overflow: hidden;
+  margin: 20rpx 40rpx;
+  font-size: 32rpx;
+  color: #888888;
+}
+.message_name .name{
+  float: left;
+}
+.message_name .write{
+  float: right;
+}
+.message_name .writeBtn {
+  font-size: 32rpx;
+  color: #888888;
+  border:0px;
+  background: none;
+  padding:0px;
+  line-height:initial;
+}
+.writeBtn::after {
+  border: 0;
+}
+.message_list {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.userBox {
+  display: block;
+  margin: 0 80rpx;
+  padding: 4rpx 20rpx;
+}
+.userBox .userName{
+  float: left;
+  font-size: 28rpx;
+  color: #666666;
+}
+.userBox .userTime{
+  float: right;
+  font-size: 24rpx;
+  color: #999;
+}
+.userBox .userTxt{
+  display: block;
+  overflow: hidden;
+  color: #444;
+  font-size: 30rpx;
+  width: 100%;
+  min-height: 40rpx;
+}
+.fabulous {
+  position: absolute;
+  width: 80rpx;
+  right: 0;
+  top: 0;
+  text-align: center;
+}
+.fontSize40 {
+  font-size: 44rpx;
+}
+.fabulous .number{
+  display: block;
+  overflow: hidden;
+  color: orange;
+}
+.message {
+  display: block;
+  overflow: hidden;
+  margin: 20rpx;
+}
+.message input{
+  background: #fff;
+  border-radius: 10rpx;
+}
+.textareaText {
+  text-align: left;
 }

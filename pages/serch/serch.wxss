@@ -5,14 +5,12 @@
 }
 .top{
   width:100%;
-  padding: 25rpx;
+  padding: 25rpx; 
   display: flex;
-}
-.top input{
-  width: 100%;
+  background: #f9f9f9;
 }
 .capsule {
-  width: 90%;
+  width: 610rpx;
   height: 80rpx;
   border: 1rpx solid rgba(119, 119, 119, 0.438);
   border-radius: 12rpx;
@@ -21,14 +19,13 @@
   background-color: #fff;
 }
 .search{
-  width:40rpx;height:40rpx;
-  margin:0 0 0 20rpx;
+  width:30rpx;height:30rpx;
+  margin:0 16rpx 0 20rpx;
 }
 .top text{
   height:30rpx;
-  position:relative;
-  left: 2%;
-  margin-top: 3%;
+  margin-top:17rpx;
+  margin-left:8rpx;
   font-size:32rpx;
   color:#1989fa;
 }
@@ -42,13 +39,17 @@
   margin-right:20rpx;
 }
 .item_top button{
-  border:1rpx solid #eee;
+  border:0;
   border-radius:60rpx;
   align-items: center;
   font-size: 34rpx;
   margin-left:40rpx;
   margin-bottom:30rpx;
   background-color: #eee;
+  line-height: 2.4;
+}
+.item_top button::after{
+  border: 0;
 }
 .item_bottom{
   display: flex;
@@ -85,9 +86,6 @@
   display:flex;
   flex-direction:column;
 }
-.item_search .tab{
-    padding:10rpx 0;
-}
 .item_search .title {
   width:500rpx;
   font-size: 34rpx;
@@ -101,46 +99,44 @@
   color: #999;
   margin: 30rpx 0;
 }
+
+.item_search .tag {
+  font-size: 28rpx;
+  color: #888;
+  margin-right: 80rpx;
+}
+
+.item_search .time {
+  font-size: 29rpx;
+  color: #888;
+  margin-right: 190rpx;
+}
+
+.item_search .count {
+  font-size: 28rpx;
+  color: #888;
+  margin-right:30rpx;
+}
+.item_search .message {
+  width: 30rpx; height: 30rpx;
+  padding-top: 5rpx;
+  margin-right:8rpx;
+}
+.item_search .like_box {
+  font-size: 28rpx;
+  color: #888;
+  margin-right: 30rpx;
+}
+.item_search .like_box1 {
+  font-size: 28rpx;
+  color: #888;
+  margin-right: 0;
+}
 .item_article_bottom view{
     display: inline; 
 }
-.item_article_bottom{
-    padding:10rpx 0;
-}
-.item_article_bottom .tag {
-  font-size: 28rpx;
-  color: #888;
-  position:relative;
-  left: 0%;
-}
-
-.item_article_bottom .time {
-  font-size: 29rpx;
-  color: #888;
-  position:relative;
-  left: 10%;
-}
-.item_article_bottom .count {
-  font-size: 28rpx;
-  color: #888;
-  position:relative;
-  left: 33%;
-}
-.item_article_bottom .message {
-  width: 30rpx; height: 30rpx;
-  position:relative;
-  left: 35%;
-}
-
-.item_article_bottom .like_box {
-  font-size: 28rpx;
-  color: #888;
-  position:relative;
-  left: 39%;
-}
-.item_article_bottom .like_box1 {
-  font-size: 28rpx;
-  color: #888;
-  position:relative;
-  left: 45%;
+.item image {
+  margin-right: 20rpx;
+  margin-top: 16rpx;
+  float: left;
 }

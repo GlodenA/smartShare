@@ -171,6 +171,16 @@ Page({
       }
     })
   },
+  showModal(e) {
+    this.setData({
+      modalName: e.currentTarget.dataset.target
+    })
+  },
+  hideModal(e) {
+    this.setData({
+      modalName: null
+    })
+  },
   /**
   * 点赞和取消点赞
   * 

@@ -9,6 +9,8 @@ Page({
   data: {
     preview_docid:1,
     preview_docsummey:'',
+    preview_docname: '',
+    preview_docauthorname:'',
     path:'',
     msg:[],
     msgText:'',
@@ -66,6 +68,8 @@ Page({
       },
       success: res => {
         this.setData({
+          preview_docname: res.data.data.DOC_NAME,
+          preview_docauthorname: res.data.data.DOC_AUTHOR_NAME,
           preview_docsummey: res.data.data.DOC_SUMMARY,
           preview_docid: docid
 
@@ -165,6 +169,49 @@ Page({
          
        }
       }
+    })
+  },
+  /**
+  * 点赞和取消点赞
+  * 
+  */
+  favorclick: function (e) {
+
+    var that = this;
+    var msgid = e.currentTarget.dataset.id;
+    var cancel = e.currentTarget.dataset.isgood; //操作 1 点赞  0 取消点赞
+    var index = e.currentTarget.dataset.dex;
+
+    var message = this.data.msg;
+    for (let i in message) {
+      if (i == index) {
+        if (message[i].is_good == 0) {
+          that.data.msg[index].is_good = 1
+          that.data.msg[index].good_times += 1
+        } else {
+          that.data.msg[index].good_times -= 1
+        }
+      }
+    }
+    that.setData({
+      msg: message
+    })
+    var zanInfo = {
+      "user_id": app.globalData.userId,
+      "msg_id": msgid,
+      "cancel": cancel
+    }
+
+    wx.request({
+      url: getApp().globalData.urlPath + 'msg/updateGoodTimes',
+      method: 'GET',
+      data: zanInfo,
+      header: {
+        'Accept': 'application/json'
+      },
+      success: res => {
+        console.log("点赞操作成功！")
+      },
     })
   },
   /**

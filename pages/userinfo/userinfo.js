@@ -142,6 +142,7 @@ Page({
                   email: res.data.data.EMAIL,
                   phone: res.data.data.PHONE,
                   signature: res.data.data.SIGNATURE,
+                  ntacct: res.data.data.NTACCT,
 
               })
             }else

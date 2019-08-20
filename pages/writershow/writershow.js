@@ -31,6 +31,7 @@ Page({
     let flag = false;
     let seq_id ="";
     let cookie = app.globalData.ntacct;
+    console.log("cookie===" + cookie)
     if (options.ntacct != cookie)
     {
       flag = true;

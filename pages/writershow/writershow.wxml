@@ -31,10 +31,11 @@
 	<textarea maxlength="-1"  bindinput="textareaInput" disabled="{{modalName!=null}}"  placeholder="未填写"  value="{{signature}}">    </textarea>
   <view class="textArea">作品展示</view>
   <view class="cu-list" wx:for="{{list}}" wx:key="{{item}}">
-  <view class="text-grey">{{item.DOC_NAME}}</view>
-  <view class="text-gray">
-							{{item.DOC_SUMMARY}}
-  </view>	
+  <view bindtap="gotoPreview" data-id="{{item.DOC_ID}}" class="text-grey">{{item.DOC_NAME}}</view>
+  <view>
+     <text class="tag" bindtap="gotowritershow" data-id="{{item.DOC_UPLOADER_ID}}">发布人：{{item.DOC_UPLOADER_NAME}}</text>
+     <text class="time">发布时间：{{item.INS_TIME}}</text>
+  </view>
   </view>	
   <!-- <view class="cu-list menu-avatar" wx:for="{{list}}" wx:key="{{item}}">
     <view class="cu-item">

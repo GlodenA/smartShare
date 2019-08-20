@@ -147,6 +147,12 @@ Page({
       }) 
     }
   },
+  gotoPreview: function (e) {
+    var docid = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/preview/preview?docid=' + docid
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

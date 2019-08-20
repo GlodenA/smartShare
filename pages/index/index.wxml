@@ -26,7 +26,7 @@
         </view>
         <view>
           <text class="tag" bindtap="gotowritershow" data-id="{{item.DOC_UPLOADER_ID}}">发布人：{{item.DOC_UPLOADER_NAME}}</text>
-          <text class="time">{{item.INS_TIME}}</text>
+          <text class="time">发布时间：{{item.INS_TIME}}</text>
         </view>
       </view>
   </block>

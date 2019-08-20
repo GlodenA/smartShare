@@ -69,7 +69,7 @@
                         <view><text class="tag" bindtap="gotowritershow" data-id="{{item.DOC_UPLOADER_ID}}">发布人：{{item.DOC_UPLOADER_NAME}}</text></view>
 
                         <!-- 时间 -->
-                        <view><text class="time">{{item.INS_TIME}}</text></view>
+                        <view><text class="time">发布时间：{{item.INS_TIME}}</text></view>
 
                         <!-- 留言数 -->
                         <view>

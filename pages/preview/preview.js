@@ -135,7 +135,8 @@ Page({
   /**
    * 监听输入框
    */
-  msginput:function(e){
+  bindTextAreaBlur:function(e){
+    console.log("msgText===" + e.detail.value)
     this.setData({
       msgText: e.detail.value
     })
@@ -144,18 +145,20 @@ Page({
    * 留言
    */
   insertMsg:function(){
+    console.log("isnert message==="+this.data.msgText)
     var msglist = {
+      "msg_id":'',
       "user_id": app.globalData.userId,
       "doc_id": this.data.preview_docid,
       "msg_txt": this.data.msgText,
       "update_time": util.formatTime(new Date()),
       "is_valid":'0',
-      "is_good":'0'
+      "is_good":'1',
+      "good_times": 0,
+      "portrait": app.globalData.avatarUrl,
+      "nick_name": app.globalData.nickName
     }
-    this.setData({
-      msg: this.data.msg.concat(msglist),
-      msgText: ''
-    })
+    
     wx.request({
       url: getApp().globalData.urlPath + 'msg/insertMsg',
       method: 'GET',
@@ -166,6 +169,11 @@ Page({
       success: res => {
        if(res.statusCode='2000'){
          console.log("插入成功")
+         msglist.msg_id = res.data.data.msg_id
+         this.setData({
+           msg: this.data.msg.concat(msglist),
+           msgText: ''
+         })
          
        }
       }
@@ -195,10 +203,11 @@ Page({
     var message = this.data.msg;
     for (let i in message) {
       if (i == index) {
-        if (message[i].is_good == 0) {
-          that.data.msg[index].is_good = 1
+        if (message[i].is_good == 1) {
+          that.data.msg[index].is_good = 0
           that.data.msg[index].good_times += 1
         } else {
+          that.data.msg[index].is_good = 1
           that.data.msg[index].good_times -= 1
         }
       }
@@ -213,7 +222,7 @@ Page({
     }
 
     wx.request({
-      url: getApp().globalData.urlPath + 'msg/updateGoodTimes',
+      url: getApp().globalData.urlPath + 'msggood/setMsgGood',
       method: 'GET',
       data: zanInfo,
       header: {

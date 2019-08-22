@@ -119,14 +119,12 @@ Page({
     }
     if(this.data.isAttention)
     {
-
-
       wx.request({
         url: getApp().globalData.urlPath + 'focus/deletFocus',
         method: 'GET',
         data: {
-          user_id: cookie,
-          author_id: that.data.ntacct
+          "user_id": app.globalData.userId,
+          "ntacct": that.data.ntacct,
         },
         header: header,
         success: res => {
@@ -141,15 +139,13 @@ Page({
       }) 
     }
     else{
-
-
       wx.request({
         url: getApp().globalData.urlPath + 'focus/insertFocus',
         method: 'GET',
         data: {
-          "user_id": cookie,
-          "author_id": that.data.ntacct,
-          "author_name": that.data.username,
+          "user_id": app.globalData.userId,
+          "ntacct": that.data.ntacct,
+          "ntname": that.data.username,
         },
         header: header,
         success: res => {

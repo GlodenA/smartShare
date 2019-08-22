@@ -14,7 +14,7 @@ Page({
     messageShow:false,//message展示
     message:'',
     actionSheetHidden: true,
-    actionSheetItems: ['按上传时间排序', '按文件名排序','item3','item4'],
+    actionSheetItems: ['按上传时间排序', '按文件名排序','按留言次数排序','item4'],
   },
 
   /**
@@ -193,17 +193,56 @@ Page({
  * 
  */
 selectorChange:function(e){
-  let i = e.detail.value;
+  let i = e.detail.value;//0 时间 1 文件名 2 点赞次数 
   let value = this.data.actionSheetItems[i];
-  //实现排序功能
   
+  //实现排序功能 降序排列
+  var docdata = this.data.docsData
+  console.log('===docdata==' + this.data.docsData)
+  if(i == 0){ 
+    docdata.sort(this.sortBy('INS_TIME',false))
+  }
+  if (i == 1){
+    docdata.sort(this.sortBy('DOC_NAME', false))
+  }
+  if (i == 2) {
+    docdata.sort(this.sortBy('MSG_NUM', false))
+  }
+  console.log('===sortdata==' + docdata)
+  this.setData({
+    docsData: docdata||[]
+  })
 },
-  gotoPreview: function (e) {
-    var docid = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: '/pages/preview/preview?docid=' + docid
-    })
-  },
+/**
+ * 
+ * 排序规则
+ */
+sortBy:function(attr,rev){
+  console.log("attr=="+attr)
+  if(rev == undefined){
+    rev = 1
+  }else{
+    rev = (rev)?1:-1
+  }
+  return function(a,b){
+    a = a[attr]
+    b = b[attr]
+    if(a<b){
+      return rev * -1
+    }
+    if(a>b){
+      return rev * 0 
+    }
+    return 0
+  }
+},
+  
+gotoPreview: function (e) {
+  var docid = e.currentTarget.dataset.id;
+  wx.navigateTo({
+     url: '/pages/preview/preview?docid=' + docid
+  })
+},
   /**
    *点击发布人跳转 
    */

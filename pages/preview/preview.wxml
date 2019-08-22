@@ -28,15 +28,15 @@
   <view class="flex item">
     <view class="flex_auto message_list">
       <view class="head">
-        <image class="selfpic" src="{{item.portrait}}"></image>
+        <image  src="{{item.portrait}}"></image>
       </view>
       <view class="userBox">
-        <text class="count userName">{{item.nick_name}}</text>
+        <text class="count userName">{{item.ni_name}}</text>
         <!-- <text class="count userTime">{{item.update_time}}</text> -->
         <text class="count userTxt">{{item.msg_txt}}</text>
       </view>
       <view bindtap='favorclick' data-id='{{item.msg_id}}' data-isgood="{{item.is_good}}" data-dex="{{index}}" class="fabulous">
-        <text class="cuIcon-appreciate lg text-red fontSize40" wx:if="{{item.is_good == 0}}"></text>
+        <text class="cuIcon-appreciate lg text-red fontSize40" wx:if="{{item.is_good == 1}}"></text>
         <text class="cuIcon-appreciate lg text-gray fontSize40" wx:else></text>
         <text class="count" class="number">{{item.good_times}}</text>
       </view>
@@ -58,7 +58,7 @@
       </view>
     </view>
     <view class="padding-xl">
-      <textarea bindinput="bindTextAreaBlur" value="{{msgText}}" auto-height placeholder="评论" class="textareaText"/>
+      <textarea bindinput="bindTextAreaBlur" value="{{msgText}}" auto-height placeholder="" class="textareaText"/>
     </view>
     <view class="cu-bar bg-white">
       <view class="action margin-0 flex-sub solid-left" bindtap="hideModal">取消</view>

@@ -208,14 +208,4 @@ font-weight: 500;
 .textareaText {
   text-align: left;
 }
-.selfpic{
-  left: 40rpx;
-  top: 30rpx;
-  bottom: 10rpx;
-  width: 120rpx; 
-  border-radius: 50%;
-  overflow: hidden;
-  height:  120rpx;
-  position: absolute;
-  background:white;
-}
+

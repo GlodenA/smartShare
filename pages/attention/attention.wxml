@@ -11,7 +11,7 @@
       昵称：{{item.NI_NAME}}
     </view>
     <view class="padding-xs " style='font-size:32rpx  '>
-      姓名：{{item.USER_NAME}}
+      姓名：{{item.NAME}}
     </view>
     <view class="padding-xs " style='font-size:32rpx  '>
       电话：{{item.PHONE}}

@@ -47,9 +47,9 @@ Page({
     });
   },
   qrywriter: function (e){
-    let userId = e.currentTarget.dataset.userid;//"83612795"
+    let ntacct = e.currentTarget.dataset.ntacct;
     wx.navigateTo({
-      url: '/pages/writershow/writershow?userId=' + userId+'&type=1' ,
+      url: '/pages/writershow/writershow?ntacct=' + ntacct ,
     })
   },
 

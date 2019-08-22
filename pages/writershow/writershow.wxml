@@ -1,5 +1,3 @@
-<!--pages/writershow/writershow.wxml-->
-<!--pages/userinfo/userinfo.wxml-->
 <view class="index" style="height:{{screenHeight}}px">
   <view class="head">
 <view class="bg-img head-top" style="background-image: url('/images/writer2.jpg');height: 445rpx;">

@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isShow:false,
+    isShow:true,
     list: null,
     screenHeight: app.globalData.screenHeight,
   },
@@ -36,10 +36,18 @@ Page({
         if (res.data.flag) {
           if(res.data.code==2000)
             {
+            if (res.data.data == ""){
               that.setData({
-              isShow:true,
-              list: res.data.data
-             })
+                isShow: false,
+              })
+            }else
+            {
+              that.setData({
+                isShow: true,
+                list: res.data.data
+              })
+            }
+
             }
 
         } 

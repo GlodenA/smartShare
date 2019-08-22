@@ -1,11 +1,10 @@
-<!--pages/attention/attention.wxml-->
-<view class="index" style="height:{{screenHeight}}px"  wx:if="{{isShow}}">
+<view class="index" style="height:{{screenHeight}}px"  wx:if="{{isShow}}"  >
 <view class="head"  wx:for="{{list}}" wx:key="{{item}}" >
 <view class="bg-img head-top" style="background-image: url('/images/writer2.jpg');height: 445rpx;" bindtap="qrywriter"  data-ntacct="{{item.NTACCT}}"   data-seqid="{{item.SEQ_ID}}" >
   <view class="padding text-white">
    
-    
-    <image class="selfpic" src="{{item.PORTRAIT}}"></image>
+    <view class="headBox">
+    <!-- <image class="selfpic" src="{{item.PORTRAIT}}"></image>
    
     <view class="padding-xs " style='font-size:32rpx  '>
       昵称：{{item.NI_NAME}}
@@ -18,7 +17,19 @@
     </view>
     <view class="padding-xs " style='font-size:32rpx  '>
       邮箱：{{item.EMAIL}} 
+    </view> -->
+    <image class="selfpic" src="{{item.PORTRAIT}}"></image>
+      <!-- 昵称： -->
+      <text class='nickname'>{{item.NI_NAME}}</text>
+      <!-- 个性签名 -->
+      <!-- <text class='autograph'>{{signature}}</text> -->
     </view>
+    <view class="infoBox">
+        <text class="name">{{item.NAME}}</text>
+        <text class="">Tel：{{item.PHONE}}</text>
+        <text class="">Email：{{item.EMAIL}}</text>
+    </view>
+   
 </view>
  </view>
   </view>
@@ -26,6 +37,7 @@
 <view wx:else>
 没有关注的作者！
 </view>
+
 
 
 

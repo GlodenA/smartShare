@@ -9,7 +9,7 @@
       <!-- 昵称： -->
       <text class='nickname'>{{niname}}</text>
       <!-- 个性签名 -->
-      <text class='autograph'>个性签名显示这里</text>
+      <text class='autograph'>{{signature}}</text>
     </view>
     <view class="infoBox">
         <text class="name">{{username}}</text>
@@ -31,7 +31,9 @@
   <view class="writerlist" wx:for="{{list}}" wx:key="{{item}}">
     <text class="title" bindtap="gotoPreview" data-id="{{item.DOC_ID}}">{{item.DOC_NAME}}</text>
     <view class="Label">
-        <text class="cu-tag bg-brown light" style="  border-radius: 12rpx;">标签内容</text>
+          <block wx:for="{{item.DOC_LABEL}}"  wx:key="{{index}} ">
+            <text class="cu-tag bg-brown light"  style="  border-radius: 12rpx;">{{item}}</text>
+          </block>
       </view>
       <view class="timemessage">
         <text class="time">发布时间：{{item.INS_TIME}}</text>

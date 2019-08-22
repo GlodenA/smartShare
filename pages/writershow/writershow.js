@@ -75,12 +75,20 @@ Page({
       url: getApp().globalData.urlPath + 'querybyauthor',
       data: {
         NT: that.data.ntacct,//"83612795"  cookie
+        user_id: app.globalData.userId
       },
       method: "get",
       header: header,
       success: res => {
         //从数据库获取用户信息
         if (res.data.flag) {
+          var that = this
+          let tempdata = res.data.data.docslist
+          for (let i in tempdata) {
+            let str = tempdata[i].DOC_LABEL
+            var docLabel = str.split('，')
+            tempdata[i].DOC_LABEL = docLabel
+          }
           that.setData({
             avatarUrl: res.data.data.user.PORTRAIT,
             niname: res.data.data.user.NI_NAME,
@@ -88,7 +96,7 @@ Page({
             email: res.data.data.user.EMAIL,
             phone: res.data.data.user.PHONE,
             signature: res.data.data.user.SIGNATURE,
-            list:res.data.data.docslist
+            list: tempdata||[]
           })
         } else {
           that.setData({
@@ -172,6 +180,92 @@ Page({
   onReady: function () {
 
   },
+
+  /**
+ * 点赞和取消点赞
+ * 
+ */
+  favorclick: function (e) {
+    var that = this;
+    var docid = e.currentTarget.dataset.id;
+    var cancel = e.currentTarget.dataset.isgood; //操作 1 点赞  0 取消点赞
+    var index = e.currentTarget.dataset.dex;
+
+    var message = this.data.docsData;
+    for (let i in message) {
+      if (i == index) {
+        if (message[i].is_good == 0) {
+          that.data.docsData[index].is_good = 1
+        } else {
+          that.data.docsData[index].is_good = 0
+        }
+      }
+    }
+    that.setData({
+      docsData: message
+    })
+    var zanInfo = {
+      "user_id": app.globalData.userId,
+      "doc_id": docid,
+      "type": "1",//1点赞  2 收藏
+      "cancel": cancel
+    }
+
+    wx.request({
+      url: getApp().globalData.urlPath + 'goodcollect/setGoodOrCollect',
+      method: 'GET',
+      data: zanInfo,
+      header: {
+        'Accept': 'application/json'
+      },
+      success: res => {
+        console.log("点赞操作成功！")
+      },
+    })
+  },
+  /**
+   * 收藏和取消收藏
+   * 
+   */
+  collectclick: function (e) {
+    var that = this;
+    var docid = e.currentTarget.dataset.id;
+    var cancel = e.currentTarget.dataset.iscollect; //操作 1 取消点赞  0 点赞
+    var index = e.currentTarget.dataset.dex;
+
+    var message = this.data.docsData;
+    for (let i in message) {
+      if (i == index) {
+        if (message[i].is_collect == 0) {
+          that.data.docsData[index].is_collect = 1
+        } else {
+          that.data.docsData[index].is_collect = 0
+        }
+      }
+    }
+    that.setData({
+      docsData: message
+    })
+    var zanInfo = {
+      "user_id": app.globalData.userId,
+      "doc_id": docid,
+      "type": "2",//1点赞  2 收藏
+      "cancel": cancel//操作 1取消点赞 0 点赞
+    }
+
+    wx.request({
+      url: getApp().globalData.urlPath + 'goodcollect/setGoodOrCollect',
+      method: 'GET',
+      data: zanInfo,
+      header: {
+        'Accept': 'application/json'
+      },
+      success: res => {
+        console.log("收藏操作成功！")
+      },
+    })
+
+  }, 
 
   /**
    * 生命周期函数--监听页面显示

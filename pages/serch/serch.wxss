@@ -80,19 +80,22 @@
   font-weight: 550;
 }
 .item_search {
-  padding:35rpx 35rpx 35rpx 50rpx;
+  padding:20rpx 30rpx;
   color: #110d0d;
   border-top: 1rpx solid #ccc;
   display:flex;
   flex-direction:column;
 }
 .item_search .title {
-  width:500rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
   font-size: 34rpx;
   color:#333;
-  margin-bottom:25rpx;
   font-weight:550;
   padding:0;
+  margin:10rpx 0rpx; 
 }
 .item_search .sub_title {
   font-size: 28rpx;
@@ -117,11 +120,6 @@
   color: #888;
   margin-right:30rpx;
 }
-.item_search .message {
-  width: 30rpx; height: 30rpx;
-  padding-top: 5rpx;
-  margin-right:8rpx;
-}
 .item_search .like_box {
   font-size: 28rpx;
   color: #888;
@@ -132,11 +130,41 @@
   color: #888;
   margin-right: 0;
 }
+.item_article_bottom {
+  display: block;
+  overflow: hidden;
+}
 .item_article_bottom view{
-    display: inline; 
+    display: inline-block;
+}
+.item_article_bottom view.blockBox{
+  display: block;
+  overflow: hidden;
+}
+.item_article_bottom view .tag{
+  margin-right: 0;
+  float: left;
+}
+.item_article_bottom view .time{
+  margin-right: 0;
+  float: left;
+}
+.item_article_bottom view.listFoot{
+  display: inline-block;
+  overflow: hidden;
+  float: right;
+}
+.item_article_bottom view.listFoot .messageBox text.iconBox{
+  margin-right: 10rpx;
 }
 .item image {
   margin-right: 20rpx;
   margin-top: 16rpx;
   float: left;
+}
+.marginTop20 {
+  margin-top: 20rpx;
+}
+.fontSize28 {
+  font-size: 28rpx;
 }

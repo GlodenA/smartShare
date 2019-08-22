@@ -2,36 +2,56 @@
 <!--pages/userinfo/userinfo.wxml-->
 <view class="index" style="height:{{screenHeight}}px">
   <view class="head">
-<view class="bg-img bg-mask padding-tb-xl" style="background-image: url('/images/writer1.png');height: 414rpx;">
+<view class="bg-img head-top" style="background-image: url('/images/writer2.jpg');height: 445rpx;">
   <view class="padding text-white">
-    <view class="">
-     <image class="selfpic" src="{{avatarUrl}}"></image>
-    <view class='padding-xs' style='font-size:32rpx  '>
-      昵称：{{niname}}
+    <view class="headBox">
+      <image class="selfpic" src="{{avatarUrl}}"></image>
+      <!-- 昵称： -->
+      <text class='nickname'>{{niname}}</text>
+      <!-- 个性签名 -->
+      <text class='autograph'>个性签名显示这里</text>
     </view>
+    <view class="infoBox">
+        <text class="name">{{username}}</text>
+        <text class="">Tel：{{phone}}</text>
+        <text class="">Email：{{email}}</text>
     </view>
-    <view class="padding-xs" style='font-size:32rpx  '>
-      姓名：{{username}}
-    </view>
-    <view class="padding-xs" style='font-size:32rpx  '>
-      电话：{{phone}}
-    </view>
-    <view class="padding-xs" style='font-size:32rpx  '>
-      邮箱：{{email}}
-    </view>
-        <view class="padding-xs " style='font-size:32rpx  ' wx:if="{{isShow}}">
+    
+  <view class="follow" style='font-size:32rpx  ' wx:if="{{isShow}}">
     <view class="cuIcon-{{icon}} lg text-{{iconColour}}" bindtap="cancelattention">{{iconText}}</view>
-    </view>
+  </view>
   </view>
 </view>
 
   </view>
   <view class="body">
-  <view class="textArea">个性签名</view>
-	<textarea maxlength="-1"  bindinput="textareaInput" disabled="{{modalName!=null}}"  placeholder="未填写"  value="{{signature}}">    </textarea>
+  <!-- <view class="textArea">个性签名</view>
+	<textarea maxlength="-1"  bindinput="textareaInput" disabled="{{modalName!=null}}"  placeholder="未填写"  value="{{signature}}">    </textarea> -->
   <view class="textArea">发布作品</view>
-  <view class="cu-list" wx:for="{{list}}" wx:key="{{item}}">
-  <view bindtap="gotoPreview" data-id="{{item.DOC_ID}}" class="text-grey">{{item.DOC_NAME}}</view>
+  <view class="writerlist" wx:for="{{list}}" wx:key="{{item}}">
+    <text class="title" bindtap="gotoPreview" data-id="{{item.DOC_ID}}">{{item.DOC_NAME}}</text>
+    <view class="Label">
+        <text class="cu-tag bg-brown light" style="  border-radius: 12rpx;">标签内容</text>
+      </view>
+      <view class="timemessage">
+        <text class="time">发布时间：{{item.INS_TIME}}</text>
+         <!-- 留言数 -->
+            <view class="listFoot">
+              <view class="messageBox">
+                <text class="cuIcon-message text-gray iconBox"></text>
+                <text class="count">32</text>
+              </view>
+              <view bindtap='favorclick' data-id='{{item.DOC_ID}}' data-isgood="{{item.is_good}}" data-dex="{{index}}" class="like_box">
+                <text class="cuIcon-appreciate lg text-gray" wx:if="{{item.is_good == 1}}"></text>
+                <text class="cuIcon-appreciatefill lg text-red" wx:else></text>
+
+              </view>
+              <view bindtap='collectclick' data-id='{{item.DOC_ID}}' data-iscollect="{{item.is_collect}}" data-dex="{{index}}" class="like_box1">
+                <text class="cuIcon-favor  text-gray" wx:if="{{item.is_collect == 1}}"></text>
+                <text class="cuIcon-favorfill lg text-red" wx:else></text>
+              </view>
+            </view>
+      </view>
   </view>	
   <!-- <view class="cu-list menu-avatar" wx:for="{{list}}" wx:key="{{item}}">
     <view class="cu-item">

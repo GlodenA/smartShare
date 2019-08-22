@@ -14,7 +14,7 @@ Page({
     messageShow:false,//message展示
     message:'',
     actionSheetHidden: true,
-    actionSheetItems: ['按上传时间排序', '按文件名排序','按留言次数排序','item4'],
+    actionSheetItems: ['按上传时间排序','按留言次数排序'],
   },
 
   /**
@@ -91,8 +91,7 @@ Page({
    * 点赞和取消点赞
    * 
    */
-  favorclick:function(e){
-  
+  favorclick:function(e){  
     var that = this;
     var docid = e.currentTarget.dataset.id;
     var cancel = e.currentTarget.dataset.isgood; //操作 1 点赞  0 取消点赞
@@ -196,46 +195,51 @@ selectorChange:function(e){
   let i = e.detail.value;//0 时间 1 文件名 2 点赞次数 
   let value = this.data.actionSheetItems[i];
   
+  var property = 'INS_TIME'
   //实现排序功能 降序排列
-  var docdata = this.data.docsData
-  console.log('===docdata==' + this.data.docsData)
   if(i == 0){ 
-    docdata.sort(this.sortBy('INS_TIME',false))
+    property ='INS_TIME'
   }
   if (i == 1){
-    docdata.sort(this.sortBy('DOC_NAME', false))
+    property = 'MSG_NUM'
   }
-  if (i == 2) {
-    docdata.sort(this.sortBy('MSG_NUM', false))
-  }
-  console.log('===sortdata==' + docdata)
-  this.setData({
-    docsData: docdata||[]
+  console.log('property===' + property)
+  var self = this;
+  var docdata = self.data.docsData
+  var sortRule = false; // 倒序
+  self.setData({
+    docsData: docdata.sort(self.compare(property, sortRule))
   })
 },
 /**
  * 
  * 排序规则
  */
-sortBy:function(attr,rev){
-  console.log("attr=="+attr)
-  if(rev == undefined){
-    rev = 1
-  }else{
-    rev = (rev)?1:-1
-  }
-  return function(a,b){
-    a = a[attr]
-    b = b[attr]
-    if(a<b){
-      return rev * -1
+  compare: function (property, bol) {
+    if (property=='INS_TIME'){
+      return function (a, b) {
+        var value1 = Date.parse(a[property]);
+        var value2 = Date.parse(b[property]);
+        if (bol) {
+          return value1 - value2;
+        } else {
+          return value2 - value1;
+        }
+      }
+    }else{
+      return function (a, b) {
+        var value1 = a[property];
+        var value2 = b[property];
+        if (bol) {
+          return value1 - value2;
+        } else {
+          return value2 - value1;
+        }
+      }
     }
-    if(a>b){
-      return rev * 0 
-    }
-    return 0
-  }
-},
+    
+  },
+
   
 gotoPreview: function (e) {
   var docid = e.currentTarget.dataset.id;

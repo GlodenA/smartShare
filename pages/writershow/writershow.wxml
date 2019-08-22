@@ -41,7 +41,7 @@
             <view class="listFoot">
               <view class="messageBox">
                 <text class="cuIcon-message text-gray iconBox"></text>
-                <text class="count">32</text>
+                <text class="count">{{item.msg_times}}</text>
               </view>
               <view bindtap='favorclick' data-id='{{item.DOC_ID}}' data-isgood="{{item.is_good}}" data-dex="{{index}}" class="like_box">
                 <text class="cuIcon-appreciate lg text-gray" wx:if="{{item.is_good == 0}}"></text>

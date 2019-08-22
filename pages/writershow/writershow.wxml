@@ -42,12 +42,12 @@
                 <text class="count">32</text>
               </view>
               <view bindtap='favorclick' data-id='{{item.DOC_ID}}' data-isgood="{{item.is_good}}" data-dex="{{index}}" class="like_box">
-                <text class="cuIcon-appreciate lg text-gray" wx:if="{{item.is_good == 1}}"></text>
+                <text class="cuIcon-appreciate lg text-gray" wx:if="{{item.is_good == 0}}"></text>
                 <text class="cuIcon-appreciatefill lg text-red" wx:else></text>
 
               </view>
               <view bindtap='collectclick' data-id='{{item.DOC_ID}}' data-iscollect="{{item.is_collect}}" data-dex="{{index}}" class="like_box1">
-                <text class="cuIcon-favor  text-gray" wx:if="{{item.is_collect == 1}}"></text>
+                <text class="cuIcon-favor  text-gray" wx:if="{{item.is_collect == 0}}"></text>
                 <text class="cuIcon-favorfill lg text-red" wx:else></text>
               </view>
             </view>

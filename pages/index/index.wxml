@@ -4,7 +4,7 @@
   <view  class="capsule" bindtap='bindsearch' > 
     <image src="../../images/sousuo.svg" class="search"></image>
     <input type="text"  placeholder="搜 索"/>
-    <image src="../../images/yuyin.svg" class="yuyin"></image>
+    <!-- <image src="../../images/yuyin.svg" class="yuyin"></image> -->
   </view>
   <scroll-view class="tab" scroll-x scroll-left="{{tabScroll}}" scroll-with-animation="true">
     <block wx:for-items="{{ menuList }}"  wx:key="index">

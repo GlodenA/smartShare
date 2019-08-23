@@ -34,7 +34,8 @@ Page({
       url: getApp().globalData.urlPath + 'msg/getMsgByDocId',
       method: 'GET',
       data: {
-        "doc_id": docid
+        "doc_id": docid,
+        "user_id": app.globalData.userId,
       },
       header: {
         'Accept': 'application/json'

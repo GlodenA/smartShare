@@ -65,7 +65,7 @@
 }
 .item_left .name {
   font-size: 28rpx;
-  color: #2f6aa5e3;
+  color: #2f6aa5; 
 }
 
 .item_left .Label {

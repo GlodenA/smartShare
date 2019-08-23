@@ -9,8 +9,8 @@
         <text>{{preview_docauthorname}}</text>
         <text class="time"> | 08-20 09:32</text>
       </view>
-      <view class="title">
-        <text>{{preview_docsummey}}</text>
+      <view class="docsummey">
+        <text>简介：{{preview_docsummey}}</text>
       </view>
     </view>
   </view>

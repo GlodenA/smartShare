@@ -59,7 +59,7 @@
       <view class="item_search">
         <view>
           <!-- 作者 -->
-          <text class="tag" bindtap="gotowritershow" data-id="{{item.DOC_UPLOADER_ID}}">发布人：{{item.DOC_UPLOADER_NAME}}</text>
+          <text class="tag" bindtap="gotowritershow" data-id="{{item.DOC_UPLOADER_ID}}">发布人：<text class="name">{{item.DOC_UPLOADER_NAME}}</text></text>
         </view>
         <view bindtap="gotoPreview" data-id="{{item.DOC_ID}}">
           <text class="title">{{item.DOC_NAME}}</text>

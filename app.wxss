@@ -61,6 +61,10 @@
 
 .item_left .tag {
   font-size: 28rpx;
+  color: #aaa;
+}
+.item_left .name {
+  font-size: 28rpx;
   color: #2f6aa5e3;
 }
 

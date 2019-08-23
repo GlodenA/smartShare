@@ -90,7 +90,7 @@ font-weight: 500;
 }
 .details_title .author{
   font-size: 32rpx;
-  color: #1f90e7;
+  color: #2f6aa5e3;
   margin-top: 10rpx;
 }
 .details_title .author .time{

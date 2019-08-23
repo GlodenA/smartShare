@@ -195,19 +195,18 @@ Page({
     var docid = e.currentTarget.dataset.id;
     var cancel = e.currentTarget.dataset.isgood; //操作 1 点赞  0 取消点赞
     var index = e.currentTarget.dataset.dex;
-
-    var message = this.data.docsData;
+    var message = that.data.list;
     for (let i in message) {
       if (i == index) {
-        if (message[i].is_good == 0) {
-          that.data.docsData[index].is_good = 1
+        if (message[i].is_good == '0') {
+          message[i].is_good = '1'
         } else {
-          that.data.docsData[index].is_good = 0
+          message[i].is_good = '0'
         }
       }
     }
     that.setData({
-      docsData: message
+      list: message
     })
     var zanInfo = {
       "user_id": app.globalData.userId,
@@ -238,18 +237,18 @@ Page({
     var cancel = e.currentTarget.dataset.iscollect; //操作 1 取消点赞  0 点赞
     var index = e.currentTarget.dataset.dex;
 
-    var message = this.data.docsData;
+    var message = this.data.list;
     for (let i in message) {
       if (i == index) {
-        if (message[i].is_collect == 0) {
-          that.data.docsData[index].is_collect = 1
+        if (message[i].is_collect == '0') {
+          message[i].is_collect = '1'
         } else {
-          that.data.docsData[index].is_collect = 0
+          message[i].is_collect = '0'
         }
       }
     }
     that.setData({
-      docsData: message
+      list: message
     })
     var zanInfo = {
       "user_id": app.globalData.userId,

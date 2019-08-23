@@ -13,8 +13,10 @@ page {
   width: 120rpx;
   height: 120rpx;
   left: 60rpx;
-  top: 60rpx;
-
+  margin-top: 60rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
 }
 .headBox .nickname {
   font-size: 34rpx;
@@ -22,7 +24,7 @@ page {
   overflow: hidden;
   margin-left: 160rpx;
   opacity: .8;
-  margin-top: 30rpx;
+  margin-top: 80rpx;
 
 }
 .headBox  .autograph {
@@ -54,33 +56,10 @@ page {
   font-size: 46rpx;
   font-weight: 500;
 }
-.follow {
-  position: absolute;
-  right: 60rpx;
-  top: 60rpx;
+/* .selfpic{
 
 
-}
-.selfpic{
-  left: 200px;
-  width: 48px; 
-  border-radius: 50%;
-  overflow: hidden;
-  height:  48px;
-  position: absolute;
-  background:white;
-
-}
-.userNickName
-{
-  left: 0px;
-  top: 10px;
-  bottom: 10px;
-  width: 48px; 
-  height:  48px;
-  overflow: hidden;
-  position: absolute;
-}
+} */
 .selftext{
  left: 10px;
  position: absolute;
@@ -98,92 +77,4 @@ page {
     display: block;
     overflow: hidden;
 }
-.body{
-    padding-left: 10px;
-    padding-right: 10px;
-    overflow: hidden;
-}
-.title{
-    font-size: 30px;
-}
-.cu-form-group .title {
-  min-width: calc(4em + 30rpx);
-}
-.writerlist {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  border-top: 1rpx solid #ededed;
-  padding: 25rpx 0rpx;
-}
-.writerlist .Label {
-  display: block;
-  overflow: hidden;
-  margin: 10rpx 0rpx;
-}
-.writerlist  text.title{
-  font-size: 36rpx;
-  color: #444;
-  font-weight: 500;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden; 
-}
-.timemessage {
-  display: block;
-  overflow: hidden;
-}
-.timemessage .time{
-  margin-right: 0;
-  float: left;
-  font-size: 28rpx;
-  color: #888888;
-}
-.listFoot{
-  display: inline-block;
-  overflow: hidden;
-  float: right;
-  margin-top: -10rpx;
-}
-.listFoot view {
-  float:left;
-  margin-right: 20rpx;
-}
-.listFoot view text{
-  font-size: 28rpx;
-}
-.listFoot .messageBox text.iconBox {
-  margin-right: 10rpx;
-}
-.listFoot .messageBox .count{
-  font-size: 28rpx;
-  color: #888888;
-}
-/* .cu-list.menu-avatar>.cu-item .content {
-	position: absolute;
-	left: 50rpx;
-	width: calc(100% - 96rpx - 60rpx - 120rpx - 20rpx);
-	line-height: 1.6em;
-} */
 
-.textArea{
-  display: block;
-  overflow: hidden;
-  line-height: 60rpx;
-  font-size: 32rpx;
-  color: #888888;
-  font-weight: 400;
-}
- textarea{
-  font-size:32rpx;
-  margin:0 auto;
-  padding:25rpx;
-  border-top:1rpx solid rgba(152, 154, 156, 0.233);
-  border-bottom:1rpx solid rgba(152, 154, 156, 0.384);
-  border-left:1rpx solid rgba(152, 154, 156, 0.384);
-  border-right:1rpx solid rgba(152, 154, 156, 0.384);
-  margin-bottom:30rpx;
-  /* margin-right:25rpx; */
-}

@@ -1,6 +1,6 @@
 <view class="index" style="height:{{screenHeight}}px">
   <view class="head">
-<view class="bg-img head-top" style="background-image: url('/images/writer2.jpg');height: 445rpx;">
+<view class="bg-img head-top" style="background-image: url({{background}});height: 445rpx;">
   <view class="padding text-white">
     <view class="headBox">
       <image class="selfpic" src="{{avatarUrl}}"></image>
@@ -53,19 +53,6 @@
             </view>
       </view>
   </view>	
-  <!-- <view class="cu-list menu-avatar" wx:for="{{list}}" wx:key="{{item}}">
-    <view class="cu-item">
-      <!-- <view class="content"> 
-        <view class="text-grey">{{item.DOC_NAME}}</view>
-        <view class="text-gray">
-          <text class="text-cut">
-							{{item.DOC_SUMMARY}}
-          </text>
-        </view>
-       </view> 
-    </view>
-    </view> -->
-
 </view>
 </view>
 

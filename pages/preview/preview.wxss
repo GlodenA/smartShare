@@ -98,14 +98,31 @@ font-weight: 500;
   font-weight: 200;
 }
 .details_title .docsummey{
-display: -webkit-box;
--webkit-box-orient: vertical;
--webkit-line-clamp: 2;
-overflow: hidden;
-font-size: 32rpx;
-color: #333;
-font-weight: 400;
- margin-top: 10rpx;
+margin-top: 30rpx;
+}
+.details_title .ling-left{
+    width: 30rpx;height: 30rpx;
+}
+.details_title .ling-right{
+    width: 30rpx;height: 30rpx;
+    position: relative;
+    left:66%;
+}
+.details_title .xian-left{
+    width: 200rpx;height: 30rpx;
+}
+.details_title .xian-right{
+    width: 200rpx;height: 30rpx;
+    position: relative;
+    left:65%;
+}
+.details_title .info{
+    padding: 15rpx 20rpx;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    font-size: 32rpx;
+    color: #888;
 }
 .Read {
   display: block;

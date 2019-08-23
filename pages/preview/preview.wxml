@@ -10,7 +10,11 @@
         <text class="time"> | 08-20 09:32</text>
       </view>
       <view class="docsummey">
-        <text>简介：{{preview_docsummey}}</text>
+        <image src="/images/lingxing.png" class="ling-left"></image>
+        <image src="/images/changxian.png" class="xian-left"></image>
+        <view class="info">简介：{{preview_docsummey}}</view>
+        <image src="/images/changxian.png" class="xian-right"></image>
+        <image src="/images/lingxing.png" class="ling-right"></image>
       </view>
     </view>
   </view>

@@ -100,10 +100,10 @@ Page({
     var message = this.data.docsData;
     for (let i in message) {
       if (i == index) {
-        if (message[i].is_good == 0) {
-          that.data.docsData[index].is_good = 1
+        if (message[i].is_good == '0') {
+          message[i].is_good  = '1'
         } else {
-          that.data.docsData[index].is_good = 0
+          message[i].is_good  = '0'
         }
       }
     }
@@ -142,10 +142,10 @@ Page({
     var message = this.data.docsData;
     for (let i in message) {
       if (i == index) {
-        if (message[i].is_collect == 0) {
-          that.data.docsData[index].is_collect = 1
+        if (message[i].is_collect == '0') {
+          message[i].is_collect = '1'
         } else {
-          that.data.docsData[index].is_collect = 0
+          message[i].is_collect = '0'
         }
       }
     }

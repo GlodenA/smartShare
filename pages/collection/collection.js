@@ -47,7 +47,7 @@ Page({
           var docLabel = str.split('，');
           tempdata[i].DOC_LABEL = docLabel;
         }
-        if(tempdata=="")
+        if(tempdata==null)
         {
           hasdata = false;
         }

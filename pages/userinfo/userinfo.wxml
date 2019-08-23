@@ -23,7 +23,7 @@
 	</view>
   <view class="f1 ">
 		<label>NT</label>
-    <input placeholder="未绑定" value="{{ntacct}}" bindinput="ntacctInput" > </input>
+    <input placeholder="未绑定" value="{{ntacct}}" bindinput="ntacctInput" class="nt"> </input>
 	</view>
   <view class="textArea">个性签名</view>
 	<textarea maxlength="-1"  bindinput="textareaInput" disabled="{{modalName!=null}}"  placeholder="未填写"  value="{{signature}}">    </textarea>

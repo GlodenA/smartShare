@@ -1,4 +1,3 @@
-// pages/userinfo/userinfo.js
 const app = getApp()
 Page({
 
@@ -9,12 +8,18 @@ Page({
     isShow:true,
     list: null,
     screenHeight: app.globalData.screenHeight,
+    background: '/images/writer.jpg'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
+    let base64 = wx.getFileSystemManager().readFileSync(this.data.background, 'base64');
+    that.setData({
+      'background': 'data:image/jpg;base64,' + base64
+    });
     this.queryUsreInfo();
   },
   queryUsreInfo: function () {
@@ -36,21 +41,20 @@ Page({
         if (res.data.flag) {
           if(res.data.code==2000)
             {
-            if (res.data.data == ""){
-              that.setData({
-                isShow: false,
-              })
-            }else
-            {
+            
               that.setData({
                 isShow: true,
                 list: res.data.data
               })
+            }else
+            {
+              that.setData({
+                isShow: false,
+               
+              })
             }
 
             }
-
-        } 
       }
     });
   },

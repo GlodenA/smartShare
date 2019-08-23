@@ -20,7 +20,8 @@ Page({
     iconShow: true,
     isAttention: false,
     screenHeight: app.globalData.screenHeight,
-    list: []
+    list: [],
+    background: '/images/writer.jpg'
   },
 
   /**
@@ -28,6 +29,11 @@ Page({
    */
   onLoad: function (options) {
    //非本人可见关注标志
+    var that = this;
+    let base64 = wx.getFileSystemManager().readFileSync(this.data.background, 'base64');
+    that.setData({
+      'background': 'data:image/jpg;base64,' + base64
+    });
     let flag = false;
     let seq_id ="";
     let cookie = app.globalData.ntacct;

@@ -82,7 +82,6 @@ Page({
       success: res => {
         //从数据库获取用户信息
         if (res.data.flag) {
-          var that = this
           let tempdata = res.data.data.docslist
           for (let i in tempdata) {
             let str = tempdata[i].DOC_LABEL

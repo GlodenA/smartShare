@@ -1,68 +1,68 @@
 <!--pages/preview/preview.wxml-->
 <view class="container">
-  <view class="flex item">
-    <view class="flex_auto details_title">
-      <view class="title">
-        <text>{{preview_docname}}</text>
-      </view>   
-      <view class="author">
-        <text>{{preview_docauthorname}}</text>
-        <text class="time"> | 08-20 09:32</text>
-      </view>
-      <view class="docsummey">
-        <text>简介：{{preview_docsummey}}</text>
-      </view>
+    <view class="flex item">
+        <view class="flex_auto details_title">
+            <view class="title">
+                <text>{{preview_docname}}</text>
+            </view>
+            <view class="author">
+                <text>{{preview_docauthorname}}</text>
+                <text class="time"> | 08-20 09:32</text>
+            </view>
+            <view class="docsummey">
+                <text>简介：{{preview_docsummey}}</text>
+            </view>
+        </view>
     </view>
-  </view>
 </view>
 <view class="Read" bindtap="preview">
-  <image src="../../images/jiantou.svg"></image>
-  阅读全文 </view>
+<image src="../../images/jiantou.svg"></image>
+阅读全文 </view>
 <view class="message_name">
-  <text class="name">精选留言</text>
-  <view class="write">
-  <button class="cu-btn shadow margin-left" bindtap="showModal" data-target="DialogModal2" class="writeBtn"><i class="cuIcon-write"></i>写留言</button>
-  </view>
+<text class="name">精选留言</text>
+<view class="write">
+    <button class="cu-btn shadow margin-left" bindtap="showModal" data-target="DialogModal2" class="writeBtn"><i class="cuIcon-write"></i>写留言</button>
+</view>
 </view>
 <block wx:for="{{msg}}" wx:key>
-  <view class="flex item">
+<view class="flex item">
     <view class="flex_auto message_list">
-      <view class="head">
-        <image  src="{{item.portrait}}"></image>
-      </view>
-      <view class="userBox">
-        <text class="count userName">{{item.ni_name}}</text>
-        <!-- <text class="count userTime">{{item.update_time}}</text> -->
-        <text class="count userTxt">{{item.msg_txt}}</text>
-      </view>
-      <view bindtap='favorclick' data-id='{{item.msg_id}}' data-isgood="{{item.is_good}}" data-dex="{{index}}" class="fabulous">
-        <text class="cuIcon-appreciate lg text-red fontSize40" wx:if="{{item.is_good == 1}}"></text>
-        <text class="cuIcon-appreciate lg text-gray fontSize40" wx:else></text>
-        <text class="count" class="number">{{item.good_times}}</text>
-      </view>
+        <view class="head">
+            <image  src="{{item.portrait}}"></image>
+        </view>
+        <view class="userBox">
+            <text class="count userName">{{item.ni_name}}</text>
+            <!-- <text class="count userTime">{{item.update_time}}</text> -->
+            <text class="count userTxt">{{item.msg_txt}}</text>
+        </view>
+        <view bindtap='favorclick' data-id='{{item.msg_id}}' data-isgood="{{item.is_good}}" data-dex="{{index}}" class="fabulous">
+            <text class="cuIcon-appreciate lg text-red fontSize40" wx:if="{{item.is_good == 1}}"></text>
+            <text class="cuIcon-appreciate lg text-gray fontSize40" wx:else></text>
+            <text class="count" class="number">{{item.good_times}}</text>
+        </view>
     </view>
-  </view>
+</view>
 </block>
 
-<!-- <view class="message">
-  <input type="text" value="{{msgText}}" bindinput="msginput" placeholder="留 言" auto-focus/>
-  <button type="default" bindtap="insertMsg">确定</button>
-</view> -->
-<!-- 写留言 -->
+        <!-- <view class="message">
+          <input type="text" value="{{msgText}}" bindinput="msginput" placeholder="留 言" auto-focus/>
+          <button type="default" bindtap="insertMsg">确定</button>
+        </view> -->
+        <!-- 写留言 -->
 <view class="cu-modal {{modalName=='DialogModal2'?'show':''}}">
-  <view class="cu-dialog">
+<view class="cu-dialog">
     <view class="cu-bar bg-white justify-end">
-      <view class="content">写留言</view>
-      <view class="action" bindtap="hideModal">
-        <text class="cuIcon-close text-red"></text>
-      </view>
+        <view class="content">写留言</view>
+        <view class="action" bindtap="hideModal">
+            <text class="cuIcon-close text-red"></text>
+        </view>
     </view>
     <view class="padding-xl">
-      <textarea bindinput="bindTextAreaBlur" value="{{msgText}}" auto-height placeholder="" class="textareaText"/>
+        <textarea bindinput="bindTextAreaBlur" value="{{msgText}}" auto-height placeholder="" class="textareaText"/>
     </view>
     <view class="cu-bar bg-white">
-      <view class="action margin-0 flex-sub solid-left" bindtap="hideModal">取消</view>
-      <view class="action margin-0 flex-sub text-blue solid-left" bindtap="insertMsg">确定</view>
+        <view class="action margin-0 flex-sub solid-left" bindtap="hideModal">取消</view>
+        <view class="action margin-0 flex-sub text-blue solid-left" bindtap="insertMsg">确定</view>
     </view>
-  </view>
+</view>
 </view>

@@ -84,6 +84,9 @@ Page({
   preview:function(){  
     var docid = this.data.preview_docid
     var that = this
+    wx.showLoading({
+      title: '加载中...',
+    })
     wx.request({
       url: getApp().globalData.urlPath +'getdocstype',
       method: 'GET',
@@ -108,7 +111,10 @@ Page({
           path: res.tempFilePath
         })
         that.openDocument(that.data.fileType)
-      }
+      },
+      complete() {
+        wx.hideLoading()
+      },
     })
   
   },
@@ -116,6 +122,7 @@ Page({
    * 预览
    */
   openDocument: function (fileType) {
+    
     let path = this.data.path
     if (path == '') {
       wx.showModal({
@@ -130,14 +137,14 @@ Page({
       fileType: fileType,
       fail: function (err) {
         console.log(err)
-      }
+      },
+      
     })
   },
   /**
    * 监听输入框
    */
   bindTextAreaBlur:function(e){
-    console.log("msgText===" + e.detail.value)
     this.setData({
       msgText: e.detail.value
     })
@@ -146,7 +153,6 @@ Page({
    * 留言
    */
   insertMsg:function(){
-    console.log("isnert message==="+this.data.msgText)
     var msglist = {
       "msg_id":'',
       "user_id": app.globalData.userId,

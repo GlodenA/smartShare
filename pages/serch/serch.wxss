@@ -105,7 +105,7 @@
 
 .item_search .tag {
   font-size: 28rpx;
-  color: #888;
+  color: rgba(7, 159, 247, 0.801);
   margin-right: 80rpx;
 }
 

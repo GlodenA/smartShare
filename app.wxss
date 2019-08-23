@@ -61,7 +61,7 @@
 
 .item_left .tag {
   font-size: 28rpx;
-  color: #888;
+  color: rgba(7, 159, 247, 0.801);
 }
 
 .item_left .Label {

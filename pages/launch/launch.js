@@ -46,7 +46,7 @@ Page({
           }
         }
       })
-    }.bind(this), 3000);
+    }.bind(this), 100);
 
   },
   queryUsreInfo: function () {

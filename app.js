@@ -45,6 +45,7 @@ App({
       },
       fail() {
         // session_key 已经失效，需要重新执行登录流程
+       
         wx.login({
           success: res => {
             console.log("code:" + res.code);
@@ -60,17 +61,9 @@ App({
               success: res => {
                 wx.setStorageSync('cookie', res.data.data.USER_ID),
                   wx.setStorageSync('ntacct', res.data.data.NTACCT),
-                  // getApp().globalData.avatarUrl = res.data.data.PORTRAIT,
-                  // getApp().globalData.nickName = res.data.data.NI_NAME
                   getApp().globalData.userId = res.data.data.USER_ID
-                // getApp().globalData.username = res.data.data.USER_NAME,
-                // getApp().globalData.email = res.data.data.EMAIL,
-                // getApp().globalData.phone = res.data.data.PHONE,
-                // getApp().globalData.signature = res.data.data.SIGNATURE,
-                // getApp().globalData.ntacct = res.data.data.NTACCT
               }
             })
-
           }
         })
       }
@@ -90,7 +83,7 @@ App({
     ntacct: '',
     screenHeight: '',
     urlPath: 'https://www.bainiu6.com/docs/',
-    // urlPath: 'http://192.168.1.16:9001/docs/',
+   // urlPath: 'http://192.168.1.11:9001/docs/',
     //urlPath: 'http://127.0.0.1:9001/docs/',
   },
 })

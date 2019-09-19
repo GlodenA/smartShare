@@ -14,19 +14,30 @@ Page({
       { name: '我的阅读', url: '../reading/reading', icon: 'settings', isShow: true },
       { name: '我的设置', url: '../setting/setting', icon: 'text', isShow: true},
     ],
-    avatarUrl: "",
-    nickName: "",
+    avatarUrl: "/images/default.png",
+    nickName: "用户登录",
     screenHeight: app.globalData.screenHeight,
+    loginStatus:"0"
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-       this.setData({
-         avatarUrl: app.globalData.avatarUrl,
-         nickName: app.globalData.nickName,
-       })
+    // 查看是否授权
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          this.setData({
+            avatarUrl: app.globalData.avatarUrl,
+            nickName: app.globalData.nickName,
+            loginStatus:"1"
+          })
+        }
+      }
+    })
+
+       
   },
 
   /**
@@ -76,5 +87,13 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  login:function(){
+    wx.redirectTo({
+              url: '/pages/login/login',
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
+            })
   }
 })

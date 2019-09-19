@@ -21,7 +21,7 @@ Page({
       _index = _index == 4 ? 0 : _index + 1;
     }, _speed);
     setTimeout(function () {
-      // 查看是否授权
+      // // 查看是否授权
       wx.getSetting({
         success: res => {
           if (res.authSetting['scope.userInfo']) {
@@ -37,8 +37,8 @@ Page({
           else
           {
             console.log("未授权")
-            wx.redirectTo({
-              url: '/pages/login/login',
+            wx.switchTab({
+              url: '/pages/index/index',
               success: function (res) { },
               fail: function (res) { },
               complete: function (res) { },

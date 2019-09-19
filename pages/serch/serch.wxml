@@ -5,7 +5,7 @@
             <image src="../../images/sousuo.svg" class="search"></image>
             <input type="text" value="{{searchValue}}" bindconfirm='bindsearch' auto-focus   placeholder="搜 索"/>
         </view>
-        <text>取消</text>
+        <text bindtap="searchCancel">取消</text>
     </view>
 
 
@@ -21,7 +21,8 @@
       <view class="flex item">
         <view class="item_top">
           <button bindtap="backTosearch" data-value="{{item}}">
-            <image src="../../images/fire.png"></image>{{item}}</button>
+            <image src="../../images/fire.png"></image>
+            {{item}}</button>
         </view>
       </view>
     </block>

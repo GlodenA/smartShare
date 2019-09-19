@@ -15,12 +15,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    let base64 = wx.getFileSystemManager().readFileSync(this.data.background, 'base64');
-    that.setData({
-      'background': 'data:image/jpg;base64,' + base64
-    });
-    this.queryUsreInfo();
+    // 查看是否授权
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          var that = this;
+          let base64 = wx.getFileSystemManager().readFileSync(this.data.background, 'base64');
+          that.setData({
+            'background': 'data:image/jpg;base64,' + base64
+          });
+          this.queryUsreInfo();
+        }
+        else {
+          wx.showModal({
+            title: '提示',
+            content: '您还没授权登录，请先登录',
+          })
+        }
+      }
+    })
+    
   },
   queryUsreInfo: function () {
     var that = this;

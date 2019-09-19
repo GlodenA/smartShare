@@ -100,24 +100,65 @@ Page({
       }
     }) 
   },
-    bindsearch: function () {
-    wx.navigateTo({
-      url: '/pages/serch/serch'
+  bindsearch: function () {
+      // 查看是否授权
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+            wx.navigateTo({
+              url: '/pages/serch/serch'
+            })
+        }
+        else {
+           wx.showModal({
+            title: '提示',
+            content: '您还没授权登录，请先登录',
+          })
+        }
+      }
     })
   },
   gotoPreview:function(e){
-    var docid = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: '/pages/preview/preview?docid=' + docid
+    // 查看是否授权
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          var docid = e.currentTarget.dataset.id;
+            wx.navigateTo({
+            url: '/pages/preview/preview?docid=' + docid
+          })
+        }
+        else {
+          wx.showModal({
+            title: '提示',
+            content: '您还没授权登录，请先登录',
+          })
+        }
+      }
     })
+    
   },
   /**
    *点击发布人跳转 
    */
   gotowritershow: function (e) {
-    var ntacct = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: '/pages/writershow/writershow?ntacct=' + ntacct
+    // 查看是否授权
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          var ntacct = e.currentTarget.dataset.id;
+          wx.navigateTo({
+            url: '/pages/writershow/writershow?ntacct=' + ntacct
+          })
+        }
+        else {
+          wx.showModal({
+            title: '提示',
+            content: '您还没授权登录，请先登录',
+          })
+        }
+      }
     })
-  },
+    
+  }
 })

@@ -40,9 +40,9 @@
 }
 .item_top button{
   border:0;
-  border-radius:60rpx;
+  border-radius:40rpx;
   align-items: center;
-  font-size: 34rpx;
+  font-size: 26rpx;
   margin-left:40rpx;
   margin-bottom:30rpx;
   background-color: #eee;

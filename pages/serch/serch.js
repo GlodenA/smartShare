@@ -261,9 +261,53 @@ gotoPreview: function (e) {
    * 
    */
   backTosearch:function(e){
-    var value = e.currentTarget.dataset.value
     this.setData({
-      searchValue:value
+      searchValue: e.currentTarget.dataset.value
     })
+    var hotkey = e.currentTarget.dataset.value
+    wx.showLoading({
+      title: '加载中...',
+    })
+    wx.request({
+      url: getApp().globalData.urlPath + 'getdocsbykeyword',
+      method: 'GET',
+      data: {
+        "Keyword": hotkey,
+        "id": app.globalData.userId
+      },
+      header: {
+        'Accept': 'application/json'
+      },
+      success: res => {
+        if (res.data.code == 2000) {
+          let tempdata = res.data.data
+          for (let i in tempdata) {
+            let str = tempdata[i].DOC_LABEL
+            var docLabel = str.split('，')
+            tempdata[i].DOC_LABEL = docLabel
+          }
+          this.setData({
+            docsData: tempdata || [],
+            resultShow: true,
+            messageShow: false
+          })
+        } else {
+          this.setData({
+            message: res.data.message,
+            resultShow: false,
+            messageShow: true
+          })
+        }
+      },
+      complete() {
+        wx.hideLoading()
+      },
+    })
+
+  },
+  searchCancel:function(){
+    wx.switchTab({
+      url: '/pages/index/index',
+    })    
   },
 })

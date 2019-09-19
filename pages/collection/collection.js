@@ -28,35 +28,49 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let that =this;
-    var queryPath = 'querycollect/';
-    wx.request({
-      url: getApp().globalData.urlPath + queryPath,
-      method: 'GET',
-      data: {
-        user_id: app.globalData.userId
-      },
-      header: {
-        'Accept': 'application/json'
-      },
+    // 查看是否授权
+    wx.getSetting({
       success: res => {
-        let tempdata = res.data.data;
-        let hasdata = true;
-        for (let i in tempdata) {
-          let str = tempdata[i].DOC_LABEL;
-          var docLabel = str.split('，');
-          tempdata[i].DOC_LABEL = docLabel;
+        if (res.authSetting['scope.userInfo']) {
+          let that = this;
+          var queryPath = 'querycollect/';
+          wx.request({
+            url: getApp().globalData.urlPath + queryPath,
+            method: 'GET',
+            data: {
+              user_id: app.globalData.userId
+            },
+            header: {
+              'Accept': 'application/json'
+            },
+            success: res => {
+              let tempdata = res.data.data;
+              let hasdata = true;
+              for (let i in tempdata) {
+                let str = tempdata[i].DOC_LABEL;
+                var docLabel = str.split('，');
+                tempdata[i].DOC_LABEL = docLabel;
+              }
+              if (tempdata == null) {
+                hasdata = false;
+              }
+              that.setData({
+                docsData: tempdata || [],
+                hasdata: hasdata,
+              })
+            }
+          }) 
         }
-        if(tempdata==null)
-        {
-          hasdata = false;
+        else {
+          wx.showModal({
+            title: '提示',
+            content: '您还没授权登录，请先登录',
+          })
         }
-        that.setData({
-          docsData: tempdata||[],
-          hasdata: hasdata,
-        })
       }
-    }) 
+    })
+
+   
   },
   /**
  *点击发布人跳转 

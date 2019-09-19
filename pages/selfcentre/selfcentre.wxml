@@ -2,7 +2,10 @@
 <view class="index" style="height:{{screenHeight}}px">
   <view class="head">
     <image class="selfpic" src="{{avatarUrl}}"></image>
-    <view class='userNickName'>
+    <view class='userNickName' bindtap="login" wx:if="{{loginStatus=='0'}}">
+      用户登录
+     </view>
+    <view class='userNickName' wx:else>
       {{nickName}}
      </view>
   </view>

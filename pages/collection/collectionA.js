@@ -65,6 +65,9 @@ Page({
             title: '提示',
             content: '您还没授权登录，请先登录',
           })
+          wx.switchTab({
+            url: '/pages/selfcentre/selfcentre',
+          })
         }
       }
     })

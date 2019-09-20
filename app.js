@@ -5,9 +5,10 @@ App({
     // var logs = wx.getStorageSync('logs') || []
     // logs.unshift(Date.now())
     // wx.setStorageSync('logs', logs)
-
+    //更新
+    this.appUpdate();
     //登录
-
+   
     wx.checkSession({
       success() {
         //session_key 未过期，并且在本生命周期一直有效
@@ -86,4 +87,33 @@ App({
    // urlPath: 'http://192.168.1.11:9001/docs/',
     //urlPath: 'http://127.0.0.1:9001/docs/',
   },
+  appUpdate: function () {
+    const updateManager = wx.getUpdateManager()
+
+    updateManager.onCheckForUpdate(function (res) {
+      // 请求完新版本信息的回调
+      console.log(res.hasUpdate)
+    })
+
+    updateManager.onUpdateReady(function () {
+      wx.showModal({
+        title: '智享求更新',
+        content: "智享有版本功能更新啦，建议各位小可爱重启应用体验新版本(●'◡'●)",
+        success: function (res) {
+          if (res.confirm) {
+            // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
+            updateManager.applyUpdate()
+          }
+        }
+      })
+    })
+
+    updateManager.onUpdateFailed(function () {
+      // 新版本下载失败
+      wx.showToast({
+        title: '嘤嘤嘤 更新失败了。可能网络不好',
+        duration: 1000
+      });
+    })
+  }
 })

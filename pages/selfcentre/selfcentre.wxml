@@ -6,7 +6,7 @@
       用户登录
      </view>
     <view class='userNickName' wx:else>
-      {{nickName}}
+      {{nickName}} 
      </view>
   </view>
   <view class="body">

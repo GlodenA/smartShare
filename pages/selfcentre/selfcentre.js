@@ -24,15 +24,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
     // 查看是否授权
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
-          this.setData({
-            avatarUrl: app.globalData.avatarUrl,
-            nickName: app.globalData.nickName,
-            loginStatus:"1"
-          })
+
+
+          if(wx.getStorageSync("phone")!="") 
+          {
+            that.setData({
+              avatarUrl: app.globalData.avatarUrl,
+              nickName: app.globalData.nickName,
+              loginStatus: "1"
+            })
+          }
+
         }
       }
     })
@@ -51,7 +58,23 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var that = this;
+    // 查看是否授权
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
 
+
+          if (wx.getStorageSync("phone") != "") {
+            that.setData({
+              avatarUrl: app.globalData.avatarUrl,
+              nickName: app.globalData.nickName,
+              loginStatus: "1"
+            })
+          }
+        }
+      }
+    })
   },
 
   /**
@@ -89,7 +112,7 @@ Page({
 
   },
   login:function(){
-    wx.redirectTo({
+    wx.navigateTo({
               url: '/pages/login/login',
               success: function (res) { },
               fail: function (res) { },

@@ -94,7 +94,7 @@ App({
       // 请求完新版本信息的回调
       console.log(res.hasUpdate)
     })
-
+    //  自动更新版本
     updateManager.onUpdateReady(function () {
       wx.showModal({
         title: '智享求更新',

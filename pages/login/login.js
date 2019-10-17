@@ -138,13 +138,26 @@ Page({
           });
           wx.setStorageSync('ntacct', res.data.data.NT);
           that.saveUserInfo();
-          
-          wx.switchTab({
-            url: "/pages/index/index",
+          wx.setStorageSync('phone', res.data.data.phone);
+          // wx.switchTab({
+          //   url: "/pages/index/index",
+          // })
+          wx.navigateBack({
+            url: '/pages/selfcentre/selfcentre',
           })
         },
       })
 
     }
   },
+  cancelBind:function(){
+    wx.navigateBack({
+      url: '/pages/selfcentre/selfcentre',
+    })
+  },
+  cancelBindPhone:function(){
+    wx.navigateBack({
+      url: '/pages/selfcentre/selfcentre',
+    })
+  }
 })

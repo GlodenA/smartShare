@@ -19,7 +19,7 @@
    <!-- 图片尺寸建议822*300 -->
     <image mode="aspectFit" src="../../images/banner01.jpg"></image>
    </view>
-  <block wx:for="{{docsData}}"  wx:key="{{item}}">
+  <block wx:for="{{docsData}}"  >
       <view class="item_left">
         <view bindtap="gotoPreview" data-id="{{item.DOC_ID}}" class="item_title">
         <text class="title">{{item.DOC_NAME}}</text></view>

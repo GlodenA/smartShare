@@ -78,7 +78,7 @@ Page({
   qrywriter: function (e){
     let ntacct = e.currentTarget.dataset.ntacct;
     wx.navigateTo({
-      url: '/pages/writershow/writershow?ntacct=' + ntacct ,
+      url: '/pages/writershow/writershow?ntacct=' + ntacct+'&type=1' ,
     })
   },
 

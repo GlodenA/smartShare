@@ -83,8 +83,8 @@ App({
     nickName: "",
     ntacct: '',
     screenHeight: '',
-    urlPath: 'https://www.bainiu6.com/docs/',
-   // urlPath: 'http://192.168.1.11:9001/docs/',
+   urlPath: 'https://www.bainiu6.com/docs/',
+    //  urlPath: 'http://192.168.1.16:9001/docs/',
     //urlPath: 'http://127.0.0.1:9001/docs/',
   },
   appUpdate: function () {

@@ -21,7 +21,8 @@ Page({
     isAttention: false,
     screenHeight: app.globalData.screenHeight,
     list: [],
-    background: '/images/writer.jpg'
+    background: '/images/writer.jpg',
+    type:"0"
   },
 
   /**
@@ -34,6 +35,7 @@ Page({
     that.setData({
       'background': 'data:image/jpg;base64,' + base64
     });
+   
     let flag = false;
     let seq_id ="";
     let cookie = app.globalData.ntacct;
@@ -45,32 +47,28 @@ Page({
     {
       seq_id = options.seqId;
     }
-    if (options.type != null)
-    {
-      this.setData({
-        ntacct: options.ntacct,
-        isShow: flag,
-        seqId: seq_id,
-        icon: "friendaddfill",
-        iconColour: "white",
-        iconText: "取消关注",
-        iconShow: true,
-        isAttention: true,
-      })
-    }
-    else
-    {
-      this.setData({
-        ntacct: options.ntacct,
-        isShow: flag,
-        seqId: seq_id,
-      })
-    }
 
-    this.queryUsreInfo();
+
+    this.queryUsreInfo(options.ntacct, seq_id, flag);
+    // if (options.type != null)
+    // {
+    //   this.setData({
+    //     ntacct: options.ntacct,
+    //     isShow: flag,
+    //     seqId: seq_id,
+    //     icon: "friendaddfill",
+    //     iconColour: "white",
+    //     iconText: "取消关注",
+    //     iconShow: true,
+    //     isAttention: true,
+    //   })
+    // }
+
+
+   
 
   },
-  queryUsreInfo: function () {
+  queryUsreInfo: function (ntacct,seq_id, flag) {
     var that = this;
     let cookie = app.globalData.ntacct;
     let header = { 'content-type': 'application/json' };
@@ -80,7 +78,7 @@ Page({
     wx.request({
       url: getApp().globalData.urlPath + 'querybyauthor',
       data: {
-        NT: that.data.ntacct,//"83612795"  cookie
+        NT: ntacct,//"83612795"  cookie
         user_id: app.globalData.userId
       },
       method: "get",
@@ -101,14 +99,34 @@ Page({
             email: res.data.data.user.EMAIL,
             phone: res.data.data.user.PHONE,
             signature: res.data.data.user.SIGNATURE,
+            type: res.data.data.TYPE,
             list: tempdata||[]
           })
+
+          if (res.data.data.TYPE == '1') {
+            that.setData({
+              ntacct: ntacct,
+              isShow: flag,
+              seqId: seq_id,
+              icon: "friendaddfill",
+              iconColour: "white",
+              iconText: "取消关注",
+              iconShow: true,
+              isAttention: true,
+            })
+          } else {
+            that.setData({
+              ntacct: ntacct,
+              isShow: flag,
+              seqId: seq_id,
+            })
+          }
         } else {
           that.setData({
             modaltext: '获取作者信息失败！',
             modalHidden: false
           })
-
+       
         }
 
       },

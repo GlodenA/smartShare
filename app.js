@@ -29,8 +29,8 @@ App({
                 success: res => {
                   wx.setStorageSync('cookie', res.data.data.USER_ID),
                     wx.setStorageSync('ntacct', res.data.data.NTACCT),
-                    // getApp().globalData.avatarUrl = res.data.data.PORTRAIT,
-                    // getApp().globalData.nickName = res.data.data.NI_NAME,
+                    getApp().globalData.avatarUrl = res.data.data.PORTRAIT,
+                    getApp().globalData.nickName = res.data.data.NI_NAME,
                     getApp().globalData.userId = res.data.data.USER_ID
                   // getApp().globalData.username = res.data.data.USER_NAME,
                   // getApp().globalData.email = res.data.data.EMAIL,
@@ -103,6 +103,7 @@ App({
           if (res.confirm) {
             // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
             updateManager.applyUpdate()
+            wx.setStorageSync('cookie', '')//主动刷新，重新调用login
           }
         }
       })

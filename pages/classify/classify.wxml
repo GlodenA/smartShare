@@ -1,0 +1,26 @@
+<!--pages/category/category.wxml-->
+<view class="container">
+  <view class="top">
+    <view  class="capsule" bindtap='bindsearch' > 
+      <image src="../../images/sousuo.svg" class="search"></image>
+      <input type="text"  placeholder="搜 索"/>
+    </view>
+  </view>
+
+    <view class="content-container" style="height:{{screenHeight}}px">
+      <scroll-view class="category-container">
+        <view class='category {{item.id==num?"active":""}}' catchtap='clickList'
+        wx:for="{{messag}}" wx:key="" id="{{index}}">{{item.text}}</view>
+      </scroll-view>
+
+      <scroll-view class="goods-container">
+        <view>
+          <view class="goods" wx:for="{{content}}" wx:key="{{index}}" 
+           bindtap="gotoserch" data-value="{{item}}">
+            <view class='name'><image class="pic" src="{{image}}"></image>{{item}}</view>
+          </view>
+        </view>
+      </scroll-view>
+  </view>
+</view>
+

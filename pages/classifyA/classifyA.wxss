@@ -1,0 +1,173 @@
+/* pages/serch/serch.wxss */
+.container{
+  width:750rpx;
+  background-color: #fff;
+}
+.top{
+  width:100%;
+  padding: 25rpx; 
+  display: flex;
+  background: #f3f3f3;
+}
+.capsule {
+  width: 610rpx;
+  height: 70rpx;
+  border: 1rpx solid rgba(119, 119, 119, 0.438);
+  border-radius: 12rpx;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+}
+.search{
+  width:30rpx;height:30rpx;
+  margin:0 16rpx 0 20rpx;
+}
+.top text{
+  height:30rpx;
+  margin-top:17rpx;
+  margin-left:8rpx;
+  font-size:32rpx;
+  color:#1989fa;
+}
+.title{
+  margin-top:10rpx;
+  margin-left:25rpx;
+}
+.item .title{
+  padding:34rpx;
+  font-size: 36rpx;
+  font-weight: 550;
+}
+.item image{
+  width:40rpx;height:40rpx;
+  margin-right:20rpx;
+}
+.item_top button{
+  border:0;
+  border-radius:40rpx;
+  align-items: center;
+  font-size: 26rpx;
+  margin-left:40rpx;
+  margin-bottom:30rpx;
+  background-color: #eee;
+  line-height: 2.4;
+}
+.item_top button::after{
+  border: 0;
+}
+.item_bottom{
+  display: flex;
+  width:750rpx;
+  color:#999;
+  font-size: 34rpx;
+  margin-bottom:35rpx;
+  padding-left: 40rpx;
+  position:relative;
+}
+.item_bottom .left{
+  padding-bottom:20rpx;
+}
+.item_bottom .right{
+  position:absolute;
+  right:50rpx;
+  font-size: 50rpx;
+  top:-5rpx;
+}
+
+.serch .title{
+  padding: 35rpx 35rpx 35rpx 50rpx;
+  font-size: 36rpx;
+  font-weight:550;
+}
+.serch image{
+  width: 30rpx; height: 30rpx;
+  font-weight: 550;
+}
+.item_search {
+  padding:20rpx 30rpx;
+  color: #110d0d;
+  border-top: 1rpx solid #ccc;
+  display:flex;
+  flex-direction:column;
+}
+.item_search .title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: 34rpx;
+  color:#333;
+  font-weight:550;
+  padding:0;
+  margin:10rpx 0rpx; 
+}
+.item_search .sub_title {
+  font-size: 28rpx;
+  color: #999;
+  margin: 30rpx 0;
+}
+
+.item_search .tag {
+  font-size: 28rpx;
+  color: rgba(7, 159, 247, 0.801);
+  margin-right: 80rpx;
+}
+
+.item_search .time {
+  font-size: 29rpx;
+  color: #888;
+  margin-right: 190rpx;
+}
+
+.item_search .count {
+  font-size: 28rpx;
+  color: #888;
+  margin-right:30rpx;
+}
+.item_search .like_box {
+  font-size: 28rpx;
+  color: #888;
+  margin-right: 30rpx;
+}
+.item_search .like_box1 {
+  font-size: 28rpx;
+  color: #888;
+  margin-right: 0;
+}
+.item_article_bottom {
+  display: block;
+  overflow: hidden;
+}
+.item_article_bottom view{
+    display: inline-block;
+}
+.item_article_bottom view.blockBox{
+  display: block;
+  overflow: hidden;
+}
+.item_article_bottom view .tag{
+  margin-right: 0;
+  float: left;
+}
+.item_article_bottom view .time{
+  margin-right: 0;
+  float: left;
+}
+.item_article_bottom view.listFoot{
+  display: inline-block;
+  overflow: hidden;
+}
+.item_article_bottom view.listFoot .messageBox text.iconBox{
+  margin-right: 10rpx;
+}
+.item image {
+  margin-right: 20rpx;
+  margin-top: 16rpx;
+  float: left;
+}
+.marginTop20 {
+  margin-top: 20rpx;
+}
+.fontSize28 {
+  font-size: 28rpx;
+}

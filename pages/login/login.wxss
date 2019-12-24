@@ -24,7 +24,23 @@
 }
  
 .bottom {
-    border-radius: 50rpx;
+    border-radius: 25rpx;
     margin: 70rpx 50rpx;
     font-size: 35rpx;
+}
+
+.capsule {
+  width: 655rpx;
+  height: 85rpx;
+  border: 1rpx solid rgba(119, 119, 119, 0.438);
+  border-radius: 18rpx;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  margin-left: 50rpx;
+  margin-bottom: 50rpx;
+}
+.input{
+  margin:50rpx;
+  font-size: 35rpx;
 }

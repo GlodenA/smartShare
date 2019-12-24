@@ -5,6 +5,15 @@
 <view class='header'>
   <image src='/images/wx_login.png'></image>
 </view>
+<view hidden="{{registerModel}}">
+    <view  class="capsule">
+      <input type="text" class="input" placeholder="NT账号" bindinput="ntnameInput"/>
+    </view>
+    <view  class="capsule">
+      <input type="text" class="input" placeholder="姓名" bindinput="usernameInput"/>
+    </view>
+    <button class='bottom' lang="z h_CN" type='primary'  bindtap="login">登录</button>
+  </view>
 <view hidden="{{loginModel}}">
 <!-- 需要使用 button 来授权登录 -->
 <view  wx:if="{{canIUse}}" >

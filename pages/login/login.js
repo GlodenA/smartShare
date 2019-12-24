@@ -1,21 +1,73 @@
 const app = getApp()
+var  username=''
+var  ntacct=''
 
 Page({
   data: {
     avatarUrl:"",
     nickName: "",
     phone:"",
-    nt:"",
     username:"",
     email:"",
+    ntacct:"",
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    loginModel:false,
+    loginModel:true,
+    registerModel:false,
     phoneModel: true,
   },
   onLoad: function () {
-   
+    
 
   },
+  ntnameInput: function (e) {
+    ntacct = e.detail.value
+    this.setData({
+      ntacct: e.detail.value
+    })
+  },
+  usernameInput: function (e) {
+    username = e.detail.value
+    this.setData({
+      username: e.detail.value
+    })
+    wx.setStorageSync('username', username);
+  },
+  login: function (e) {
+    let that = this;
+    if (username == '' || ntacct == ''){
+      wx.showModal({
+        title: '提示',
+        content: '您输入的nt账号或者姓名不能为空，请重新输入之后再进入!!!',
+        showCancel: false,
+      });
+    }else{
+    wx.request({
+      url: getApp().globalData.urlPath + 'user/findNT',
+      data: {
+        'NT': ntacct
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        if (res.data.code==2002) {
+          wx.showModal({
+            title: '提示',
+            content: '您输入的nt账号或者姓名错误，请重新输入之后再进入!!!',
+            showCancel: false,
+          });
+        } else {
+          that.setData({
+            loginModel: false,
+            registerModel: true,
+            phoneModel: true,
+          });
+        }
+      }
+    })
+    }
+  },
+ 
   bindGetUserInfo(e) {
     if (e.detail.userInfo) {
       //用户按了允许授权按钮 
@@ -51,6 +103,7 @@ Page({
         nickName: e.detail.userInfo.nickName,
         loginModel: true,
         phoneModel: false,
+        registerModel:true,
       });
       app.globalData.avatarUrl = e.detail.userInfo.avatarUrl;
       app.globalData.nickName = e.detail.userInfo.nickName;
@@ -89,8 +142,8 @@ Page({
         PORTRAIT: that.data.avatarUrl,
         NI_NAME: that.data.nickName,
         PHONE: that.data.phone,
-        NTACCT: that.data.ntacct,
         USER_NAME: that.data.username,
+        NTACCT: that.data.ntacct,
         EMAIL: that.data.email,
       },
       method: "post",
@@ -132,11 +185,7 @@ Page({
         success: function (res) {
           that.setData({
             phone: res.data.data.phone,
-            ntacct: res.data.data.NT,
-            username: res.data.data.NAME,
-            email: res.data.data.EMAIL,
           });
-          wx.setStorageSync('ntacct', res.data.data.NT);
           that.saveUserInfo();
           wx.setStorageSync('phone', res.data.data.phone);
           // wx.switchTab({

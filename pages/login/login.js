@@ -44,7 +44,8 @@ Page({
     wx.request({
       url: getApp().globalData.urlPath + 'user/findNT',
       data: {
-        'NT': ntacct
+        'NT': ntacct,
+        'NTNAME': username
       },
       header: {
         'content-type': 'application/json' // 默认值
